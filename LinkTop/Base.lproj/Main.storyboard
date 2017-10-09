@@ -1,24 +1,170 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bUK-YS-Jhc">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--测量记录-->
+        <scene sceneID="hlr-8v-DCu">
+            <objects>
+                <navigationController id="Z6a-p5-6ZK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="测量记录" id="5mq-es-oTA"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9IV-14-Rj7">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="aMj-0X-InC" kind="relationship" relationship="rootViewController" id="oxV-hN-hcq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KPx-gA-hKL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-482" y="168"/>
+        </scene>
+        <!--测量记录-->
+        <scene sceneID="hBo-5n-ffX">
+            <objects>
+                <viewController id="aMj-0X-InC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bsc-6l-cvA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="dpN-ad-OSY"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="测量记录" id="ZOx-4y-w1J"/>
+                    <navigationItem key="navigationItem" title="测量记录" id="wks-z6-nRg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vtt-Xh-67p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="249" y="168"/>
+        </scene>
+        <!--测量-->
+        <scene sceneID="d8O-x3-RJN">
+            <objects>
+                <navigationController id="G3i-wa-mfI" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="测量" id="FF8-B2-zVl"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZBm-Ex-ETe">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="mLy-NW-5SV" kind="relationship" relationship="rootViewController" id="E5u-XQ-ZzD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="etC-L6-x8q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-482" y="-485"/>
+        </scene>
+        <!--测量-->
+        <scene sceneID="cOi-MI-Q8C">
+            <objects>
+                <viewController id="mLy-NW-5SV" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="63E-s6-HCE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="64n-Hy-2yw"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="测量" id="Mhv-Bg-WgL"/>
+                    <navigationItem key="navigationItem" title="测量" id="HWZ-It-z5a"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aux-Fn-6rW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="250" y="-485"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="k81-cS-3uS">
+            <objects>
+                <tabBarController id="bUK-YS-Jhc" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QlI-6M-Fgn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="G3i-wa-mfI" kind="relationship" relationship="viewControllers" id="L4V-xc-J9J"/>
+                        <segue destination="Z6a-p5-6ZK" kind="relationship" relationship="viewControllers" id="Bra-fz-msN"/>
+                        <segue destination="aCW-cx-cd7" kind="relationship" relationship="viewControllers" id="KfA-7t-h2c"/>
+                        <segue destination="WCf-GX-fPP" kind="relationship" relationship="viewControllers" id="VfC-jz-czc"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KQX-lR-cxK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2998" y="913"/>
+        </scene>
+        <!--问卷-->
+        <scene sceneID="nkA-6c-78M">
+            <objects>
+                <navigationController id="aCW-cx-cd7" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="问卷" id="KVf-Sb-XCT"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qMb-0H-CyP">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="dNg-Fr-ugH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xEd-6r-Tux" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-482" y="819"/>
+        </scene>
+        <!--设置-->
+        <scene sceneID="aLr-cg-DgF">
+            <objects>
+                <navigationController id="WCf-GX-fPP" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="设置" id="PxN-Li-qrO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="99B-vb-kb5">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="6NQ-L4-fjG" kind="relationship" relationship="rootViewController" id="hMM-nO-8WL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1QR-or-Glm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-482" y="1472"/>
+        </scene>
+        <!--问卷-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="问卷" id="63W-uM-ARw"/>
+                    <navigationItem key="navigationItem" title="问卷" id="mt8-gE-Pld"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="249" y="820"/>
+        </scene>
+        <!--设置-->
+        <scene sceneID="kaM-yq-gBO">
+            <objects>
+                <viewController id="6NQ-L4-fjG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Dh7-dw-ddB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="YPZ-Jk-qJG"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="设置" id="P4b-DN-3GE"/>
+                    <navigationItem key="navigationItem" title="设置" id="h3G-1a-NXn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HLZ-f2-aCH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="249" y="1472"/>
         </scene>
     </scenes>
 </document>
