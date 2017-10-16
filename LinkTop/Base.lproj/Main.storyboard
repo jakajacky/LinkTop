@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bUK-YS-Jhc">
-    <device id="retina5_9" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,7 +16,7 @@
                 <navigationController id="Z6a-p5-6ZK" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="测量记录" id="5mq-es-oTA"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9IV-14-Rj7">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -29,14 +30,14 @@
         <!--测量记录-->
         <scene sceneID="hBo-5n-ffX">
             <objects>
-                <viewController id="aMj-0X-InC" sceneMemberID="viewController">
+                <viewController id="aMj-0X-InC" customClass="MeasureListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bsc-6l-cvA">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="dpN-ad-OSY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="测量记录" id="ZOx-4y-w1J"/>
+                    <tabBarItem key="tabBarItem" title="测量记录" image="measurelist_normal.png" selectedImage="measurelist_selected.png" id="ZOx-4y-w1J"/>
                     <navigationItem key="navigationItem" title="测量记录" id="wks-z6-nRg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vtt-Xh-67p" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -49,8 +50,11 @@
                 <navigationController id="G3i-wa-mfI" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="测量" id="FF8-B2-zVl"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZBm-Ex-ETe">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="mLy-NW-5SV" kind="relationship" relationship="rootViewController" id="E5u-XQ-ZzD"/>
@@ -63,14 +67,14 @@
         <!--测量-->
         <scene sceneID="cOi-MI-Q8C">
             <objects>
-                <viewController id="mLy-NW-5SV" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="63E-s6-HCE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                <viewController id="mLy-NW-5SV" customClass="MeasureViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="63E-s6-HCE" customClass="MeasureView">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="64n-Hy-2yw"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="测量" id="Mhv-Bg-WgL"/>
+                    <tabBarItem key="tabBarItem" title="测量" image="measure_normal.png" selectedImage="measure_selected.png" id="Mhv-Bg-WgL"/>
                     <navigationItem key="navigationItem" title="测量" id="HWZ-It-z5a"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aux-Fn-6rW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -104,7 +108,7 @@
                 <navigationController id="aCW-cx-cd7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="问卷" id="KVf-Sb-XCT"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qMb-0H-CyP">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -121,7 +125,7 @@
                 <navigationController id="WCf-GX-fPP" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="设置" id="PxN-Li-qrO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="99B-vb-kb5">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -135,14 +139,14 @@
         <!--问卷-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="QuestionViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="问卷" id="63W-uM-ARw"/>
+                    <tabBarItem key="tabBarItem" title="问卷" image="question_normal.png" selectedImage="question_selected.png" id="63W-uM-ARw"/>
                     <navigationItem key="navigationItem" title="问卷" id="mt8-gE-Pld"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -152,14 +156,14 @@
         <!--设置-->
         <scene sceneID="kaM-yq-gBO">
             <objects>
-                <viewController id="6NQ-L4-fjG" sceneMemberID="viewController">
+                <viewController id="6NQ-L4-fjG" customClass="SettingsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dh7-dw-ddB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="YPZ-Jk-qJG"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="设置" id="P4b-DN-3GE"/>
+                    <tabBarItem key="tabBarItem" title="设置" image="setting_normal.png" selectedImage="setting_selected.png" id="P4b-DN-3GE"/>
                     <navigationItem key="navigationItem" title="设置" id="h3G-1a-NXn"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HLZ-f2-aCH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -167,4 +171,14 @@
             <point key="canvasLocation" x="249" y="1472"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="measure_normal.png" width="22" height="25"/>
+        <image name="measure_selected.png" width="22" height="25"/>
+        <image name="measurelist_normal.png" width="24" height="22"/>
+        <image name="measurelist_selected.png" width="24" height="22"/>
+        <image name="question_normal.png" width="21" height="24"/>
+        <image name="question_selected.png" width="21" height="24"/>
+        <image name="setting_normal.png" width="23" height="23"/>
+        <image name="setting_selected.png" width="23" height="23"/>
+    </resources>
 </document>
