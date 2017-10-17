@@ -11,6 +11,24 @@
 
 @implementation ChangeView2GradientColor
 
+#pragma mark - 自定义导航栏子元素
++ (void)changeControllerView:(UIView *)view withNavi:(UINavigationItem *)navigationItem setLeftView:(UIView *)leftview RightView:(UIView *)rightview Title:(UILabel *)title {
+    
+    UIView *navi = [[UIView alloc] initWithFrame:CGRectMake(0, 0, view.width, 44)];
+    navigationItem.titleView = navi;
+    
+    UIButton *head_icon = (UIButton *)leftview;
+    
+    
+    UILabel *title_copy = title;
+    
+    [navi addSubview:title_copy];
+    [navi addSubview:head_icon];
+    
+    [title_copy autoCenterInSuperview];
+}
+
+#pragma mark - 修改导航栏背景色
 + (void)changeView:(UIView *)view toGradientColors:(NSArray *)colors {
   // 添加渐变的颜色组合
   NSMutableArray *colors_ = [NSMutableArray array];

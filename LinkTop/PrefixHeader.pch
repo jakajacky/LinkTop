@@ -22,6 +22,8 @@
 
 #import "ChangeView2GradientColor.h"
 
+#import "PureLayout.h"
+
 #endif
 
 #endif /* PrefixHeader_pch */
