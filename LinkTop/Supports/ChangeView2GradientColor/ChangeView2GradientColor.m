@@ -17,15 +17,19 @@
     UIView *navi = [[UIView alloc] initWithFrame:CGRectMake(0, 0, view.width, 44)];
     navigationItem.titleView = navi;
     
-    UIButton *head_icon = (UIButton *)leftview;
+    [navi addSubview:title];
+    [navi addSubview:leftview];
+    [navi addSubview:rightview];
     
+    [title autoCenterInSuperview];
     
-    UILabel *title_copy = title;
+    [leftview autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
+    [leftview autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
+    [leftview autoSetDimensionsToSize:CGSizeMake(160, 44)];
     
-    [navi addSubview:title_copy];
-    [navi addSubview:head_icon];
-    
-    [title_copy autoCenterInSuperview];
+    [rightview autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
+    [rightview autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
+    [rightview autoSetDimensionsToSize:CGSizeMake(160, 44)];
 }
 
 #pragma mark - 修改导航栏背景色

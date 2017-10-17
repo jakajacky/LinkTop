@@ -108,6 +108,10 @@
 		6E80DE241F95EFD800D39FE0 /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E80DE1C1F95EFC900D39FE0 /* ALView+PureLayout.m */; };
 		6E80DE251F95EFD800D39FE0 /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E80DE1E1F95EFC900D39FE0 /* NSArray+PureLayout.m */; };
 		6E80DE261F95EFD800D39FE0 /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E80DE201F95EFC900D39FE0 /* NSLayoutConstraint+PureLayout.m */; };
+		6E80DE291F95FE6200D39FE0 /* ble_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E80DE281F95FE5F00D39FE0 /* ble_icon@2x.png */; };
+		6E80DE2A1F95FE6400D39FE0 /* ble_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E80DE271F95FE5F00D39FE0 /* ble_icon@3x.png */; };
+		6E80DE2D1F96085400D39FE0 /* MeasureNaviRightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E80DE2C1F96085400D39FE0 /* MeasureNaviRightView.m */; };
+		6E80DE301F96086400D39FE0 /* MeasureNaviLeftView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E80DE2F1F96086400D39FE0 /* MeasureNaviLeftView.m */; };
 		6E8F096C1F8C5BA10002467A /* MeasureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8F096B1F8C5BA10002467A /* MeasureViewController.m */; };
 		6E8F096F1F8C5BB20002467A /* MeasureListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8F096E1F8C5BB20002467A /* MeasureListViewController.m */; };
 		6E8F09721F8C5BCC0002467A /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8F09711F8C5BCC0002467A /* QuestionViewController.m */; };
@@ -318,6 +322,12 @@
 		6E80DE211F95EFC900D39FE0 /* PureLayout+Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PureLayout+Internal.h"; sourceTree = "<group>"; };
 		6E80DE221F95EFC900D39FE0 /* PureLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PureLayout.h; sourceTree = "<group>"; };
 		6E80DE231F95EFC900D39FE0 /* PureLayoutDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PureLayoutDefines.h; sourceTree = "<group>"; };
+		6E80DE271F95FE5F00D39FE0 /* ble_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ble_icon@3x.png"; sourceTree = "<group>"; };
+		6E80DE281F95FE5F00D39FE0 /* ble_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ble_icon@2x.png"; sourceTree = "<group>"; };
+		6E80DE2B1F96085400D39FE0 /* MeasureNaviRightView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeasureNaviRightView.h; sourceTree = "<group>"; };
+		6E80DE2C1F96085400D39FE0 /* MeasureNaviRightView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeasureNaviRightView.m; sourceTree = "<group>"; };
+		6E80DE2E1F96086400D39FE0 /* MeasureNaviLeftView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeasureNaviLeftView.h; sourceTree = "<group>"; };
+		6E80DE2F1F96086400D39FE0 /* MeasureNaviLeftView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeasureNaviLeftView.m; sourceTree = "<group>"; };
 		6E8F096A1F8C5BA10002467A /* MeasureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeasureViewController.h; sourceTree = "<group>"; };
 		6E8F096B1F8C5BA10002467A /* MeasureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeasureViewController.m; sourceTree = "<group>"; };
 		6E8F096D1F8C5BB20002467A /* MeasureListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeasureListViewController.h; sourceTree = "<group>"; };
@@ -392,6 +402,10 @@
 			children = (
 				6E575AE31F948C6D00C073F5 /* MeasureView.h */,
 				6E575AE41F948C6D00C073F5 /* MeasureView.m */,
+				6E80DE2B1F96085400D39FE0 /* MeasureNaviRightView.h */,
+				6E80DE2C1F96085400D39FE0 /* MeasureNaviRightView.m */,
+				6E80DE2E1F96086400D39FE0 /* MeasureNaviLeftView.h */,
+				6E80DE2F1F96086400D39FE0 /* MeasureNaviLeftView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -693,6 +707,8 @@
 		6E80DE071F95919400D39FE0 /* NaviBars */ = {
 			isa = PBXGroup;
 			children = (
+				6E80DE281F95FE5F00D39FE0 /* ble_icon@2x.png */,
+				6E80DE271F95FE5F00D39FE0 /* ble_icon@3x.png */,
 				6E80DE0C1F95B1FB00D39FE0 /* share@2x.png */,
 				6E80DE0D1F95B1FC00D39FE0 /* share@3x.png */,
 				6E80DE081F95919400D39FE0 /* Oval@2x.png */,
@@ -860,10 +876,12 @@
 				6EAFB5251F8B7C3400949C31 /* LaunchScreen.storyboard in Resources */,
 				6E575AE11F94875000C073F5 /* setting_selected@3x.png in Resources */,
 				6EAFB5221F8B7C3400949C31 /* Assets.xcassets in Resources */,
+				6E80DE2A1F95FE6400D39FE0 /* ble_icon@3x.png in Resources */,
 				6E80DE181F95E0BC00D39FE0 /* measurelist_selected@2x.png in Resources */,
 				6E575AD71F94875000C073F5 /* measurelist_normal@3x.png in Resources */,
 				6E575AE01F94875000C073F5 /* setting_selected@2x.png in Resources */,
 				6E575ADA1F94875000C073F5 /* question_normal@2x.png in Resources */,
+				6E80DE291F95FE6200D39FE0 /* ble_icon@2x.png in Resources */,
 				6E575ADE1F94875000C073F5 /* setting_normal@2x.png in Resources */,
 				6E575AD61F94875000C073F5 /* measurelist_normal@2x.png in Resources */,
 				6E575AD41F94875000C073F5 /* measure_selected@2x.png in Resources */,
@@ -884,6 +902,7 @@
 			files = (
 				6E575C591F9495A800C073F5 /* YYKeychain.m in Sources */,
 				6E575C8B1F94968000C073F5 /* UIImage+YYAdd.m in Sources */,
+				6E80DE2D1F96085400D39FE0 /* MeasureNaviRightView.m in Sources */,
 				6E575C5B1F9495A800C073F5 /* YYSentinel.m in Sources */,
 				6E575C5D1F9495A800C073F5 /* YYThreadSafeDictionary.m in Sources */,
 				6E575C8D1F94968000C073F5 /* UIScrollView+YYAdd.m in Sources */,
@@ -955,6 +974,7 @@
 				6E575C9E1F94969300C073F5 /* NSString+YYAdd.m in Sources */,
 				6E575C881F94968000C073F5 /* UIDevice+YYAdd.m in Sources */,
 				6E575C5F1F9495A800C073F5 /* YYTransaction.m in Sources */,
+				6E80DE301F96086400D39FE0 /* MeasureNaviLeftView.m in Sources */,
 				6E575C741F94965B00C073F5 /* YYTextSelectionView.m in Sources */,
 				6E575C841F94968000C073F5 /* UIBarButtonItem+YYAdd.m in Sources */,
 				6E575C761F94966200C073F5 /* YYClassInfo.m in Sources */,

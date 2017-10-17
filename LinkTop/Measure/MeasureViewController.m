@@ -7,6 +7,8 @@
 //
 
 #import "MeasureViewController.h"
+#import "MeasureNaviRightView.h"
+#import "MeasureNaviLeftView.h"
 
 @interface MeasureViewController ()
 
@@ -39,17 +41,20 @@
     [ChangeView2GradientColor changeView:self.navigationController.navigationBar toGradientColors:@[UIColorHex(#1F67B6),UIColorHex(#51A8F2),UIColorHex(#89BDF4),UIColorHex(#C1E4FE)]];
     
     // 重新自定义设置导航栏
-    UIButton *head_icon = [UIButton buttonWithType:UIButtonTypeCustom];
-    [head_icon setImage:[UIImage imageNamed:@"Oval"] forState:UIControlStateNormal];
-    head_icon.frame = CGRectMake(0, 4, 36, 36);
+    // 左侧视图
+    MeasureNaviLeftView *leftview = [[MeasureNaviLeftView alloc] initWithFrame:CGRectMake(0, 0, 160, 44)];
     
+    // 标题
     UILabel *title_copy = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
     title_copy.textAlignment = NSTextAlignmentCenter;
     title_copy.text = @"测量";
     title_copy.font = [UIFont fontWithName:@"PingFangSC-Medium" size:18];
-    title_copy.textColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1/1.0];
+    title_copy.textColor = [UIColor whiteColor];
     
-    [ChangeView2GradientColor changeControllerView:self.view withNavi:self.navigationItem setLeftView:head_icon RightView:nil Title:title_copy];
+    // 右侧视图
+    MeasureNaviRightView *rightview = [[MeasureNaviRightView alloc] initWithFrame:CGRectMake(0, 0, 160, 44)];
+    
+    [ChangeView2GradientColor changeControllerView:self.view withNavi:self.navigationItem setLeftView:leftview RightView:rightview Title:title_copy];
     
 }
 
