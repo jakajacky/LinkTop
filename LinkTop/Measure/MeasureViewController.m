@@ -53,6 +53,9 @@
     
     // 右侧视图
     MeasureNaviRightView *rightview = [[MeasureNaviRightView alloc] initWithFrame:CGRectMake(0, 0, 160, 44)];
+    rightview.connectBlock = ^(BOOL isConnected) {
+        NSLog(@"连接");
+    };
     
     [ChangeView2GradientColor changeControllerView:self.view withNavi:self.navigationItem setLeftView:leftview RightView:rightview Title:title_copy];
     

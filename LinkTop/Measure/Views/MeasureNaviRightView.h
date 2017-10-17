@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^ConnectBlock)(BOOL);
+
 @interface MeasureNaviRightView : UIView
+
+@property (nonatomic, copy) ConnectBlock connectBlock;
 
 @end

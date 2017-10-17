@@ -18,6 +18,7 @@
         battery.font = [UIFont fontWithName:@"HelveticaNeue" size:12];
         battery.textColor = [UIColor whiteColor];
         UIButton *connectBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [connectBtn setUserInteractionEnabled:NO];
         connectBtn.frame = CGRectMake(40, 0, 15, 20);
         [connectBtn setImage:[UIImage imageNamed:@"ble_icon"] forState:UIControlStateNormal];
         
@@ -28,6 +29,13 @@
         [connectBtn autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
         [battery autoPinEdge:ALEdgeRight toEdge:ALEdgeLeft ofView:connectBtn withOffset:-2];
         [battery autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
+            if (_connectBlock) {
+                self.connectBlock(NO);
+            }
+        }];
+        [self addGestureRecognizer:tap];
     }
     return self;
 }
