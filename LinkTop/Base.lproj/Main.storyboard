@@ -383,12 +383,20 @@
                             <outlet property="HRView" destination="BV4-XU-2IL" id="EHT-YZ-xza"/>
                             <outlet property="SPOView" destination="14B-Lb-LPx" id="qXD-cn-ggO"/>
                             <outlet property="TempView" destination="mDw-wH-IKc" id="5ZN-8A-I8g"/>
+                            <outlet property="bp_bg" destination="tVa-PB-7iX" id="PaJ-Up-zgk"/>
+                            <outlet property="ecgIcon_bg" destination="ADy-1m-ltM" id="vAJ-lQ-79u"/>
+                            <outlet property="ecg_bg" destination="xTg-aA-Mo9" id="dHh-am-xns"/>
                             <outlet property="hr" destination="7gs-3K-AkX" id="eU5-Wq-IOv"/>
                             <outlet property="hrEN" destination="JqI-MX-SsC" id="wa6-Of-sWV"/>
+                            <outlet property="hr_bg" destination="BV4-XU-2IL" id="URN-of-l3v"/>
                             <outlet property="rothman" destination="nWQ-AB-fkS" id="xKc-Qs-39y"/>
                             <outlet property="rothmanEN" destination="iw3-Oy-qic" id="pBg-8y-gyC"/>
+                            <outlet property="rothmanIcon_bg" destination="F5A-Tr-b4a" id="6VF-Fk-69h"/>
                             <outlet property="rothmanInfo" destination="5Am-Yv-AND" id="tYH-ji-OnL"/>
                             <outlet property="rothmanValue" destination="s2U-db-XOA" id="uop-tv-zLq"/>
+                            <outlet property="rothman_bg" destination="Ctj-dH-Xqg" id="0bC-3V-IAf"/>
+                            <outlet property="spo_bg" destination="14B-Lb-LPx" id="yMb-1q-zgd"/>
+                            <outlet property="temp_bg" destination="mDw-wH-IKc" id="As2-BF-v3i"/>
                         </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="测量" image="measure_normal.png" selectedImage="measure_selected.png" id="Mhv-Bg-WgL"/>
