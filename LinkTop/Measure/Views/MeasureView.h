@@ -10,6 +10,8 @@
 
 @interface MeasureView : UIView
 
+@property (weak, nonatomic) IBOutlet UILabel *rothmanInfo;
+@property (weak, nonatomic) IBOutlet UILabel *rothmanValue;
 
 
 @end
