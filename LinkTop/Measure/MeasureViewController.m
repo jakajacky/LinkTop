@@ -13,8 +13,6 @@
 @interface MeasureViewController ()
 
 
-
-
 @end
 
 @implementation MeasureViewController
@@ -22,12 +20,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-  [self prepareNavigationColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-  [super viewWillAppear:animated];
-  
+    [super viewWillAppear:animated];
+    // 更改导航栏
+    [self prepareNavigationColor];
 }
 
 - (void)didReceiveMemoryWarning {

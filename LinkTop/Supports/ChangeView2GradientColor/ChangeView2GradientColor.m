@@ -59,7 +59,7 @@
   //创建CGMutablePathRef
   CGMutablePathRef path = CGPathCreateMutable();
   //绘制Path
-  CGRect rect = CGRectMake(0, 0, view.width, 64);
+  CGRect rect = CGRectMake(0, 0, view.width, view.height);
   CGPathMoveToPoint(path, NULL, CGRectGetMinX(rect), CGRectGetMinY(rect));
   CGPathAddLineToPoint(path, NULL, CGRectGetMinX(rect), CGRectGetMaxY(rect));
   CGPathAddLineToPoint(path, NULL, CGRectGetWidth(rect), CGRectGetMaxY(rect));
@@ -73,9 +73,13 @@
   //从Context中获取图像，并显示在界面上
   UIImage *img = UIGraphicsGetImageFromCurrentImageContext(); UIGraphicsEndImageContext();
   
-  UINavigationBar *bar = (UINavigationBar *)view;
-  [bar setBackgroundImage:img forBarMetrics:UIBarMetricsDefault];
-  
+  if ([view isKindOfClass:[UINavigationBar class]]) {
+    UINavigationBar *bar = (UINavigationBar *)view;
+    [bar setBackgroundImage:img forBarMetrics:UIBarMetricsDefault];
+  }
+  else {
+      [view setBackgroundColor:[UIColor colorWithPatternImage:img]];
+  }
 }
 
 #pragma mark - 设置多种颜色
