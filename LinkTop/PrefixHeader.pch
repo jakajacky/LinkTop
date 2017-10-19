@@ -27,6 +27,8 @@
 
 #import "PureLayout.h"
 
+#import "DeviceManger.h"
+
 #endif
 
 #endif /* PrefixHeader_pch */

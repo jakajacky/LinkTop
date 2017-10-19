@@ -13,6 +13,15 @@
 		6E442A631F98392400D1293B /* tempre_loading@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E442A611F98391F00D1293B /* tempre_loading@3x.png */; };
 		6E442A671F983B2300D1293B /* DRSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E442A661F983B2300D1293B /* DRSegmentControl.m */; };
 		6E442A6B1F98526D00D1293B /* TempreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E442A6A1F98526D00D1293B /* TempreView.m */; };
+		6E442AA11F988BF100D1293B /* libLibHealthCombine_V2.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E442A9F1F988BBA00D1293B /* libLibHealthCombine_V2.1.a */; };
+		6E442AA31F988C1500D1293B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E442AA21F988C1500D1293B /* QuartzCore.framework */; };
+		6E442AA51F988C2000D1293B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E442AA41F988C2000D1293B /* CoreGraphics.framework */; };
+		6E442AA71F988C2700D1293B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E442AA61F988C2700D1293B /* SystemConfiguration.framework */; };
+		6E442AA91F988C3000D1293B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E442AA81F988C3000D1293B /* AVFoundation.framework */; };
+		6E442AAB1F988C3C00D1293B /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E442AAA1F988C3C00D1293B /* libstdc++.tbd */; };
+		6E442AAD1F988C4200D1293B /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E442AAC1F988C4200D1293B /* CoreBluetooth.framework */; };
+		6E442AAF1F988C4D00D1293B /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E442AAE1F988C4D00D1293B /* libsqlite3.tbd */; };
+		6E442AB31F98A9DE00D1293B /* DeviceManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E442AB21F98A9DE00D1293B /* DeviceManger.m */; };
 		6E575AD21F94874A00C073F5 /* measure_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E575AC21F94874200C073F5 /* measure_normal@2x.png */; };
 		6E575AD31F94875000C073F5 /* measure_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E575AC31F94874200C073F5 /* measure_normal@3x.png */; };
 		6E575AD41F94875000C073F5 /* measure_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E575AC41F94874200C073F5 /* measure_selected@2x.png */; };
@@ -162,6 +171,26 @@
 		6E442A661F983B2300D1293B /* DRSegmentControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRSegmentControl.m; sourceTree = "<group>"; };
 		6E442A691F98526D00D1293B /* TempreView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TempreView.h; sourceTree = "<group>"; };
 		6E442A6A1F98526D00D1293B /* TempreView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TempreView.m; sourceTree = "<group>"; };
+		6E442A951F988BBA00D1293B /* HMBloodPressureModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMBloodPressureModel.h; sourceTree = "<group>"; };
+		6E442A961F988BBA00D1293B /* HMECGModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMECGModel.h; sourceTree = "<group>"; };
+		6E442A971F988BBA00D1293B /* HMOxygnModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMOxygnModel.h; sourceTree = "<group>"; };
+		6E442A981F988BBA00D1293B /* HMTemperatureModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMTemperatureModel.h; sourceTree = "<group>"; };
+		6E442A991F988BBA00D1293B /* LibHealthCombineSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LibHealthCombineSDK.h; sourceTree = "<group>"; };
+		6E442A9A1F988BBA00D1293B /* LT_iOS_CSS_SDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LT_iOS_CSS_SDK.h; sourceTree = "<group>"; };
+		6E442A9B1F988BBA00D1293B /* SDKHealthMoniter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDKHealthMoniter.h; sourceTree = "<group>"; };
+		6E442A9C1F988BBA00D1293B /* TH_MeasureDataObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TH_MeasureDataObj.h; sourceTree = "<group>"; };
+		6E442A9D1F988BBA00D1293B /* ThermometerBlueToohPtotocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThermometerBlueToohPtotocol.h; sourceTree = "<group>"; };
+		6E442A9E1F988BBA00D1293B /* ThermometerSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThermometerSDK.h; sourceTree = "<group>"; };
+		6E442A9F1F988BBA00D1293B /* libLibHealthCombine_V2.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libLibHealthCombine_V2.1.a; sourceTree = "<group>"; };
+		6E442AA21F988C1500D1293B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		6E442AA41F988C2000D1293B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6E442AA61F988C2700D1293B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6E442AA81F988C3000D1293B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6E442AAA1F988C3C00D1293B /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		6E442AAC1F988C4200D1293B /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		6E442AAE1F988C4D00D1293B /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		6E442AB11F98A9DE00D1293B /* DeviceManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceManger.h; sourceTree = "<group>"; };
+		6E442AB21F98A9DE00D1293B /* DeviceManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceManger.m; sourceTree = "<group>"; };
 		6E575AC21F94874200C073F5 /* measure_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "measure_normal@2x.png"; sourceTree = "<group>"; };
 		6E575AC31F94874200C073F5 /* measure_normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "measure_normal@3x.png"; sourceTree = "<group>"; };
 		6E575AC41F94874200C073F5 /* measure_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "measure_selected@2x.png"; sourceTree = "<group>"; };
@@ -417,6 +446,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E442AAF1F988C4D00D1293B /* libsqlite3.tbd in Frameworks */,
+				6E442AAD1F988C4200D1293B /* CoreBluetooth.framework in Frameworks */,
+				6E442AAB1F988C3C00D1293B /* libstdc++.tbd in Frameworks */,
+				6E442AA91F988C3000D1293B /* AVFoundation.framework in Frameworks */,
+				6E442AA71F988C2700D1293B /* SystemConfiguration.framework in Frameworks */,
+				6E442AA51F988C2000D1293B /* CoreGraphics.framework in Frameworks */,
+				6E442AA31F988C1500D1293B /* QuartzCore.framework in Frameworks */,
+				6E442AA11F988BF100D1293B /* libLibHealthCombine_V2.1.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +476,55 @@
 				6E442A6A1F98526D00D1293B /* TempreView.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		6E442A931F988BBA00D1293B /* LinkTopSDK */ = {
+			isa = PBXGroup;
+			children = (
+				6E442A941F988BBA00D1293B /* Heads */,
+				6E442A9F1F988BBA00D1293B /* libLibHealthCombine_V2.1.a */,
+			);
+			path = LinkTopSDK;
+			sourceTree = "<group>";
+		};
+		6E442A941F988BBA00D1293B /* Heads */ = {
+			isa = PBXGroup;
+			children = (
+				6E442A951F988BBA00D1293B /* HMBloodPressureModel.h */,
+				6E442A961F988BBA00D1293B /* HMECGModel.h */,
+				6E442A971F988BBA00D1293B /* HMOxygnModel.h */,
+				6E442A981F988BBA00D1293B /* HMTemperatureModel.h */,
+				6E442A991F988BBA00D1293B /* LibHealthCombineSDK.h */,
+				6E442A9A1F988BBA00D1293B /* LT_iOS_CSS_SDK.h */,
+				6E442A9B1F988BBA00D1293B /* SDKHealthMoniter.h */,
+				6E442A9C1F988BBA00D1293B /* TH_MeasureDataObj.h */,
+				6E442A9D1F988BBA00D1293B /* ThermometerBlueToohPtotocol.h */,
+				6E442A9E1F988BBA00D1293B /* ThermometerSDK.h */,
+			);
+			path = Heads;
+			sourceTree = "<group>";
+		};
+		6E442AA01F988BF100D1293B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6E442AAE1F988C4D00D1293B /* libsqlite3.tbd */,
+				6E442AAC1F988C4200D1293B /* CoreBluetooth.framework */,
+				6E442AAA1F988C3C00D1293B /* libstdc++.tbd */,
+				6E442AA81F988C3000D1293B /* AVFoundation.framework */,
+				6E442AA61F988C2700D1293B /* SystemConfiguration.framework */,
+				6E442AA41F988C2000D1293B /* CoreGraphics.framework */,
+				6E442AA21F988C1500D1293B /* QuartzCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6E442AB01F98A9D200D1293B /* DeviceManager */ = {
+			isa = PBXGroup;
+			children = (
+				6E442AB11F98A9DE00D1293B /* DeviceManger.h */,
+				6E442AB21F98A9DE00D1293B /* DeviceManger.m */,
+			);
+			path = DeviceManager;
 			sourceTree = "<group>";
 		};
 		6E575ABF1F94864700C073F5 /* Resouces */ = {
@@ -496,6 +582,8 @@
 		6E575AE61F948D7D00C073F5 /* Supports */ = {
 			isa = PBXGroup;
 			children = (
+				6E442AB01F98A9D200D1293B /* DeviceManager */,
+				6E442A931F988BBA00D1293B /* LinkTopSDK */,
 				6E442A641F983B1500D1293B /* DRSegmentControl */,
 				6E822F4E1F9750B1005A6804 /* DRNavigationBar */,
 				6E822F0F1F96F883005A6804 /* DeviceName */,
@@ -951,11 +1039,11 @@
 			children = (
 				6E8F096A1F8C5BA10002467A /* MeasureViewController.h */,
 				6E8F096B1F8C5BA10002467A /* MeasureViewController.m */,
+				6E575AE21F948C5C00C073F5 /* Views */,
 				6E822F391F972EED005A6804 /* BloodPreViewController */,
 				6E822F381F972EED005A6804 /* HeartRateViewController */,
 				6E822F371F972EED005A6804 /* Spo2hViewController */,
 				6E822F3A1F972EED005A6804 /* TemperViewController */,
-				6E575AE21F948C5C00C073F5 /* Views */,
 			);
 			path = Measure;
 			sourceTree = "<group>";
@@ -965,6 +1053,7 @@
 			children = (
 				6EAFB5171F8B7C3400949C31 /* LinkTop */,
 				6EAFB5161F8B7C3400949C31 /* Products */,
+				6E442AA01F988BF100D1293B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1133,6 +1222,7 @@
 				6E822F121F96F893005A6804 /* DeviceName.m in Sources */,
 				6E575C981F94969300C073F5 /* NSKeyedUnarchiver+YYAdd.m in Sources */,
 				6E575C9D1F94969300C073F5 /* NSObject+YYAddForKVO.m in Sources */,
+				6E442AB31F98A9DE00D1293B /* DeviceManger.m in Sources */,
 				6E575C581F9495A800C073F5 /* YYGestureRecognizer.m in Sources */,
 				6E575C6D1F94965B00C073F5 /* YYTextDebugOption.m in Sources */,
 				6E575C951F94969300C073F5 /* NSData+YYAdd.m in Sources */,
@@ -1344,14 +1434,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R6223ZBKTR;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LinkTop/PrefixHeader.pch";
 				INFOPLIST_FILE = LinkTop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LinkTop/Supports/LinkTopSDK",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = lohas.LinkTop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -1361,14 +1457,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R6223ZBKTR;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LinkTop/PrefixHeader.pch";
 				INFOPLIST_FILE = LinkTop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LinkTop/Supports/LinkTopSDK",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = lohas.LinkTop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};

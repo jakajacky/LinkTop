@@ -12,6 +12,8 @@ typedef void(^ConnectBlock)(BOOL);
 
 @interface MeasureNaviRightView : UIView
 
+@property (nonatomic, assign) BOOL isPeriperalConnected;
+
 @property (nonatomic, copy) ConnectBlock connectBlock;
 
 @end

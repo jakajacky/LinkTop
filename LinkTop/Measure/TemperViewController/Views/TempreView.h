@@ -21,5 +21,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *tempretureValue;
 
 @property (strong, nonatomic) IBOutlet UIButton *startMeasureBtn;
+@property (weak, nonatomic) IBOutlet UILabel *tempreType;
 
 @end

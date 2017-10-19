@@ -569,6 +569,7 @@
                             <outlet property="bg2" destination="tMx-vP-V2t" id="awX-qC-bS0"/>
                             <outlet property="segmentContainer" destination="k6x-9s-8eA" id="oz2-Ox-BqX"/>
                             <outlet property="startMeasureBtn" destination="yDP-ev-pwH" id="gEN-6g-nCr"/>
+                            <outlet property="tempreType" destination="g0v-Lo-OLI" id="hqh-aw-FOQ"/>
                             <outlet property="tempre_loading" destination="iOJ-ci-GQw" id="ShN-Af-XYy"/>
                             <outlet property="tempre_tech" destination="DOx-mr-8op" id="4Md-bE-6A7"/>
                             <outlet property="tempretureValue" destination="Kjn-2W-hmw" id="YYH-KF-vhh"/>

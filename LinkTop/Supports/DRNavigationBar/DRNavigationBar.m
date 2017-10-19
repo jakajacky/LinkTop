@@ -10,18 +10,6 @@
 
 @interface DRNavigationBar ()
 
-@property (nonatomic, strong) UIImageView *icon_l;
-@property (nonatomic, strong) UIImageView *icon_m;
-@property (nonatomic, strong) UIImageView *icon_r;
-
-@property (nonatomic, strong) UIView *view_l;
-@property (nonatomic, strong) UIView *view_m;
-@property (nonatomic, strong) UIView *view_r;
-
-@property (nonatomic, strong) UILabel *titleL_l;
-@property (nonatomic, strong) UILabel *titleL_m;
-@property (nonatomic, strong) UILabel *titleL_r;
-
 @end
 
 @implementation DRNavigationBar
@@ -47,32 +35,32 @@
 }
 
 - (void)setupLeftViewsWithImage:(UIImage *)image Title:(NSString *)title {
-    _view_l = [[UIView alloc] init];
-    _view_l.frame = CGRectMake(0, 20, 100, 44);
+    UIView *view = [[UIView alloc] init];
+    view.frame = CGRectMake(0, 20, 100, 44);
     
-    _icon_l = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 10.8, 18)];
-    _icon_l.image = image;
+    UIImageView *icon = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 10.8, 18)];
+    icon.image = image;
     
-    _titleL_l   = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, 21)];
-    _titleL_l.textColor = UIColorHex(#ffffff);
-    _titleL_l.text = title;
+    UILabel *titleL   = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, 21)];
+    titleL.textColor = UIColorHex(#ffffff);
+    titleL.text = title;
     
-    [_view_l addSubview:_icon_l];
-    [_view_l addSubview:_titleL_l];
-    [self addSubview:_view_l];
+    [view addSubview:icon];
+    [view addSubview:titleL];
+    [self addSubview:view];
     
     // view加约束
-    [_view_l autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
-    [_view_l autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
-    [_view_l autoSetDimensionsToSize:CGSizeMake(self.width/3.0, 44)];
+    [view autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
+    [view autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
+    [view autoSetDimensionsToSize:CGSizeMake(self.width/3.0, 44)];
     
     // icon加约束
-    [_icon_l autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:10];
-    [_icon_l autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
+    [icon autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:10];
+    [icon autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
     
     // titleL加约束
-    [_titleL_l autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:_icon_l withOffset:5];
-    [_titleL_l autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
+    [titleL autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:icon withOffset:5];
+    [titleL autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
     
     // 添加手势
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
@@ -80,69 +68,69 @@
             self.leftViewDidClicked();
         }
     }];
-    [_view_l addGestureRecognizer:tap];
+    [view addGestureRecognizer:tap];
 }
 
 - (void)setupMiddleViewsWithImage:(UIImage *)image Title:(NSString *)title {
-    _view_m = [[UIView alloc] init];
-    _view_m.frame = CGRectMake(0, 20, 100, 44);
+    UIView *view = [[UIView alloc] init];
+    view.frame = CGRectMake(0, 20, 100, 44);
     
-    _icon_m = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 10.8, 18)];
-    _icon_m.image = image;
+    UIImageView *icon = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 10.8, 18)];
+    icon.image = image;
     
-    _titleL_m   = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, 21)];
-    _titleL_m.textColor = UIColorHex(#ffffff);
-    _titleL_m.text = title;
+    UILabel *titleL   = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, 21)];
+    titleL.textColor = UIColorHex(#ffffff);
+    titleL.text = title;
     
-    [_view_m addSubview:_icon_m];
-    [_view_m addSubview:_titleL_m];
-    [self addSubview:_view_m];
+    [view addSubview:icon];
+    [view addSubview:titleL];
+    [self addSubview:view];
     
-    CGSize size = [_titleL_m.text boundingRectWithSize:CGSizeMake(MAXFLOAT, 21) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18]} context:nil].size;
+    CGSize size = [titleL.text boundingRectWithSize:CGSizeMake(MAXFLOAT, 21) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18]} context:nil].size;
     CGFloat margin = 5;
     
     // view加约束
-    [_view_m autoAlignAxisToSuperviewAxis:ALAxisVertical];
-    [_view_m autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
-    [_view_m autoSetDimensionsToSize:CGSizeMake(_icon_m.width+margin+size.width, 44)];
+    [view autoAlignAxisToSuperviewAxis:ALAxisVertical];
+    [view autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
+    [view autoSetDimensionsToSize:CGSizeMake(icon.width+margin+size.width, 44)];
     
     // icon加约束
-    [_icon_m autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
-    [_icon_m autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
+    [icon autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
+    [icon autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
     
     // titleL加约束
-    [_titleL_m autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:_icon_m withOffset:margin];
-    [_titleL_m autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
+    [titleL autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:icon withOffset:margin];
+    [titleL autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
     
 }
 
 - (void)setupRightViewsWithImage:(UIImage *)image Title:(NSString *)title {
-    _view_r = [[UIView alloc] init];
-    _view_r.frame = CGRectMake(0, 20, 100, 44);
+    UIView *view = [[UIView alloc] init];
+    view.frame = CGRectMake(0, 20, 100, 44);
     
-    _icon_r = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 10.8, 18)];
-    _icon_r.image = image;
+    UIImageView *icon = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 10.8, 18)];
+    icon.image = image;
     
-    _titleL_r   = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, 21)];
-    _titleL_r.textColor = UIColorHex(#ffffff);
-    _titleL_r.text = title;
+    UILabel *titleL   = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, 21)];
+    titleL.textColor = UIColorHex(#ffffff);
+    titleL.text = title;
     
-    [_view_r addSubview:_icon_r];
-    [_view_r addSubview:_titleL_r];
-    [self addSubview:_view_r];
+    [view addSubview:icon];
+    [view addSubview:titleL];
+    [self addSubview:view];
     
     // view加约束
-    [_view_r autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
-    [_view_r autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
-    [_view_r autoSetDimensionsToSize:CGSizeMake(self.width/3.0, 44)];
+    [view autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
+    [view autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:0];
+    [view autoSetDimensionsToSize:CGSizeMake(self.width/3.0, 44)];
     
     // icon加约束
-    [_icon_r autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:10];
-    [_icon_r autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
+    [icon autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:10];
+    [icon autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
     
     // titleL加约束
-    [_titleL_r autoPinEdge:ALEdgeRight toEdge:ALEdgeLeft ofView:_icon_r withOffset:-5];
-    [_titleL_r autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
+    [titleL autoPinEdge:ALEdgeRight toEdge:ALEdgeLeft ofView:icon withOffset:-5];
+    [titleL autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
     
     // 添加手势
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
@@ -150,26 +138,11 @@
             self.rightViewDidClicked();
         }
     }];
-    [_view_r addGestureRecognizer:tap];
+    [view addGestureRecognizer:tap];
 }
 
 - (void)dealloc {
     NSLog(@"DRNavigationBar释放");
-    _icon_r.image = nil;
-    _icon_m.image = nil;
-    _icon_l.image = nil;
-    
-    _icon_l = nil;
-    _icon_m = nil;
-    _icon_r = nil;
-    
-    _view_r = nil;
-    _view_m = nil;
-    _view_l = nil;
-    
-    _titleL_l = nil;
-    _titleL_m = nil;
-    _titleL_r = nil;
 }
 
 @end
