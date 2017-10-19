@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E442A5E1F98332D00D1293B /* tempre_tutorial@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E442A5C1F98332900D1293B /* tempre_tutorial@2x.png */; };
+		6E442A5F1F98332D00D1293B /* tempre_tutorial@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E442A5D1F98332A00D1293B /* tempre_tutorial@3x.png */; };
+		6E442A621F98392400D1293B /* tempre_loading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E442A601F98391F00D1293B /* tempre_loading@2x.png */; };
+		6E442A631F98392400D1293B /* tempre_loading@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E442A611F98391F00D1293B /* tempre_loading@3x.png */; };
+		6E442A671F983B2300D1293B /* DRSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E442A661F983B2300D1293B /* DRSegmentControl.m */; };
+		6E442A6B1F98526D00D1293B /* TempreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E442A6A1F98526D00D1293B /* TempreView.m */; };
 		6E575AD21F94874A00C073F5 /* measure_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E575AC21F94874200C073F5 /* measure_normal@2x.png */; };
 		6E575AD31F94875000C073F5 /* measure_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E575AC31F94874200C073F5 /* measure_normal@3x.png */; };
 		6E575AD41F94875000C073F5 /* measure_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E575AC41F94874200C073F5 /* measure_selected@2x.png */; };
@@ -148,6 +154,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6E442A5C1F98332900D1293B /* tempre_tutorial@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tempre_tutorial@2x.png"; sourceTree = "<group>"; };
+		6E442A5D1F98332A00D1293B /* tempre_tutorial@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tempre_tutorial@3x.png"; sourceTree = "<group>"; };
+		6E442A601F98391F00D1293B /* tempre_loading@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tempre_loading@2x.png"; sourceTree = "<group>"; };
+		6E442A611F98391F00D1293B /* tempre_loading@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tempre_loading@3x.png"; sourceTree = "<group>"; };
+		6E442A651F983B2300D1293B /* DRSegmentControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRSegmentControl.h; sourceTree = "<group>"; };
+		6E442A661F983B2300D1293B /* DRSegmentControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRSegmentControl.m; sourceTree = "<group>"; };
+		6E442A691F98526D00D1293B /* TempreView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TempreView.h; sourceTree = "<group>"; };
+		6E442A6A1F98526D00D1293B /* TempreView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TempreView.m; sourceTree = "<group>"; };
 		6E575AC21F94874200C073F5 /* measure_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "measure_normal@2x.png"; sourceTree = "<group>"; };
 		6E575AC31F94874200C073F5 /* measure_normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "measure_normal@3x.png"; sourceTree = "<group>"; };
 		6E575AC41F94874200C073F5 /* measure_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "measure_selected@2x.png"; sourceTree = "<group>"; };
@@ -409,6 +423,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E442A641F983B1500D1293B /* DRSegmentControl */ = {
+			isa = PBXGroup;
+			children = (
+				6E442A651F983B2300D1293B /* DRSegmentControl.h */,
+				6E442A661F983B2300D1293B /* DRSegmentControl.m */,
+			);
+			path = DRSegmentControl;
+			sourceTree = "<group>";
+		};
+		6E442A681F98526100D1293B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6E442A691F98526D00D1293B /* TempreView.h */,
+				6E442A6A1F98526D00D1293B /* TempreView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		6E575ABF1F94864700C073F5 /* Resouces */ = {
 			isa = PBXGroup;
 			children = (
@@ -464,6 +496,7 @@
 		6E575AE61F948D7D00C073F5 /* Supports */ = {
 			isa = PBXGroup;
 			children = (
+				6E442A641F983B1500D1293B /* DRSegmentControl */,
 				6E822F4E1F9750B1005A6804 /* DRNavigationBar */,
 				6E822F0F1F96F883005A6804 /* DeviceName */,
 				6E80DE1A1F95EFC900D39FE0 /* PureLayout */,
@@ -855,6 +888,7 @@
 			children = (
 				6E822F3B1F972EED005A6804 /* TemperViewController.h */,
 				6E822F3C1F972EED005A6804 /* TemperViewController.m */,
+				6E442A681F98526100D1293B /* Views */,
 			);
 			path = TemperViewController;
 			sourceTree = "<group>";
@@ -862,6 +896,10 @@
 		6E822F411F974B26005A6804 /* Tempre */ = {
 			isa = PBXGroup;
 			children = (
+				6E442A601F98391F00D1293B /* tempre_loading@2x.png */,
+				6E442A611F98391F00D1293B /* tempre_loading@3x.png */,
+				6E442A5C1F98332900D1293B /* tempre_tutorial@2x.png */,
+				6E442A5D1F98332A00D1293B /* tempre_tutorial@3x.png */,
 				6E822F421F974B26005A6804 /* back_icon@2x.png */,
 				6E822F431F974B26005A6804 /* back_icon@3x.png */,
 				6E822F441F974B26005A6804 /* faq_icon@2x.png */,
@@ -1036,6 +1074,8 @@
 				6E575ADF1F94875000C073F5 /* setting_normal@3x.png in Resources */,
 				6EAFB5251F8B7C3400949C31 /* LaunchScreen.storyboard in Resources */,
 				6E822F251F97093B005A6804 /* temp_icon@2x.png in Resources */,
+				6E442A5E1F98332D00D1293B /* tempre_tutorial@2x.png in Resources */,
+				6E442A5F1F98332D00D1293B /* tempre_tutorial@3x.png in Resources */,
 				6E575AE11F94875000C073F5 /* setting_selected@3x.png in Resources */,
 				6E822F4C1F974B2D005A6804 /* tempre_icon@2x.png in Resources */,
 				6E822F4D1F974B2D005A6804 /* tempre_icon@3x.png in Resources */,
@@ -1057,8 +1097,10 @@
 				6E822F241F97093B005A6804 /* spo_icon@3x.png in Resources */,
 				6E575AD41F94875000C073F5 /* measure_selected@2x.png in Resources */,
 				6E575ADD1F94875000C073F5 /* question_selected@3x.png in Resources */,
+				6E442A631F98392400D1293B /* tempre_loading@3x.png in Resources */,
 				6EAFB5201F8B7C3400949C31 /* Main.storyboard in Resources */,
 				6E575ADC1F94875000C073F5 /* question_selected@2x.png in Resources */,
+				6E442A621F98392400D1293B /* tempre_loading@2x.png in Resources */,
 				6E822F4B1F974B2D005A6804 /* faq_icon@3x.png in Resources */,
 				6E575ADB1F94875000C073F5 /* question_normal@3x.png in Resources */,
 				6E575AD51F94875000C073F5 /* measure_selected@3x.png in Resources */,
@@ -1127,8 +1169,10 @@
 				6E575CA01F94969300C073F5 /* NSTimer+YYAdd.m in Sources */,
 				6E575C8A1F94968000C073F5 /* UIGestureRecognizer+YYAdd.m in Sources */,
 				6E575C911F94968600C073F5 /* CALayer+YYAdd.m in Sources */,
+				6E442A671F983B2300D1293B /* DRSegmentControl.m in Sources */,
 				6E575C731F94965B00C073F5 /* YYTextMagnifier.m in Sources */,
 				6E575C611F94964200C073F5 /* YYLabel.m in Sources */,
+				6E442A6B1F98526D00D1293B /* TempreView.m in Sources */,
 				6E575C991F94969300C073F5 /* NSNotificationCenter+YYAdd.m in Sources */,
 				6E80DE261F95EFD800D39FE0 /* NSLayoutConstraint+PureLayout.m in Sources */,
 				6E575C711F94965B00C073F5 /* YYTextLayout.m in Sources */,

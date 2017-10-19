@@ -20,12 +20,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    // 更改导航栏
+    [self prepareNavigationColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    // 更改导航栏
-    [self prepareNavigationColor];
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -101,6 +101,7 @@
   CGContextRestoreGState(context);
   CGGradientRelease(gradient);
   CGColorSpaceRelease(colorSpace);
+  free(locations_);
   
 }
 

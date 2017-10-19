@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^LeftViewBlock)(void);
+typedef void(^RightViewBlock)(void);
+
 @interface DRNavigationBar : UIView
+
+@property (nonatomic, copy) LeftViewBlock leftViewDidClicked;
+@property (nonatomic, copy) RightViewBlock rightViewDidClicked;
 
 - (instancetype)initWithFrame:(CGRect)frame
                     LeftImage:(UIImage *)l_img

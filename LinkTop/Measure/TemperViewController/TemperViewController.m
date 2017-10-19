@@ -7,12 +7,11 @@
 //
 
 #import "TemperViewController.h"
-#import "MeasureNaviLeftView.h"
-#import "MeasureNaviRightView.h"
-#import "DRNavigationBar.h"
+#import "TempreView.h"
 
 @interface TemperViewController ()
 
+@property (nonatomic, strong) TempreView *tempreView;
 
 
 @end
@@ -22,19 +21,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    CGFloat naviHeight = 64;
-    if (iPhoneX) {
-        naviHeight = 88;
-    }
-    
-    DRNavigationBar *navi = [[DRNavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.width, naviHeight)
-                                                         LeftImage:[UIImage imageNamed:@"back_icon"]
-                                                         LeftTitle:@"Back"
-                                                       MiddleImage:[UIImage imageNamed:@"tempre_icon"]
-                                                       MiddleTitle:@"体温测量"
-                                                        RightImage:[UIImage imageNamed:@"faq_icon"]
-                                                        RightTitle:@"详细"];
-    [self.view addSubview:navi];
+    self.tempreView.controlTypeOfTemp.valueChangedBlock = ^(NSInteger currentIndex) {
+        NSLog(@"选中：%d", currentIndex);
+    };
+    __weak typeof(self) myself = self;
+    self.tempreView.navi.leftViewDidClicked = ^{
+        [myself dismissViewControllerAnimated:YES completion:^{
+            
+        }];
+    };
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -42,9 +37,22 @@
     
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    self.tempreView.navi.leftViewDidClicked = nil; // 这种block记得及时释放，否则控制器一直持有，无法dealloc
+    self.tempreView.navi.rightViewDidClicked = nil;
+    self.tempreView.controlTypeOfTemp.valueChangedBlock = nil;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc {
+    NSLog(@"Tempreture控制器 释放");
+    [self.tempreView removeFromSuperview];
+    [self.tempreView removeAllSubviews];
+    self.tempreView = nil;
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -53,8 +61,12 @@
     }];
 }
 
-- (void)dealloc {
-    
+#pragma mark - properties
+- (TempreView *)tempreView {
+    if (!_tempreView) {
+        _tempreView = (TempreView *)self.view;
+    }
+    return _tempreView;
 }
 /*
 #pragma mark - Navigation
@@ -65,5 +77,6 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 @end
