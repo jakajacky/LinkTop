@@ -13,7 +13,6 @@
 		6E442A631F98392400D1293B /* tempre_loading@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E442A611F98391F00D1293B /* tempre_loading@3x.png */; };
 		6E442A671F983B2300D1293B /* DRSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E442A661F983B2300D1293B /* DRSegmentControl.m */; };
 		6E442A6B1F98526D00D1293B /* TempreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E442A6A1F98526D00D1293B /* TempreView.m */; };
-		6E442AA11F988BF100D1293B /* libLibHealthCombine_V2.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E442A9F1F988BBA00D1293B /* libLibHealthCombine_V2.1.a */; };
 		6E442AA31F988C1500D1293B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E442AA21F988C1500D1293B /* QuartzCore.framework */; };
 		6E442AA51F988C2000D1293B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E442AA41F988C2000D1293B /* CoreGraphics.framework */; };
 		6E442AA71F988C2700D1293B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E442AA61F988C2700D1293B /* SystemConfiguration.framework */; };
@@ -22,6 +21,10 @@
 		6E442AAD1F988C4200D1293B /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E442AAC1F988C4200D1293B /* CoreBluetooth.framework */; };
 		6E442AAF1F988C4D00D1293B /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E442AAE1F988C4D00D1293B /* libsqlite3.tbd */; };
 		6E442AB31F98A9DE00D1293B /* DeviceManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E442AB21F98A9DE00D1293B /* DeviceManger.m */; };
+		6E442AB41F98B3AB00D1293B /* libLibHealthCombine_V2.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E442A9F1F988BBA00D1293B /* libLibHealthCombine_V2.1.a */; };
+		6E442AB81F98BD6700D1293B /* UIView+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E442AB71F98BD6700D1293B /* UIView+Rotate.m */; };
+		6E442ABB1F98C7A100D1293B /* tempre_loading_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E442AB91F98C79C00D1293B /* tempre_loading_bg@2x.png */; };
+		6E442ABC1F98C7A100D1293B /* tempre_loading_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E442ABA1F98C79D00D1293B /* tempre_loading_bg@3x.png */; };
 		6E575AD21F94874A00C073F5 /* measure_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E575AC21F94874200C073F5 /* measure_normal@2x.png */; };
 		6E575AD31F94875000C073F5 /* measure_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E575AC31F94874200C073F5 /* measure_normal@3x.png */; };
 		6E575AD41F94875000C073F5 /* measure_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E575AC41F94874200C073F5 /* measure_selected@2x.png */; };
@@ -191,6 +194,10 @@
 		6E442AAE1F988C4D00D1293B /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		6E442AB11F98A9DE00D1293B /* DeviceManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceManger.h; sourceTree = "<group>"; };
 		6E442AB21F98A9DE00D1293B /* DeviceManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceManger.m; sourceTree = "<group>"; };
+		6E442AB61F98BD6700D1293B /* UIView+Rotate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Rotate.h"; sourceTree = "<group>"; };
+		6E442AB71F98BD6700D1293B /* UIView+Rotate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Rotate.m"; sourceTree = "<group>"; };
+		6E442AB91F98C79C00D1293B /* tempre_loading_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tempre_loading_bg@2x.png"; sourceTree = "<group>"; };
+		6E442ABA1F98C79D00D1293B /* tempre_loading_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tempre_loading_bg@3x.png"; sourceTree = "<group>"; };
 		6E575AC21F94874200C073F5 /* measure_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "measure_normal@2x.png"; sourceTree = "<group>"; };
 		6E575AC31F94874200C073F5 /* measure_normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "measure_normal@3x.png"; sourceTree = "<group>"; };
 		6E575AC41F94874200C073F5 /* measure_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "measure_selected@2x.png"; sourceTree = "<group>"; };
@@ -446,6 +453,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E442AB41F98B3AB00D1293B /* libLibHealthCombine_V2.1.a in Frameworks */,
 				6E442AAF1F988C4D00D1293B /* libsqlite3.tbd in Frameworks */,
 				6E442AAD1F988C4200D1293B /* CoreBluetooth.framework in Frameworks */,
 				6E442AAB1F988C3C00D1293B /* libstdc++.tbd in Frameworks */,
@@ -453,7 +461,6 @@
 				6E442AA71F988C2700D1293B /* SystemConfiguration.framework in Frameworks */,
 				6E442AA51F988C2000D1293B /* CoreGraphics.framework in Frameworks */,
 				6E442AA31F988C1500D1293B /* QuartzCore.framework in Frameworks */,
-				6E442AA11F988BF100D1293B /* libLibHealthCombine_V2.1.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,6 +534,15 @@
 			path = DeviceManager;
 			sourceTree = "<group>";
 		};
+		6E442AB51F98B6FB00D1293B /* ViewAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				6E442AB61F98BD6700D1293B /* UIView+Rotate.h */,
+				6E442AB71F98BD6700D1293B /* UIView+Rotate.m */,
+			);
+			path = ViewAnimation;
+			sourceTree = "<group>";
+		};
 		6E575ABF1F94864700C073F5 /* Resouces */ = {
 			isa = PBXGroup;
 			children = (
@@ -582,6 +598,7 @@
 		6E575AE61F948D7D00C073F5 /* Supports */ = {
 			isa = PBXGroup;
 			children = (
+				6E442AB51F98B6FB00D1293B /* ViewAnimation */,
 				6E442AB01F98A9D200D1293B /* DeviceManager */,
 				6E442A931F988BBA00D1293B /* LinkTopSDK */,
 				6E442A641F983B1500D1293B /* DRSegmentControl */,
@@ -984,6 +1001,8 @@
 		6E822F411F974B26005A6804 /* Tempre */ = {
 			isa = PBXGroup;
 			children = (
+				6E442AB91F98C79C00D1293B /* tempre_loading_bg@2x.png */,
+				6E442ABA1F98C79D00D1293B /* tempre_loading_bg@3x.png */,
 				6E442A601F98391F00D1293B /* tempre_loading@2x.png */,
 				6E442A611F98391F00D1293B /* tempre_loading@3x.png */,
 				6E442A5C1F98332900D1293B /* tempre_tutorial@2x.png */,
@@ -1170,6 +1189,7 @@
 				6E822F4D1F974B2D005A6804 /* tempre_icon@3x.png in Resources */,
 				6EAFB5221F8B7C3400949C31 /* Assets.xcassets in Resources */,
 				6E80DE2A1F95FE6400D39FE0 /* ble_icon@3x.png in Resources */,
+				6E442ABC1F98C7A100D1293B /* tempre_loading_bg@3x.png in Resources */,
 				6E80DE341F96191000D39FE0 /* RI_logo@2x.png in Resources */,
 				6E80DE181F95E0BC00D39FE0 /* measurelist_selected@2x.png in Resources */,
 				6E80DE351F96191000D39FE0 /* RI_logo@3x.png in Resources */,
@@ -1181,6 +1201,7 @@
 				6E822F201F97093B005A6804 /* bp_icon@3x.png in Resources */,
 				6E575ADE1F94875000C073F5 /* setting_normal@2x.png in Resources */,
 				6E822F481F974B2D005A6804 /* back_icon@2x.png in Resources */,
+				6E442ABB1F98C7A100D1293B /* tempre_loading_bg@2x.png in Resources */,
 				6E80DE391F961B2800D39FE0 /* HR_logo@3x.png in Resources */,
 				6E575AD61F94875000C073F5 /* measurelist_normal@2x.png in Resources */,
 				6E822F241F97093B005A6804 /* spo_icon@3x.png in Resources */,
@@ -1226,6 +1247,7 @@
 				6E575C581F9495A800C073F5 /* YYGestureRecognizer.m in Sources */,
 				6E575C6D1F94965B00C073F5 /* YYTextDebugOption.m in Sources */,
 				6E575C951F94969300C073F5 /* NSData+YYAdd.m in Sources */,
+				6E442AB81F98BD6700D1293B /* UIView+Rotate.m in Sources */,
 				6E575C7A1F94966B00C073F5 /* YYImageCache.m in Sources */,
 				6E822F2C1F972C61005A6804 /* MeasureNaviLeftView.m in Sources */,
 				6E575C7F1F94967200C073F5 /* YYCache.m in Sources */,

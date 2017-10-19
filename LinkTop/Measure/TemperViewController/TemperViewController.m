@@ -10,7 +10,7 @@
 #import "TempreView.h"
 #import "LibHealthCombineSDK.h"
 #import "SDKHealthMoniter.h"
-
+#import "UIView+Rotate.h"
 @interface TemperViewController ()<sdkHealthMoniterDelegate>
 
 @property (nonatomic, strong) TempreView *tempreView;
@@ -36,7 +36,7 @@
     
     
     self.tempreView.controlTypeOfTemp.valueChangedBlock = ^(NSInteger currentIndex) {
-        [myself reloadTemperatureValueToView:[myself.tempreView.tempretureValue.text doubleValue]];
+        [myself reloadTemperatureValueToView:myself.tempreView.tempretureValue.text];
     };
     
     self.tempreView.navi.leftViewDidClicked = ^{
@@ -74,12 +74,15 @@
 }
 
 - (void)startMeasureBtnDidClicked:(UIButton *)sender {
+    // 开始动画
+    [self.tempreView.tempre_loading startRotating];
     [self.sdkHealth startThermometerTest];
 }
 
 #pragma mark - 处理温度单位
-- (void)reloadTemperatureValueToView:(double)temperature {
+- (void)reloadTemperatureValueToView:(NSString *)temperatureString {
     double temperatureNew;
+    double temperature = [temperatureString doubleValue];
     if (self.tempreView.controlTypeOfTemp.currentIndex==1) {
         temperatureNew = temperature*1.8+32;
         self.tempreView.tempreType.text = @"℉";
@@ -88,7 +91,10 @@
         temperatureNew = (temperature-32)/1.8;
         self.tempreView.tempreType.text = @"℃";
     }
-    self.tempreView.tempretureValue.text = [NSString stringWithFormat:@"%.1f",temperatureNew];
+    
+    if (![temperatureString isEqualToString:@"--"]) {
+        self.tempreView.tempretureValue.text = [NSString stringWithFormat:@"%.1f",temperatureNew];
+    }
 }
 
 #pragma mark - 蓝牙回调
@@ -119,6 +125,8 @@
         self.tempreView.tempreType.text = @"℃";
     }
     self.tempreView.tempretureValue.text = [NSString stringWithFormat:@"%.1f",temperatureNew];
+    
+    [self.tempreView.tempre_loading stopRotating];
 }
 
 

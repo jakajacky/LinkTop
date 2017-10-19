@@ -12,7 +12,7 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *tempre_tech;
 
-@property (strong, nonatomic) IBOutlet UIImageView *tempre_loading;
+
 @property (strong, nonatomic) IBOutlet UIView *bg1;
 @property (strong, nonatomic) IBOutlet UIView *bg2;
 
