@@ -7,6 +7,7 @@
 //
 
 #import "DRSegmentControl.h"
+#import "UIView+Corner.h"
 
 @interface DRSegmentControl ()
 
@@ -33,6 +34,7 @@
     [_segOne.titleLabel setFont:[UIFont systemFontOfSize:14]];
     [_segOne setTintColor:UIColorHex(#ffffff)];
     _segOne.backgroundColor = UIColorHex(#4A90E2);
+    [_segOne setViewCorner:2 byRoundingCorners:UIRectCornerTopLeft|UIRectCornerBottomLeft];
     [_segOne addTarget:self action:@selector(segOneDidClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     _segTwo = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -41,6 +43,7 @@
     [_segTwo.titleLabel setFont:[UIFont systemFontOfSize:14]];
     [_segTwo setTintColor:UIColorHex(#666666)];
     _segTwo.backgroundColor = UIColorHex(#DDDDDD);
+    [_segTwo setViewCorner:2 byRoundingCorners:UIRectCornerTopRight|UIRectCornerBottomRight];
     [_segTwo addTarget:self action:@selector(segTwoDidClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     [self addSubview:_segOne];

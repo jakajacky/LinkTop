@@ -30,11 +30,11 @@
     
     _navi = [[DRNavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.width, naviHeight)
                                                          LeftImage:[UIImage imageNamed:@"back_icon"]
-                                                         LeftTitle:@"Back"
+                                                         LeftTitle:@""
                                                        MiddleImage:[UIImage imageNamed:@"tempre_icon"]
                                                        MiddleTitle:@"体温测量"
                                                         RightImage:[UIImage imageNamed:@"faq_icon"]
-                                                        RightTitle:@"详细"];
+                                                        RightTitle:@""];
     
     [self addSubview:_navi];
     
@@ -43,6 +43,8 @@
     _controlTypeOfTemp.segTwoTitle = @"℉";
     
     [_segmentContainer addSubview:_controlTypeOfTemp];
+    
+    _startMeasureBtn.layer.cornerRadius = 4;
 }
 
 - (void)dealloc {

@@ -75,12 +75,17 @@
     __weak typeof(self) myself = self;
     _rightview = [[MeasureNaviRightView alloc] initWithFrame:CGRectMake(0, 0, 160, 44)];
     _rightview.connectBlock = ^(BOOL isConnected) {
-        NSLog(@"连接");
-        for (int i = 0; i<self.peripherals.count; i++) {
-            NSDictionary *dic = myself.peripherals[i];
-            if ([dic[@"LocalName"] isEqualToString:@"HC02-F00483"]) {
-                [myself.sdkHealth connectBlueTooth:myself.peripherals.firstObject[@"peripheral"]];
-                [myself.sdkHealth scanStop];
+        if (myself.peripheral) {
+            NSLog(@"准备断开连接");
+            [myself.sdkHealth disconnectBlueTooth:myself.peripheral];
+        }
+        else {
+            NSLog(@"准备连接");
+            for (int i = 0; i<self.peripherals.count; i++) {
+                NSDictionary *dic = myself.peripherals[i];
+                if ([dic[@"LocalName"] isEqualToString:@"HC02-F0046A"]) {//483
+                    [myself.sdkHealth connectBlueTooth:myself.peripherals.firstObject[@"peripheral"]];
+                }
             }
         }
     };
@@ -89,15 +94,21 @@
     
 }
 
+#pragma mark - 蓝牙断开了连接
+- (void)didPeripheralDisconnected {
+    
+}
+
+#pragma mark - 蓝牙连接上了
+- (void)didPeripheralConnected:(CBPeripheral *)peripheral {
+    
+}
 
 #pragma mark - 蓝牙回调
 - (void)didScanedPeripherals:(NSMutableArray *)foundPeripherals {
     NSLog(@"搜索到设备个数%ld",(long)foundPeripherals.count);
     [self.peripherals removeAllObjects];
     [self.peripherals addObjectsFromArray:foundPeripherals];
-    
-//    [self.sdkHealth connectBlueTooth:foundPeripherals.firstObject[@"peripheral"]];
-//    [self.sdkHealth scanStop];
 }
 
 - (void)didConnectPeripheral:(CBPeripheral *)peripheral {
@@ -105,10 +116,17 @@
     self.peripheral = peripheral;
     [DeviceManger defaultManager].peripheral = peripheral;
     self.rightview.isPeriperalConnected = YES;
+    
+    [self.sdkHealth scanStop];
 }
 
 - (void)disconnectPeripheral:(CBPeripheral *)peripheral {
     NSLog(@"蓝牙断开连接");
+    self.peripheral = nil;
+    [DeviceManger defaultManager].peripheral = nil;
+    self.rightview.isPeriperalConnected = NO;
+    
+    [self.sdkHealth scanStart];
 }
 
 /**

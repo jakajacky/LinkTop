@@ -25,6 +25,7 @@
 		6E442AB81F98BD6700D1293B /* UIView+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E442AB71F98BD6700D1293B /* UIView+Rotate.m */; };
 		6E442ABB1F98C7A100D1293B /* tempre_loading_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E442AB91F98C79C00D1293B /* tempre_loading_bg@2x.png */; };
 		6E442ABC1F98C7A100D1293B /* tempre_loading_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E442ABA1F98C79D00D1293B /* tempre_loading_bg@3x.png */; };
+		6E442AC21F98D4EC00D1293B /* UIView+Corner.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E442AC01F98D4EC00D1293B /* UIView+Corner.m */; };
 		6E575AD21F94874A00C073F5 /* measure_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E575AC21F94874200C073F5 /* measure_normal@2x.png */; };
 		6E575AD31F94875000C073F5 /* measure_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E575AC31F94874200C073F5 /* measure_normal@3x.png */; };
 		6E575AD41F94875000C073F5 /* measure_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E575AC41F94874200C073F5 /* measure_selected@2x.png */; };
@@ -198,6 +199,8 @@
 		6E442AB71F98BD6700D1293B /* UIView+Rotate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Rotate.m"; sourceTree = "<group>"; };
 		6E442AB91F98C79C00D1293B /* tempre_loading_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tempre_loading_bg@2x.png"; sourceTree = "<group>"; };
 		6E442ABA1F98C79D00D1293B /* tempre_loading_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tempre_loading_bg@3x.png"; sourceTree = "<group>"; };
+		6E442AC01F98D4EC00D1293B /* UIView+Corner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Corner.m"; sourceTree = "<group>"; };
+		6E442AC11F98D4EC00D1293B /* UIView+Corner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Corner.h"; sourceTree = "<group>"; };
 		6E575AC21F94874200C073F5 /* measure_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "measure_normal@2x.png"; sourceTree = "<group>"; };
 		6E575AC31F94874200C073F5 /* measure_normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "measure_normal@3x.png"; sourceTree = "<group>"; };
 		6E575AC41F94874200C073F5 /* measure_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "measure_selected@2x.png"; sourceTree = "<group>"; };
@@ -470,6 +473,8 @@
 		6E442A641F983B1500D1293B /* DRSegmentControl */ = {
 			isa = PBXGroup;
 			children = (
+				6E442AC11F98D4EC00D1293B /* UIView+Corner.h */,
+				6E442AC01F98D4EC00D1293B /* UIView+Corner.m */,
 				6E442A651F983B2300D1293B /* DRSegmentControl.h */,
 				6E442A661F983B2300D1293B /* DRSegmentControl.m */,
 			);
@@ -1243,6 +1248,7 @@
 				6E822F121F96F893005A6804 /* DeviceName.m in Sources */,
 				6E575C981F94969300C073F5 /* NSKeyedUnarchiver+YYAdd.m in Sources */,
 				6E575C9D1F94969300C073F5 /* NSObject+YYAddForKVO.m in Sources */,
+				6E442AC21F98D4EC00D1293B /* UIView+Corner.m in Sources */,
 				6E442AB31F98A9DE00D1293B /* DeviceManger.m in Sources */,
 				6E575C581F9495A800C073F5 /* YYGestureRecognizer.m in Sources */,
 				6E575C6D1F94965B00C073F5 /* YYTextDebugOption.m in Sources */,
