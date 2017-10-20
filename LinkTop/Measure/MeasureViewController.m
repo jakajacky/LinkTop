@@ -49,7 +49,15 @@
 //    self.sdkHealth.sdkHealthMoniterdelegate =self;
     
     self.peripherals = [NSMutableArray array];
-    [self.sdkHealth scanStart];
+//    CBCentralManager *manager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
+//
+//    NSArray *a = [manager retrievePeripheralsWithIdentifiers:@[[[NSUUID alloc] initWithUUIDString:@"0B3041FC-F171-EDD1-D432-15F523D33ED2"]]];
+//    if (a.count>0) {
+//        [self.peripherals addObjectsFromArray:a];
+//    }
+//    else {
+//        [self.sdkHealth scanStart];
+//    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -90,18 +98,23 @@
             [SVProgressHUD show];
             [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
             
-            // 用于超时计算
-            myself.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:myself selector:@selector(timerRun) userInfo:nil repeats:YES];
-            [[NSRunLoop mainRunLoop] addTimer:myself.timer forMode:NSDefaultRunLoopMode];
-            isConnectTimeout = 0;
-            
-            
-            for (int i = 0; i<self.peripherals.count; i++) {
-                NSDictionary *dic = myself.peripherals[i];
-                if ([dic[@"LocalName"] isEqualToString:@"HC02-F00483"]) {//483 46A
-                    [myself.sdkHealth connectBlueTooth:myself.peripherals.firstObject[@"peripheral"]];
+            // 先扫描，2s后开始连接
+            [myself.sdkHealth scanStart];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                // 用于超时计算
+                myself.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:myself selector:@selector(timerRun) userInfo:nil repeats:YES];
+                [[NSRunLoop mainRunLoop] addTimer:myself.timer forMode:NSDefaultRunLoopMode];
+                isConnectTimeout = 0;
+                if (myself.peripherals.count>0) {
+                    NSDictionary *dic = myself.peripherals[0];
+                    if ([dic.allKeys containsObject:@"LocalName"]&&[dic[@"LocalName"] isEqualToString:@"HC02-F00483"]) {//483 46A
+                        [myself.sdkHealth connectBlueTooth:myself.peripherals.firstObject[@"peripheral"]];
+                    }
                 }
-            }
+                
+            });
+            
+            
         }
     };
     
@@ -136,8 +149,8 @@
     self.peripheral = nil;
     [DeviceManger defaultManager].peripheral = nil;
     self.rightview.isPeriperalConnected = NO;
-    
-    [self.sdkHealth scanStart];
+    [self.peripherals removeAllObjects];
+//    [self.sdkHealth scanStart];
 }
 
 /**
@@ -218,8 +231,13 @@
     self.peripheral = nil;
     [DeviceManger defaultManager].peripheral = nil;
     self.rightview.isPeriperalConnected = NO;
+    [self.peripherals removeAllObjects];
+//    [self.sdkHealth scanStart];
     
-    [self.sdkHealth scanStart];
+    // 重置计数器
+    isConnectTimeout = 0;
+    [_timer invalidate];
+    _timer = nil;
 }
 
 
@@ -282,6 +300,8 @@
         isConnectTimeout = 0;
         [_timer invalidate];
         _timer = nil;
+        
+        [self.sdkHealth scanStop];
     }
 }
 
@@ -289,14 +309,28 @@
   return NO;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - 进入温度测量页面
+- (IBAction)TemperatureBtnDidClicked:(id)sender {
+    if (!self.peripheral) {
+        [SVProgressHUD showErrorWithStatus:@"未连接设备"];
+        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+        [SVProgressHUD dismissWithDelay:1.5];
+    }
+    else {
+        [self performSegueWithIdentifier:@"temperature" sender:self];
+    }
 }
-*/
+
+#pragma mark - 进入血氧测量页面
+- (IBAction)Spo2hBtnDidClicked:(id)sender {
+    if (!self.peripheral) {
+        [SVProgressHUD showErrorWithStatus:@"未连接设备"];
+        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+        [SVProgressHUD dismissWithDelay:1.5];
+    }
+    else {
+        [self performSegueWithIdentifier:@"spo2h" sender:self];
+    }
+}
 
 @end

@@ -191,6 +191,12 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4HD-Ju-yKd">
+                                                <rect key="frame" x="0.0" y="0.0" width="169" height="136"/>
+                                                <connections>
+                                                    <action selector="Spo2hBtnDidClicked:" destination="mLy-NW-5SV" eventType="touchUpInside" id="wZv-oE-ETh"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -198,11 +204,15 @@
                                             <constraint firstItem="aqa-Cv-o9K" firstAttribute="top" secondItem="14B-Lb-LPx" secondAttribute="top" id="E03-ei-ok2"/>
                                             <constraint firstItem="aqa-Cv-o9K" firstAttribute="height" secondItem="14B-Lb-LPx" secondAttribute="height" multiplier="78:130" id="GId-4h-uYR"/>
                                             <constraint firstItem="YFd-yr-8yj" firstAttribute="centerX" secondItem="14B-Lb-LPx" secondAttribute="centerX" id="I8H-pu-a9d"/>
+                                            <constraint firstAttribute="trailing" secondItem="4HD-Ju-yKd" secondAttribute="trailing" id="Jrt-1B-KxL"/>
                                             <constraint firstItem="AnO-tq-Jyo" firstAttribute="top" secondItem="YFd-yr-8yj" secondAttribute="bottom" id="LYe-V6-rbp"/>
                                             <constraint firstAttribute="bottom" secondItem="qri-HT-63P" secondAttribute="bottom" id="SY7-QO-u9q"/>
                                             <constraint firstItem="qri-HT-63P" firstAttribute="centerX" secondItem="14B-Lb-LPx" secondAttribute="centerX" id="WDq-kx-OjP"/>
+                                            <constraint firstItem="4HD-Ju-yKd" firstAttribute="leading" secondItem="14B-Lb-LPx" secondAttribute="leading" id="XB4-Yv-d0m"/>
+                                            <constraint firstItem="4HD-Ju-yKd" firstAttribute="top" secondItem="14B-Lb-LPx" secondAttribute="top" id="b5H-T0-qtx"/>
                                             <constraint firstItem="YFd-yr-8yj" firstAttribute="top" secondItem="aqa-Cv-o9K" secondAttribute="bottom" id="pSp-NG-jHQ"/>
                                             <constraint firstItem="aqa-Cv-o9K" firstAttribute="centerX" secondItem="14B-Lb-LPx" secondAttribute="centerX" id="qd9-Ue-3Wc"/>
+                                            <constraint firstAttribute="bottom" secondItem="4HD-Ju-yKd" secondAttribute="bottom" id="ugr-N6-LJM"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mDw-wH-IKc">
@@ -231,7 +241,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HVs-UP-L2s">
                                                 <rect key="frame" x="0.0" y="0.0" width="169" height="138"/>
                                                 <connections>
-                                                    <segue destination="Lgv-3A-Lwz" kind="presentation" id="2Ag-F9-3on"/>
+                                                    <action selector="TemperatureBtnDidClicked:" destination="mLy-NW-5SV" eventType="touchUpInside" id="Xbp-ob-jsr"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -412,10 +422,42 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="测量" image="measure_normal.png" selectedImage="measure_selected.png" id="Mhv-Bg-WgL"/>
                     <navigationItem key="navigationItem" title="测量" id="HWZ-It-z5a"/>
+                    <connections>
+                        <segue destination="Lgv-3A-Lwz" kind="presentation" identifier="temperature" id="Bja-Nk-T2w"/>
+                        <segue destination="ghs-Dq-KdC" kind="presentation" identifier="spo2h" id="Daf-jD-u1U"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aux-Fn-6rW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="248.80000000000001" y="-485.30734632683664"/>
+        </scene>
+        <!--Spo 2h View Controller-->
+        <scene sceneID="f1M-u4-pbH">
+            <objects>
+                <viewController id="ghs-Dq-KdC" customClass="Spo2hViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hzx-JX-gd5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xew-Fb-Ehb">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="4x1-dT-zfD"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Xew-Fb-Ehb" firstAttribute="top" secondItem="jjf-Bw-PzT" secondAttribute="top" id="ORz-vY-5D9"/>
+                            <constraint firstItem="Xew-Fb-Ehb" firstAttribute="trailing" secondItem="jjf-Bw-PzT" secondAttribute="trailing" id="bWP-Ut-fKj"/>
+                            <constraint firstItem="Xew-Fb-Ehb" firstAttribute="leading" secondItem="jjf-Bw-PzT" secondAttribute="leading" id="jvQ-tK-DRF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jjf-Bw-PzT"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O2S-nu-CGD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1025" y="-485"/>
         </scene>
         <!--Temper View Controller-->
         <scene sceneID="e0d-Pi-m8T">
@@ -586,7 +628,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cm7-lr-vAZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1053.5999999999999" y="-486.20689655172418"/>
+            <point key="canvasLocation" x="1025" y="-1190"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="k81-cS-3uS">

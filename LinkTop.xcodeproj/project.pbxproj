@@ -160,6 +160,7 @@
 		6E878D511F9999ED007C1265 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E878D4C1F9999E4007C1265 /* SVProgressHUD.m */; };
 		6E878D521F9999ED007C1265 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E878D4E1F9999E4007C1265 /* SVRadialGradientLayer.m */; };
 		6E878D531F9999EF007C1265 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6E878D4A1F9999E4007C1265 /* SVProgressHUD.bundle */; };
+		6E878D581F99BEC9007C1265 /* Spo2hViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E878D571F99BEC9007C1265 /* Spo2hViewController.m */; };
 		6E8F096C1F8C5BA10002467A /* MeasureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8F096B1F8C5BA10002467A /* MeasureViewController.m */; };
 		6E8F096F1F8C5BB20002467A /* MeasureListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8F096E1F8C5BB20002467A /* MeasureListViewController.m */; };
 		6E8F09721F8C5BCC0002467A /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8F09711F8C5BCC0002467A /* QuestionViewController.m */; };
@@ -448,6 +449,8 @@
 		6E878D4C1F9999E4007C1265 /* SVProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		6E878D4D1F9999E4007C1265 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
 		6E878D4E1F9999E4007C1265 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
+		6E878D561F99BEC9007C1265 /* Spo2hViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Spo2hViewController.h; sourceTree = "<group>"; };
+		6E878D571F99BEC9007C1265 /* Spo2hViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Spo2hViewController.m; sourceTree = "<group>"; };
 		6E8F096A1F8C5BA10002467A /* MeasureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeasureViewController.h; sourceTree = "<group>"; };
 		6E8F096B1F8C5BA10002467A /* MeasureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeasureViewController.m; sourceTree = "<group>"; };
 		6E8F096D1F8C5BB20002467A /* MeasureListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeasureListViewController.h; sourceTree = "<group>"; };
@@ -991,6 +994,8 @@
 		6E822F371F972EED005A6804 /* Spo2hViewController */ = {
 			isa = PBXGroup;
 			children = (
+				6E878D561F99BEC9007C1265 /* Spo2hViewController.h */,
+				6E878D571F99BEC9007C1265 /* Spo2hViewController.m */,
 			);
 			path = Spo2hViewController;
 			sourceTree = "<group>";
@@ -1296,6 +1301,7 @@
 				6E575C9A1F94969300C073F5 /* NSNumber+YYAdd.m in Sources */,
 				6E575C9B1F94969300C073F5 /* NSObject+YYAdd.m in Sources */,
 				6E575C8E1F94968000C073F5 /* UITableView+YYAdd.m in Sources */,
+				6E878D581F99BEC9007C1265 /* Spo2hViewController.m in Sources */,
 				6E575C811F94967200C073F5 /* YYKVStorage.m in Sources */,
 				6E575C641F94964E00C073F5 /* NSParagraphStyle+YYText.m in Sources */,
 				6E575C851F94968000C073F5 /* UIBezierPath+YYAdd.m in Sources */,
