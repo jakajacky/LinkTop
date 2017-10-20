@@ -1,25 +1,24 @@
 //
-//  Spo2hViewController.m
+//  HeartRateViewController.m
 //  LinkTop
 //
 //  Created by XiaoQiang on 2017/10/20.
 //  Copyright © 2017年 XiaoQiang. All rights reserved.
 //
 
-#import "Spo2hViewController.h"
-#import "Spo2hView.h"
+#import "HeartRateViewController.h"
+#import "HeartRateView.h"
 #import "LibHealthCombineSDK.h"
 #import "SDKHealthMoniter.h"
 #import "UIView+Rotate.h"
+@interface HeartRateViewController ()<sdkHealthMoniterDelegate>
 
-@interface Spo2hViewController ()<sdkHealthMoniterDelegate>
-
-@property (nonatomic, strong) Spo2hView *spo2hView;
+@property (nonatomic, strong) HeartRateView *heartRateView;
 @property (nonatomic, strong) SDKHealthMoniter *sdkHealth;
 
 @end
 
-@implementation Spo2hViewController
+@implementation HeartRateViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,15 +33,15 @@
     self.sdkHealth = [LibHealthCombineSDK Instance].LT_HealthMonitor;
     //    self.sdkHealth = [[SDKHealthMoniter alloc] init];
     //    self.sdkHealth.sdkHealthMoniterdelegate =self;
-    self.spo2hView.navi.leftViewDidClicked = ^{
+    self.heartRateView.navi.leftViewDidClicked = ^{
         [myself dismissViewControllerAnimated:YES completion:^{
             
         }];
     };
     
-    [self.spo2hView.startMeasureBtn addTarget:self
-                                       action:@selector(startMeasureBtnDidClicked:)
-                             forControlEvents:UIControlEventTouchUpInside];
+    [self.heartRateView.startMeasureBtn addTarget:self
+                                           action:@selector(startMeasureBtnDidClicked:)
+                                 forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,7 +50,7 @@
 }
 
 - (void)dealloc {
-    NSLog(@"Spo2hViewController 释放");
+    NSLog(@"HeartRateViewController 释放");
     [self.view removeFromSuperview];
     [self.view removeAllSubviews];
     self.view = nil;
@@ -61,14 +60,15 @@
     sender.selected = !sender.selected;
     if (sender.selected) {
         // 开始测量
-        [self.spo2hView.tempre_loading startRotating];
+        [self.heartRateView.tempre_loading startRotating];
         [self.sdkHealth startOximetryTest];
     }
     else {
         // 结束测量
-        [self.spo2hView.tempre_loading stopRotating];
+        [self.heartRateView.tempre_loading stopRotating];
         [self.sdkHealth endOximetryTest];
     }
+    
 }
 
 #pragma mark - 蓝牙回调
@@ -100,15 +100,13 @@
  */
 -(void)receiveOximetryData:(double)oxy andHeartRate:(int)heartRate {
     NSLog(@"血氧测量结果：%f, 脉率:%d",oxy,heartRate);
-    //结束
-    self.spo2hView.startMeasureBtn.selected = NO;
-    [self.spo2hView.tempre_loading stopRotating];
+    // 测量结束
+    [self.heartRateView.tempre_loading stopRotating];
+    self.heartRateView.startMeasureBtn.selected = NO;
     [self.sdkHealth endOximetryTest];
-    // 更新UI结果
-    self.spo2hView.Spo2hValue.text     = [NSString stringWithFormat:@"%.1f",oxy];
-    self.spo2hView.PulseRateValue.text = [NSString stringWithFormat:@"%d",heartRate];
-    self.spo2hView.spo2h_unit.text = @"%";
-    self.spo2hView.pulse_unit.text = @"bmp";
+    
+    self.heartRateView.heartRateValue.text = [NSString stringWithFormat:@"%d",heartRate];
+    
 }
 
 
@@ -121,6 +119,7 @@
  *          Heart_beat value
  */
 -(void)receiveBloodPressure:(int)Systolic_pressure andDiastolic_pressure:(int)Diastolic_pressure andHeart_beat:(int)Heart_beat {
+    NSLog(@"血压测量结果：%d, %d",Systolic_pressure,Diastolic_pressure);
     
 }
 
@@ -143,35 +142,36 @@
  *                  mood value smoothWave LineData heartRate Value
  */
 -(void)receiveECGDataRRmax:(int)rrMax {
-    
+    NSLog(@"心电区间最大值：%d",rrMax);
 }
 
 -(void)receiveECGDataRRMin:(int)rrMin {
-    
+    NSLog(@"心电区间最小值：%d",rrMin);
 }
 
 -(void)receiveECGDataHRV:(int)hrv {
-    
+    NSLog(@"心率变异性：%d",hrv);
 }
 
 -(void)receiveECGDataMood:(int)mood {
-    
+    NSLog(@"心情值：%d",mood);
 }
 
 -(void)receiveECGDataSmoothedWave:(int)smoothedWave {
-    
+    NSLog(@"revData：%d",smoothedWave);
 }
 
 -(void)receiveECGDataHeartRate:(int)heartRate {
-    
+    NSLog(@"心率结果：%d",heartRate);
+
 }
 
 #pragma mark - properties
-- (Spo2hView *)spo2hView {
-    if (!_spo2hView) {
-        _spo2hView = (Spo2hView *)self.view;
+- (HeartRateView *)heartRateView {
+    if (!_heartRateView) {
+        _heartRateView = (HeartRateView *)self.view;
     }
-    return _spo2hView;
+    return _heartRateView;
 }
 
 @end

@@ -45,9 +45,9 @@
         }];
     };
     
-    
-    
-    [self.tempreView.startMeasureBtn addTarget:self action:@selector(startMeasureBtnDidClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.tempreView.startMeasureBtn addTarget:self
+                                        action:@selector(startMeasureBtnDidClicked:)
+                              forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -74,9 +74,18 @@
 }
 
 - (void)startMeasureBtnDidClicked:(UIButton *)sender {
-    // 开始动画
-    [self.tempreView.tempre_loading startRotating];
-    [self.sdkHealth startThermometerTest];
+    sender.selected = !sender.selected;
+    if (sender.selected) {
+        // 开始测量
+        [self.tempreView.tempre_loading startRotating];
+        [self.sdkHealth startThermometerTest];
+    }
+    else {
+        // 结束测量
+        [self.tempreView.tempre_loading stopRotating];
+        [self.sdkHealth endThermometerTest];
+    }
+    
 }
 
 #pragma mark - 处理温度单位
@@ -115,6 +124,12 @@
  */
 -(void)receiveThermometerData:(double)temperature {
     NSLog(@"体温测量结果：%f",temperature);
+    // 结束
+    self.tempreView.startMeasureBtn.selected = NO;
+    [self.tempreView.tempre_loading stopRotating];
+    [self.sdkHealth endThermometerTest];
+    
+    // 更新UI结果
     double temperatureNew = temperature*1.8+32;
     if (self.tempreView.controlTypeOfTemp.currentIndex==1) {
         self.tempreView.tempreType.text = @"℉";
@@ -125,8 +140,6 @@
         self.tempreView.tempreType.text = @"℃";
     }
     self.tempreView.tempretureValue.text = [NSString stringWithFormat:@"%.1f",temperatureNew];
-    
-    [self.tempreView.tempre_loading stopRotating];
 }
 
 

@@ -333,4 +333,16 @@
     }
 }
 
+#pragma mark - 进入心率测量页面
+- (IBAction)HeartRateBtnDidClicked:(id)sender {
+    if (!self.peripheral) {
+        [SVProgressHUD showErrorWithStatus:@"未连接设备"];
+        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+        [SVProgressHUD dismissWithDelay:1.5];
+    }
+    else {
+        [self performSegueWithIdentifier:@"heartrate" sender:self];
+    }
+}
+
 @end
