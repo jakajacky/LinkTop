@@ -12,6 +12,10 @@
 
 @property (nonatomic, strong) CBPeripheral *peripheral;
 
+@property (nonatomic, strong) NSString *softVersion;
+@property (nonatomic, strong) NSString *hardVersion;
+@property (nonatomic, strong) NSString *deviceID;
+
 + (instancetype)defaultManager;
 
 

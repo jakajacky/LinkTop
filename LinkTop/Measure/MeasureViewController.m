@@ -11,15 +11,22 @@
 #import "MeasureNaviLeftView.h"
 #import "LibHealthCombineSDK.h"
 #import "SDKHealthMoniter.h"
+
+#define ConnectTimeout 10
+
 @interface MeasureViewController ()<sdkHealthMoniterDelegate>
+{
+    int isConnectTimeout;
+}
+@property (nonatomic, strong) SDKHealthMoniter     *sdkHealth;
 
-@property (nonatomic, strong) SDKHealthMoniter *sdkHealth;
+@property (nonatomic, strong) CBPeripheral         *peripheral;
 
-@property (nonatomic, strong) CBPeripheral *peripheral;
-
-@property (nonatomic, strong) NSMutableArray *peripherals;
+@property (nonatomic, strong) NSMutableArray       *peripherals;
 
 @property (nonatomic, strong) MeasureNaviRightView *rightview;
+
+@property (nonatomic, strong) NSTimer              *timer;
 
 @end
 
@@ -80,10 +87,18 @@
             [myself.sdkHealth disconnectBlueTooth:myself.peripheral];
         }
         else {
-            NSLog(@"准备连接");
+            [SVProgressHUD show];
+            [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+            
+            // 用于超时计算
+            myself.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:myself selector:@selector(timerRun) userInfo:nil repeats:YES];
+            [[NSRunLoop mainRunLoop] addTimer:myself.timer forMode:NSDefaultRunLoopMode];
+            isConnectTimeout = 0;
+            
+            
             for (int i = 0; i<self.peripherals.count; i++) {
                 NSDictionary *dic = myself.peripherals[i];
-                if ([dic[@"LocalName"] isEqualToString:@"HC02-F0046A"]) {//483
+                if ([dic[@"LocalName"] isEqualToString:@"HC02-F00483"]) {//483 46A
                     [myself.sdkHealth connectBlueTooth:myself.peripherals.firstObject[@"peripheral"]];
                 }
             }
@@ -91,16 +106,6 @@
     };
     
     [ChangeView2GradientColor changeControllerView:self.view withNavi:self.navigationItem setLeftView:leftview RightView:_rightview Title:title_copy];
-    
-}
-
-#pragma mark - 蓝牙断开了连接
-- (void)didPeripheralDisconnected {
-    
-}
-
-#pragma mark - 蓝牙连接上了
-- (void)didPeripheralConnected:(CBPeripheral *)peripheral {
     
 }
 
@@ -116,12 +121,18 @@
     self.peripheral = peripheral;
     [DeviceManger defaultManager].peripheral = peripheral;
     self.rightview.isPeriperalConnected = YES;
-    
+
+    [SVProgressHUD dismissWithDelay:0.37];
     [self.sdkHealth scanStop];
+    
+    // 重置计数器
+    isConnectTimeout = 0;
+    [_timer invalidate];
+    _timer = nil;
 }
 
 - (void)disconnectPeripheral:(CBPeripheral *)peripheral {
-    NSLog(@"蓝牙断开连接");
+    NSLog(@"蓝牙主动断开连接");
     self.peripheral = nil;
     [DeviceManger defaultManager].peripheral = nil;
     self.rightview.isPeriperalConnected = NO;
@@ -202,6 +213,77 @@
     
 }
 
+-(void)blueToothAbnormalDisconnect {
+    NSLog(@"蓝牙异常断开连接");
+    self.peripheral = nil;
+    [DeviceManger defaultManager].peripheral = nil;
+    self.rightview.isPeriperalConnected = NO;
+    
+    [self.sdkHealth scanStart];
+}
+
+
+/*!
+ *  @method bloodPressureAbnormal
+ *
+ *  @param message   The <code>str</code> that abnormal message.
+ *
+ *  @discussion         This method is invoked when bloodPressure
+ *  abnormal dicconnect
+ */
+-(void)bloodPressureAbnormal:(NSString *)message {
+    NSLog(@"血压异常：%@",message);
+}
+
+
+/*!
+ *  @method softVersion  软件版本
+ *
+ *  @param softversion   software version in device
+ */
+- (void)softVersion:(NSString*) softversion {
+    NSLog(@"软件版本：%@",softversion);
+    [DeviceManger defaultManager].softVersion = softversion;
+}
+
+
+
+/*!
+ *  @method hardVersion  硬件版本
+ *
+ *  @param hardversion  hardware version
+ *
+ */
+- (void)hardVersion:(NSString*)hardversion {
+    NSLog(@"硬件版本：%@",hardversion);
+    [DeviceManger defaultManager].hardVersion = hardversion;
+}
+
+/*!
+ *  @method devicePidAndKey  获取设备id 和 安全码
+ *
+ *  @param pid 设备id
+ *  @param key 安全码
+ *
+ */
+- (void)devicePidAndKey:(NSString *)pid Key:(NSString *)key {
+    NSLog(@"设备id:%@,安全码%@", pid,key);
+}
+
+#pragma mark - 超时计算
+- (void)timerRun {
+    NSLog(@"....");
+    isConnectTimeout += 1;
+    if (isConnectTimeout >= ConnectTimeout) {
+        [SVProgressHUD showErrorWithStatus:@"连接超时,请检查设备"];
+        [SVProgressHUD dismissWithDelay:1.5];
+        
+        // 重置计数器
+        isConnectTimeout = 0;
+        [_timer invalidate];
+        _timer = nil;
+    }
+}
 
 - (BOOL)prefersStatusBarHidden {
   return NO;

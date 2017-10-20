@@ -155,6 +155,11 @@
 		6E822F4C1F974B2D005A6804 /* tempre_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E822F461F974B26005A6804 /* tempre_icon@2x.png */; };
 		6E822F4D1F974B2D005A6804 /* tempre_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E822F471F974B26005A6804 /* tempre_icon@3x.png */; };
 		6E822F511F9750C2005A6804 /* DRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E822F501F9750C2005A6804 /* DRNavigationBar.m */; };
+		6E878D4F1F9999ED007C1265 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E878D461F9999E4007C1265 /* SVIndefiniteAnimatedView.m */; };
+		6E878D501F9999ED007C1265 /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E878D481F9999E4007C1265 /* SVProgressAnimatedView.m */; };
+		6E878D511F9999ED007C1265 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E878D4C1F9999E4007C1265 /* SVProgressHUD.m */; };
+		6E878D521F9999ED007C1265 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E878D4E1F9999E4007C1265 /* SVRadialGradientLayer.m */; };
+		6E878D531F9999EF007C1265 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6E878D4A1F9999E4007C1265 /* SVProgressHUD.bundle */; };
 		6E8F096C1F8C5BA10002467A /* MeasureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8F096B1F8C5BA10002467A /* MeasureViewController.m */; };
 		6E8F096F1F8C5BB20002467A /* MeasureListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8F096E1F8C5BB20002467A /* MeasureListViewController.m */; };
 		6E8F09721F8C5BCC0002467A /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8F09711F8C5BCC0002467A /* QuestionViewController.m */; };
@@ -433,6 +438,16 @@
 		6E822F471F974B26005A6804 /* tempre_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tempre_icon@3x.png"; sourceTree = "<group>"; };
 		6E822F4F1F9750C2005A6804 /* DRNavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRNavigationBar.h; sourceTree = "<group>"; };
 		6E822F501F9750C2005A6804 /* DRNavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRNavigationBar.m; sourceTree = "<group>"; };
+		6E878D451F9999E4007C1265 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		6E878D461F9999E4007C1265 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		6E878D471F9999E4007C1265 /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SVProgressAnimatedView.h; sourceTree = "<group>"; };
+		6E878D481F9999E4007C1265 /* SVProgressAnimatedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SVProgressAnimatedView.m; sourceTree = "<group>"; };
+		6E878D491F9999E4007C1265 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		6E878D4A1F9999E4007C1265 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		6E878D4B1F9999E4007C1265 /* SVProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		6E878D4C1F9999E4007C1265 /* SVProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		6E878D4D1F9999E4007C1265 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
+		6E878D4E1F9999E4007C1265 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
 		6E8F096A1F8C5BA10002467A /* MeasureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeasureViewController.h; sourceTree = "<group>"; };
 		6E8F096B1F8C5BA10002467A /* MeasureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeasureViewController.m; sourceTree = "<group>"; };
 		6E8F096D1F8C5BB20002467A /* MeasureListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeasureListViewController.h; sourceTree = "<group>"; };
@@ -603,6 +618,7 @@
 		6E575AE61F948D7D00C073F5 /* Supports */ = {
 			isa = PBXGroup;
 			children = (
+				6E878D441F9999E4007C1265 /* SVProgressHUD */,
 				6E442AB51F98B6FB00D1293B /* ViewAnimation */,
 				6E442AB01F98A9D200D1293B /* DeviceManager */,
 				6E442A931F988BBA00D1293B /* LinkTopSDK */,
@@ -1031,6 +1047,23 @@
 			path = DRNavigationBar;
 			sourceTree = "<group>";
 		};
+		6E878D441F9999E4007C1265 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				6E878D451F9999E4007C1265 /* SVIndefiniteAnimatedView.h */,
+				6E878D461F9999E4007C1265 /* SVIndefiniteAnimatedView.m */,
+				6E878D471F9999E4007C1265 /* SVProgressAnimatedView.h */,
+				6E878D481F9999E4007C1265 /* SVProgressAnimatedView.m */,
+				6E878D491F9999E4007C1265 /* SVProgressHUD-Prefix.pch */,
+				6E878D4A1F9999E4007C1265 /* SVProgressHUD.bundle */,
+				6E878D4B1F9999E4007C1265 /* SVProgressHUD.h */,
+				6E878D4C1F9999E4007C1265 /* SVProgressHUD.m */,
+				6E878D4D1F9999E4007C1265 /* SVRadialGradientLayer.h */,
+				6E878D4E1F9999E4007C1265 /* SVRadialGradientLayer.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
 		6E8F09661F8C5B910002467A /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -1215,6 +1248,7 @@
 				6E442A631F98392400D1293B /* tempre_loading@3x.png in Resources */,
 				6EAFB5201F8B7C3400949C31 /* Main.storyboard in Resources */,
 				6E575ADC1F94875000C073F5 /* question_selected@2x.png in Resources */,
+				6E878D531F9999EF007C1265 /* SVProgressHUD.bundle in Resources */,
 				6E442A621F98392400D1293B /* tempre_loading@2x.png in Resources */,
 				6E822F4B1F974B2D005A6804 /* faq_icon@3x.png in Resources */,
 				6E575ADB1F94875000C073F5 /* question_normal@3x.png in Resources */,
@@ -1249,6 +1283,7 @@
 				6E575C981F94969300C073F5 /* NSKeyedUnarchiver+YYAdd.m in Sources */,
 				6E575C9D1F94969300C073F5 /* NSObject+YYAddForKVO.m in Sources */,
 				6E442AC21F98D4EC00D1293B /* UIView+Corner.m in Sources */,
+				6E878D4F1F9999ED007C1265 /* SVIndefiniteAnimatedView.m in Sources */,
 				6E442AB31F98A9DE00D1293B /* DeviceManger.m in Sources */,
 				6E575C581F9495A800C073F5 /* YYGestureRecognizer.m in Sources */,
 				6E575C6D1F94965B00C073F5 /* YYTextDebugOption.m in Sources */,
@@ -1279,6 +1314,7 @@
 				6E575C7D1F94966B00C073F5 /* YYWebImageManager.m in Sources */,
 				6E575C921F94968600C073F5 /* YYCGUtilities.m in Sources */,
 				6E8F09721F8C5BCC0002467A /* QuestionViewController.m in Sources */,
+				6E878D501F9999ED007C1265 /* SVProgressAnimatedView.m in Sources */,
 				6E575C801F94967200C073F5 /* YYDiskCache.m in Sources */,
 				6E575C661F94964E00C073F5 /* YYTextArchiver.m in Sources */,
 				6E575C871F94968000C073F5 /* UIControl+YYAdd.m in Sources */,
@@ -1302,6 +1338,7 @@
 				6E80DE241F95EFD800D39FE0 /* ALView+PureLayout.m in Sources */,
 				6E575C8F1F94968000C073F5 /* UITextField+YYAdd.m in Sources */,
 				6E8F09751F8C5BD70002467A /* SettingsViewController.m in Sources */,
+				6E878D511F9999ED007C1265 /* SVProgressHUD.m in Sources */,
 				6E575C6A1F94964E00C073F5 /* YYTextRunDelegate.m in Sources */,
 				6EAFB51A1F8B7C3400949C31 /* AppDelegate.m in Sources */,
 				6E575C561F9495A800C073F5 /* YYDispatchQueuePool.m in Sources */,
@@ -1323,6 +1360,7 @@
 				6E575C961F94969300C073F5 /* NSDate+YYAdd.m in Sources */,
 				6E822F511F9750C2005A6804 /* DRNavigationBar.m in Sources */,
 				6E575C781F94966B00C073F5 /* YYFrameImage.m in Sources */,
+				6E878D521F9999ED007C1265 /* SVRadialGradientLayer.m in Sources */,
 				6E575C941F94969300C073F5 /* NSBundle+YYAdd.m in Sources */,
 				6E575C551F94959800C073F5 /* YYAsyncLayer.m in Sources */,
 				6E575C891F94968000C073F5 /* UIFont+YYAdd.m in Sources */,
