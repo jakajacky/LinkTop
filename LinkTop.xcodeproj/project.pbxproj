@@ -180,6 +180,14 @@
 		6E8A35141F9C4FF700F42229 /* bloodpre_loading@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E8A35121F9C4FF400F42229 /* bloodpre_loading@3x.png */; };
 		6E8A35171F9C504F00F42229 /* bloodpre_tutorial@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E8A35151F9C504C00F42229 /* bloodpre_tutorial@2x.png */; };
 		6E8A35181F9C504F00F42229 /* bloodpre_tutorial@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E8A35161F9C504C00F42229 /* bloodpre_tutorial@3x.png */; };
+		6E8A351C1F9C9BEE00F42229 /* ECGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8A351B1F9C9BEE00F42229 /* ECGViewController.m */; };
+		6E8A35201F9C9C0700F42229 /* ECGView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8A351F1F9C9C0700F42229 /* ECGView.m */; };
+		6E8A35261F9C9DA600F42229 /* ecg_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E8A35221F9C9DA100F42229 /* ecg_icon@2x.png */; };
+		6E8A35271F9C9DA600F42229 /* ecg_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E8A35231F9C9DA100F42229 /* ecg_icon@3x.png */; };
+		6E8A35281F9C9DA600F42229 /* ecg_tutorial@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E8A35241F9C9DA100F42229 /* ecg_tutorial@2x.png */; };
+		6E8A35291F9C9DA600F42229 /* ecg_tutorial@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E8A35251F9C9DA100F42229 /* ecg_tutorial@3x.png */; };
+		6E8A352C1F9CA05C00F42229 /* port@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E8A352B1F9CA05800F42229 /* port@2x.png */; };
+		6E8A352D1F9CA05C00F42229 /* port@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E8A352A1F9CA05600F42229 /* port@3x.png */; };
 		6E8F096C1F8C5BA10002467A /* MeasureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8F096B1F8C5BA10002467A /* MeasureViewController.m */; };
 		6E8F096F1F8C5BB20002467A /* MeasureListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8F096E1F8C5BB20002467A /* MeasureListViewController.m */; };
 		6E8F09721F8C5BCC0002467A /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8F09711F8C5BCC0002467A /* QuestionViewController.m */; };
@@ -494,6 +502,16 @@
 		6E8A35121F9C4FF400F42229 /* bloodpre_loading@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bloodpre_loading@3x.png"; sourceTree = "<group>"; };
 		6E8A35151F9C504C00F42229 /* bloodpre_tutorial@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bloodpre_tutorial@2x.png"; sourceTree = "<group>"; };
 		6E8A35161F9C504C00F42229 /* bloodpre_tutorial@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bloodpre_tutorial@3x.png"; sourceTree = "<group>"; };
+		6E8A351A1F9C9BEE00F42229 /* ECGViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECGViewController.h; sourceTree = "<group>"; };
+		6E8A351B1F9C9BEE00F42229 /* ECGViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ECGViewController.m; sourceTree = "<group>"; };
+		6E8A351E1F9C9C0700F42229 /* ECGView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECGView.h; sourceTree = "<group>"; };
+		6E8A351F1F9C9C0700F42229 /* ECGView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ECGView.m; sourceTree = "<group>"; };
+		6E8A35221F9C9DA100F42229 /* ecg_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ecg_icon@2x.png"; sourceTree = "<group>"; };
+		6E8A35231F9C9DA100F42229 /* ecg_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ecg_icon@3x.png"; sourceTree = "<group>"; };
+		6E8A35241F9C9DA100F42229 /* ecg_tutorial@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ecg_tutorial@2x.png"; sourceTree = "<group>"; };
+		6E8A35251F9C9DA100F42229 /* ecg_tutorial@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ecg_tutorial@3x.png"; sourceTree = "<group>"; };
+		6E8A352A1F9CA05600F42229 /* port@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "port@3x.png"; sourceTree = "<group>"; };
+		6E8A352B1F9CA05800F42229 /* port@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "port@2x.png"; sourceTree = "<group>"; };
 		6E8F096A1F8C5BA10002467A /* MeasureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeasureViewController.h; sourceTree = "<group>"; };
 		6E8F096B1F8C5BA10002467A /* MeasureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeasureViewController.m; sourceTree = "<group>"; };
 		6E8F096D1F8C5BB20002467A /* MeasureListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeasureListViewController.h; sourceTree = "<group>"; };
@@ -1000,6 +1018,7 @@
 				6E80DE371F961B2400D39FE0 /* HR_logo@3x.png */,
 				6E80DE331F96190D00D39FE0 /* RI_logo@2x.png */,
 				6E80DE321F96190D00D39FE0 /* RI_logo@3x.png */,
+				6E8A35211F9C9DA100F42229 /* ECG */,
 				6E8A350C1F9C4F4E00F42229 /* BloodPre */,
 				6E822F411F974B26005A6804 /* Tempre */,
 				6E878D5A1F99D945007C1265 /* Spo2h */,
@@ -1184,6 +1203,38 @@
 			path = BloodPre;
 			sourceTree = "<group>";
 		};
+		6E8A35191F9C9BDD00F42229 /* ECGViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6E8A351A1F9C9BEE00F42229 /* ECGViewController.h */,
+				6E8A351B1F9C9BEE00F42229 /* ECGViewController.m */,
+				6E8A351D1F9C9BFB00F42229 /* Views */,
+			);
+			path = ECGViewController;
+			sourceTree = "<group>";
+		};
+		6E8A351D1F9C9BFB00F42229 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6E8A351E1F9C9C0700F42229 /* ECGView.h */,
+				6E8A351F1F9C9C0700F42229 /* ECGView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6E8A35211F9C9DA100F42229 /* ECG */ = {
+			isa = PBXGroup;
+			children = (
+				6E8A352B1F9CA05800F42229 /* port@2x.png */,
+				6E8A352A1F9CA05600F42229 /* port@3x.png */,
+				6E8A35221F9C9DA100F42229 /* ecg_icon@2x.png */,
+				6E8A35231F9C9DA100F42229 /* ecg_icon@3x.png */,
+				6E8A35241F9C9DA100F42229 /* ecg_tutorial@2x.png */,
+				6E8A35251F9C9DA100F42229 /* ecg_tutorial@3x.png */,
+			);
+			path = ECG;
+			sourceTree = "<group>";
+		};
 		6E8F09661F8C5B910002467A /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -1217,6 +1268,7 @@
 				6E8F096A1F8C5BA10002467A /* MeasureViewController.h */,
 				6E8F096B1F8C5BA10002467A /* MeasureViewController.m */,
 				6E575AE21F948C5C00C073F5 /* Views */,
+				6E8A35191F9C9BDD00F42229 /* ECGViewController */,
 				6E822F391F972EED005A6804 /* BloodPreViewController */,
 				6E822F381F972EED005A6804 /* HeartRateViewController */,
 				6E822F371F972EED005A6804 /* Spo2hViewController */,
@@ -1342,16 +1394,20 @@
 				6E822F231F97093B005A6804 /* spo_icon@2x.png in Resources */,
 				6E80DE3C1F961ECE00D39FE0 /* indicator@2x.png in Resources */,
 				6E822F221F97093B005A6804 /* hr_icon@3x.png in Resources */,
+				6E8A35291F9C9DA600F42229 /* ecg_tutorial@3x.png in Resources */,
 				6E878D5D1F99D977007C1265 /* spo2h_tutorial@2x.png in Resources */,
+				6E8A35261F9C9DA600F42229 /* ecg_icon@2x.png in Resources */,
 				6E575ADF1F94875000C073F5 /* setting_normal@3x.png in Resources */,
 				6EAFB5251F8B7C3400949C31 /* LaunchScreen.storyboard in Resources */,
 				6E822F251F97093B005A6804 /* temp_icon@2x.png in Resources */,
 				6E442A5E1F98332D00D1293B /* tempre_tutorial@2x.png in Resources */,
 				6E442A5F1F98332D00D1293B /* tempre_tutorial@3x.png in Resources */,
 				6E575AE11F94875000C073F5 /* setting_selected@3x.png in Resources */,
+				6E8A352D1F9CA05C00F42229 /* port@3x.png in Resources */,
 				6E822F4C1F974B2D005A6804 /* tempre_icon@2x.png in Resources */,
 				6E878D691F99F0C2007C1265 /* spo2h_loading@2x.png in Resources */,
 				6E822F4D1F974B2D005A6804 /* tempre_icon@3x.png in Resources */,
+				6E8A35271F9C9DA600F42229 /* ecg_icon@3x.png in Resources */,
 				6E878D761F99F464007C1265 /* heartRate_loading@3x.png in Resources */,
 				6EAFB5221F8B7C3400949C31 /* Assets.xcassets in Resources */,
 				6E8A35101F9C4FBF00F42229 /* bloodpre_icon@3x.png in Resources */,
@@ -1362,11 +1418,13 @@
 				6E575AD71F94875000C073F5 /* measurelist_normal@3x.png in Resources */,
 				6E575AE01F94875000C073F5 /* setting_selected@2x.png in Resources */,
 				6E575ADA1F94875000C073F5 /* question_normal@2x.png in Resources */,
+				6E8A352C1F9CA05C00F42229 /* port@2x.png in Resources */,
 				6E80DE291F95FE6200D39FE0 /* ble_icon@2x.png in Resources */,
 				6E80DE3D1F961ECE00D39FE0 /* indicator@3x.png in Resources */,
 				6E8A350F1F9C4FBF00F42229 /* bloodpre_icon@2x.png in Resources */,
 				6E822F201F97093B005A6804 /* bp_icon@3x.png in Resources */,
 				6E575ADE1F94875000C073F5 /* setting_normal@2x.png in Resources */,
+				6E8A35281F9C9DA600F42229 /* ecg_tutorial@2x.png in Resources */,
 				6E822F481F974B2D005A6804 /* back_icon@2x.png in Resources */,
 				6E80DE391F961B2800D39FE0 /* HR_logo@3x.png in Resources */,
 				6E575AD61F94875000C073F5 /* measurelist_normal@2x.png in Resources */,
@@ -1422,10 +1480,12 @@
 				6E575C581F9495A800C073F5 /* YYGestureRecognizer.m in Sources */,
 				6E575C6D1F94965B00C073F5 /* YYTextDebugOption.m in Sources */,
 				6E575C951F94969300C073F5 /* NSData+YYAdd.m in Sources */,
+				6E8A351C1F9C9BEE00F42229 /* ECGViewController.m in Sources */,
 				6E442AB81F98BD6700D1293B /* UIView+Rotate.m in Sources */,
 				6E575C7A1F94966B00C073F5 /* YYImageCache.m in Sources */,
 				6E822F2C1F972C61005A6804 /* MeasureNaviLeftView.m in Sources */,
 				6E575C7F1F94967200C073F5 /* YYCache.m in Sources */,
+				6E8A35201F9C9C0700F42229 /* ECGView.m in Sources */,
 				6E575C8C1F94968000C073F5 /* UIScreen+YYAdd.m in Sources */,
 				6E575C9A1F94969300C073F5 /* NSNumber+YYAdd.m in Sources */,
 				6E575C9B1F94969300C073F5 /* NSObject+YYAdd.m in Sources */,
