@@ -345,4 +345,17 @@
     }
 }
 
+#pragma mark - 进入血压测量页面
+- (IBAction)BloodPreBtnDidClicked:(id)sender {
+    if (!self.peripheral) {
+        [SVProgressHUD showErrorWithStatus:@"未连接设备"];
+        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+        [SVProgressHUD dismissWithDelay:1.5];
+    }
+    else {
+        [self performSegueWithIdentifier:@"bloodpre" sender:self];
+    }
+}
+
+
 @end
