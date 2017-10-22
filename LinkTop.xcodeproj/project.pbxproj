@@ -188,6 +188,8 @@
 		6E8A35291F9C9DA600F42229 /* ecg_tutorial@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E8A35251F9C9DA100F42229 /* ecg_tutorial@3x.png */; };
 		6E8A352C1F9CA05C00F42229 /* port@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E8A352B1F9CA05800F42229 /* port@2x.png */; };
 		6E8A352D1F9CA05C00F42229 /* port@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E8A352A1F9CA05600F42229 /* port@3x.png */; };
+		6E8A35311F9CA77D00F42229 /* TripleECGView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8A35301F9CA77A00F42229 /* TripleECGView.m */; };
+		6E8A35341F9CAE1B00F42229 /* LeadPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8A35321F9CAE1B00F42229 /* LeadPlayer.m */; };
 		6E8F096C1F8C5BA10002467A /* MeasureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8F096B1F8C5BA10002467A /* MeasureViewController.m */; };
 		6E8F096F1F8C5BB20002467A /* MeasureListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8F096E1F8C5BB20002467A /* MeasureListViewController.m */; };
 		6E8F09721F8C5BCC0002467A /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8F09711F8C5BCC0002467A /* QuestionViewController.m */; };
@@ -512,6 +514,10 @@
 		6E8A35251F9C9DA100F42229 /* ecg_tutorial@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ecg_tutorial@3x.png"; sourceTree = "<group>"; };
 		6E8A352A1F9CA05600F42229 /* port@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "port@3x.png"; sourceTree = "<group>"; };
 		6E8A352B1F9CA05800F42229 /* port@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "port@2x.png"; sourceTree = "<group>"; };
+		6E8A352F1F9CA77A00F42229 /* TripleECGView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TripleECGView.h; sourceTree = "<group>"; };
+		6E8A35301F9CA77A00F42229 /* TripleECGView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripleECGView.m; sourceTree = "<group>"; };
+		6E8A35321F9CAE1B00F42229 /* LeadPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeadPlayer.m; sourceTree = "<group>"; };
+		6E8A35331F9CAE1B00F42229 /* LeadPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeadPlayer.h; sourceTree = "<group>"; };
 		6E8F096A1F8C5BA10002467A /* MeasureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeasureViewController.h; sourceTree = "<group>"; };
 		6E8F096B1F8C5BA10002467A /* MeasureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeasureViewController.m; sourceTree = "<group>"; };
 		6E8F096D1F8C5BB20002467A /* MeasureListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeasureListViewController.h; sourceTree = "<group>"; };
@@ -682,6 +688,7 @@
 		6E575AE61F948D7D00C073F5 /* Supports */ = {
 			isa = PBXGroup;
 			children = (
+				6E8A352E1F9CA77A00F42229 /* ECGDrawView */,
 				6E878D441F9999E4007C1265 /* SVProgressHUD */,
 				6E442AB51F98B6FB00D1293B /* ViewAnimation */,
 				6E442AB01F98A9D200D1293B /* DeviceManager */,
@@ -1235,6 +1242,17 @@
 			path = ECG;
 			sourceTree = "<group>";
 		};
+		6E8A352E1F9CA77A00F42229 /* ECGDrawView */ = {
+			isa = PBXGroup;
+			children = (
+				6E8A35331F9CAE1B00F42229 /* LeadPlayer.h */,
+				6E8A35321F9CAE1B00F42229 /* LeadPlayer.m */,
+				6E8A352F1F9CA77A00F42229 /* TripleECGView.h */,
+				6E8A35301F9CA77A00F42229 /* TripleECGView.m */,
+			);
+			path = ECGDrawView;
+			sourceTree = "<group>";
+		};
 		6E8F09661F8C5B910002467A /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -1461,6 +1479,7 @@
 				6E575C5B1F9495A800C073F5 /* YYSentinel.m in Sources */,
 				6E575C5D1F9495A800C073F5 /* YYThreadSafeDictionary.m in Sources */,
 				6E575C8D1F94968000C073F5 /* UIScrollView+YYAdd.m in Sources */,
+				6E8A35311F9CA77D00F42229 /* TripleECGView.m in Sources */,
 				6EAFB5281F8B7C3400949C31 /* main.m in Sources */,
 				6E575C601F9495A800C073F5 /* YYWeakProxy.m in Sources */,
 				6E575C6C1F94965B00C073F5 /* YYTextContainerView.m in Sources */,
@@ -1560,6 +1579,7 @@
 				6E822F511F9750C2005A6804 /* DRNavigationBar.m in Sources */,
 				6E878D711F99F288007C1265 /* HeartRateView.m in Sources */,
 				6E575C781F94966B00C073F5 /* YYFrameImage.m in Sources */,
+				6E8A35341F9CAE1B00F42229 /* LeadPlayer.m in Sources */,
 				6E878D521F9999ED007C1265 /* SVRadialGradientLayer.m in Sources */,
 				6E575C941F94969300C073F5 /* NSBundle+YYAdd.m in Sources */,
 				6E575C551F94959800C073F5 /* YYAsyncLayer.m in Sources */,

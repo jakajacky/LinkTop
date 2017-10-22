@@ -11,15 +11,33 @@
 #import "LibHealthCombineSDK.h"
 #import "SDKHealthMoniter.h"
 #import "UIView+Rotate.h"
+#import "TripleECGView.h"
+#import "LeadPlayer.h"
 
 @interface ECGViewController ()<sdkHealthMoniterDelegate>
 
 @property (nonatomic, strong) ECGView *ecgView;
+@property (nonatomic, strong) TripleECGView *ecgLine;
 @property (nonatomic, strong) SDKHealthMoniter *sdkHealth;
+
+@property (nonatomic, weak) NSTimer *drawingTimer, *popDataTimer;
+@property (nonatomic, strong) NSMutableArray *dataArr;
+@property (nonatomic, assign) int index,drawNumbers;
 
 @end
 
 @implementation ECGViewController
+
+@synthesize leads;
+@synthesize liveMode, startRecordingIndex, HR, stopTheTimer;
+@synthesize buffer, DEMO, newBornMode;
+
+int leadCount = 1;
+int sampleRate = 500;
+float uVpb = 0.9;
+float drawingInterval = 0.04; // the interval is greater, the drawing is faster, but more choppy, smaller -> slower and smoother
+int bufferSecond = 300;
+float pixelPerUV = 5 * 10.0 / 1000;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -43,6 +61,19 @@
     [self.ecgView.startMeasureBtn addTarget:self
                                           action:@selector(startMeasureBtnDidClicked:)
                                 forControlEvents:UIControlEventTouchUpInside];
+    
+    _dataArr = [NSMutableArray array];
+    [self addViews];
+    [self initialMonitor];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self setLeadsLayout:self.interfaceOrientation];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+//    [self startLiveMonitoring];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,12 +88,176 @@
     self.view = nil;
 }
 
+#pragma mark -
+#pragma mark Initialization, Monitoring and Timer events
+
+- (void)initialMonitor
+{
+    bufferCount = 10;
+    
+    NSMutableArray *buf = [[NSMutableArray alloc] init];
+    self.buffer = buf;
+}
+
+- (void)startLiveMonitoring
+{
+    monitoring = YES;
+    stopTheTimer = NO;
+    
+    [self startTimer_popDataFromBuffer];
+    [self startTimer_drawing];
+}
+
+- (void)startTimer_popDataFromBuffer
+{
+    CGFloat popDataInterval = 420.0f / sampleRate;
+    
+    popDataTimer = [NSTimer scheduledTimerWithTimeInterval:popDataInterval
+                                                    target:self
+                                                  selector:@selector(timerEvent_popData)
+                                                  userInfo:NULL
+                                                   repeats:YES];
+}
+
+- (void)startTimer_drawing
+{
+    drawingTimer = [NSTimer scheduledTimerWithTimeInterval:drawingInterval
+                                                    target:self
+                                                  selector:@selector(timerEvent_drawing)
+                                                  userInfo:NULL
+                                                   repeats:YES];
+}
+
+
+- (void)timerEvent_drawing
+{
+    [self drawRealTime];
+}
+
+- (void)timerEvent_popData
+{
+    [self popDemoDataAndPushToLeads];
+}
+
+static int ind = 0;
+
+- (void)popDemoDataAndPushToLeads
+{
+    
+    int length = 440;
+    if (_dataArr.count<=length) {
+        return;
+    }
+    NSArray *a;
+    if (_dataArr.count - ind>=length) {
+        a = [_dataArr subarrayWithRange:NSMakeRange(ind, length)];
+    }
+    else {
+        a = [_dataArr subarrayWithRange:NSMakeRange(ind-(-_dataArr.count+ind+length), length)];
+    }
+    
+    ind = _dataArr.count;
+    
+//    [_dataArr removeObjeactsInRange:NSMakeRange(0, length)];
+    [self pushPoints:a data12Index:0];
+}
+
+- (void)pushPoints:(NSArray *)_pointsArray data12Index:(NSInteger)data12Index;
+{
+    LeadPlayer *lead = [self.leads objectAtIndex:data12Index];
+    
+    if (lead.pointsArray.count > bufferSecond * sampleRate)
+    {
+        [lead resetBuffer];
+    }
+    
+    if (lead.pointsArray.count - lead.currentPoint <= 2000)
+    {
+        [lead.pointsArray addObjectsFromArray:_pointsArray];
+    }
+    
+    if (data12Index==0)
+    {
+        countOfPointsInQueue = lead.pointsArray.count;
+        currentDrawingPoint = lead.currentPoint;
+    }
+}
+
+- (void)drawRealTime
+{
+    LeadPlayer *l = [self.leads objectAtIndex:0];
+    
+    if (l.pointsArray.count > l.currentPoint)
+    {
+        for (LeadPlayer *lead in self.leads)
+        {
+            [lead fireDrawing];
+        }
+    }
+}
+
+- (void)addViews
+{
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    
+    for (int i=0; i<leadCount; i++) {
+        LeadPlayer *lead = [[LeadPlayer alloc] init];
+        
+        lead.layer.cornerRadius = 8;
+        lead.layer.borderColor = [[UIColor grayColor] CGColor];
+        lead.layer.borderWidth = 1;
+        lead.clipsToBounds = YES;
+        
+        lead.index = i;
+        lead.pointsArray = [[NSMutableArray alloc] init];
+        
+        lead.liveMonitor = self;
+        
+        [array insertObject:lead atIndex:i];
+        
+        [self.ecgView.ecgContainer addSubview:lead];
+    }
+    
+    self.leads = array;
+}
+
+- (void)setLeadsLayout:(UIInterfaceOrientation)orientation
+{
+    float margin = 5;
+    NSInteger leadHeight = self.ecgView.ecgContainer.height / leadCount - margin * 2;
+    NSInteger leadWidth = self.ecgView.ecgContainer.width;
+    scrollView.contentSize = self.ecgView.ecgContainer.size;
+    
+    for (int i=0; i<leadCount; i++)
+    {
+        LeadPlayer *lead = [self.leads objectAtIndex:i];
+        float pos_y = i * (margin + leadHeight);
+        
+        [lead setFrame:CGRectMake(0., pos_y, leadWidth, leadHeight)];
+        lead.pos_x_offset = lead.currentPoint;
+        lead.alpha = 0;
+        [lead setNeedsDisplay];
+    }
+    
+    [UIView animateWithDuration:0.6f animations:^{
+        for (int i=0; i<leadCount; i++)
+        {
+            LeadPlayer *lead = [self.leads objectAtIndex:i];
+            lead.alpha = 1;
+        }
+    }];
+}
+
 - (void)startMeasureBtnDidClicked:(UIButton *)sender {
     sender.selected = !sender.selected;
     if (sender.selected) {
         // 开始测量
         
         [self.sdkHealth startECG];
+        
+        [self startLiveMonitoring];
+//        [self popDataTimerEvent];
+//        [self.popDataTimer setFireDate:[NSDate distantPast]];
     }
     else {
         // 结束测量
@@ -146,6 +341,8 @@
 
 -(void)receiveECGDataHRV:(int)hrv {
     NSLog(@"心率变异性：%d",hrv);
+    [_dataArr removeAllObjects];
+    _dataArr = nil;
 }
 
 -(void)receiveECGDataMood:(int)mood {
@@ -154,6 +351,7 @@
 
 -(void)receiveECGDataSmoothedWave:(int)smoothedWave {
     NSLog(@"revData：%d",smoothedWave);
+    [_dataArr addObject:@(smoothedWave/10)];
 }
 
 -(void)receiveECGDataHeartRate:(int)heartRate {
