@@ -203,7 +203,7 @@ static int ind = 0;
     for (int i=0; i<leadCount; i++) {
         LeadPlayer *lead = [[LeadPlayer alloc] init];
         
-        lead.layer.cornerRadius = 8;
+        lead.layer.cornerRadius = 0;
         lead.layer.borderColor = [[UIColor grayColor] CGColor];
         lead.layer.borderWidth = 1;
         lead.clipsToBounds = YES;
@@ -224,7 +224,7 @@ static int ind = 0;
 - (void)setLeadsLayout:(UIInterfaceOrientation)orientation
 {
     float margin = 5;
-    NSInteger leadHeight = self.ecgView.ecgContainer.height / leadCount - margin * 2;
+    NSInteger leadHeight = self.ecgView.ecgContainer.height / leadCount;
     NSInteger leadWidth = self.ecgView.ecgContainer.width;
     scrollView.contentSize = self.ecgView.ecgContainer.size;
     
@@ -233,7 +233,7 @@ static int ind = 0;
         LeadPlayer *lead = [self.leads objectAtIndex:i];
         float pos_y = i * (margin + leadHeight);
         
-        [lead setFrame:CGRectMake(0., pos_y, leadWidth, leadHeight)];
+        [lead setFrame:CGRectMake(0., pos_y, leadWidth, leadHeight+20)];
         lead.pos_x_offset = lead.currentPoint;
         lead.alpha = 0;
         [lead setNeedsDisplay];
@@ -351,7 +351,7 @@ static int ind = 0;
 
 -(void)receiveECGDataSmoothedWave:(int)smoothedWave {
     NSLog(@"revData：%d",smoothedWave);
-    [_dataArr addObject:@(smoothedWave/10)];
+    [_dataArr addObject:@(smoothedWave/5)];
 }
 
 -(void)receiveECGDataHeartRate:(int)heartRate {
@@ -366,7 +366,7 @@ static int ind = 0;
 }
 
 -(void)receiveECGDataBreathRate:(int)breathRate {
-    
+    NSLog(@"呼吸率：%d",breathRate);
 }
 
 /*!

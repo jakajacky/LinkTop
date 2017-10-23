@@ -79,6 +79,7 @@ typedef NS_ENUM(NSUInteger, MSGTYPE) {
 
 -(void)receiveECGDataHeartRate:(int)heartRate;
 
+-(void)receiveECGDataBreathRate:(int)breathRate;
 
 /*!
  *  @method didScanedPeripherals:(NSMutableArray  *)foundPeripherals

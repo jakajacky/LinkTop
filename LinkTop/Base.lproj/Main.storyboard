@@ -1314,7 +1314,7 @@
                                 <rect key="frame" x="0.0" y="319" width="375" height="304"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a99-Kz-WUS">
-                                        <rect key="frame" x="10" y="22" width="355" height="204.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="234"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihf-nk-IIV">
@@ -1333,12 +1333,12 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="ihf-nk-IIV" firstAttribute="centerX" secondItem="2tw-Tr-awa" secondAttribute="centerX" id="2sA-Fi-KRi"/>
-                                    <constraint firstItem="ihf-nk-IIV" firstAttribute="top" secondItem="a99-Kz-WUS" secondAttribute="bottom" constant="8" id="3ci-N3-bG8"/>
-                                    <constraint firstItem="a99-Kz-WUS" firstAttribute="leading" secondItem="2tw-Tr-awa" secondAttribute="leading" constant="10" id="8b1-nh-akL"/>
+                                    <constraint firstItem="ihf-nk-IIV" firstAttribute="top" secondItem="a99-Kz-WUS" secondAttribute="bottom" id="3ci-N3-bG8"/>
+                                    <constraint firstItem="a99-Kz-WUS" firstAttribute="leading" secondItem="2tw-Tr-awa" secondAttribute="leading" id="8b1-nh-akL"/>
                                     <constraint firstAttribute="bottom" secondItem="ihf-nk-IIV" secondAttribute="bottom" constant="20" id="Ebr-Ba-V8M"/>
-                                    <constraint firstItem="a99-Kz-WUS" firstAttribute="top" secondItem="2tw-Tr-awa" secondAttribute="top" constant="22" id="Mwg-Ip-TaM"/>
+                                    <constraint firstItem="a99-Kz-WUS" firstAttribute="top" secondItem="2tw-Tr-awa" secondAttribute="top" id="Mwg-Ip-TaM"/>
                                     <constraint firstItem="ihf-nk-IIV" firstAttribute="width" secondItem="2tw-Tr-awa" secondAttribute="width" multiplier="200:375" id="bRe-oc-jr0"/>
-                                    <constraint firstAttribute="trailing" secondItem="a99-Kz-WUS" secondAttribute="trailing" constant="10" id="rac-1Z-drL"/>
+                                    <constraint firstAttribute="trailing" secondItem="a99-Kz-WUS" secondAttribute="trailing" id="rac-1Z-drL"/>
                                 </constraints>
                             </view>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lDA-C2-yru">

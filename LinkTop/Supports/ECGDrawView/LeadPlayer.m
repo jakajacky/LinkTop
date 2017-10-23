@@ -12,14 +12,14 @@
 @implementation LeadPlayer
 @synthesize pointsArray, index, label, liveMonitor, lightSpot, currentPoint, pos_x_offset, viewCenter;
 
-int pixelsPerCell = 30.00; // 0.2 second per cell
+int pixelsPerCell = 20.00; // 0.2 second per cell
 
 float lineWidth_Grid = 0.5;
-float lineWidth_LiveMonitor = 1.3;
+float lineWidth_LiveMonitor = 2.5;
 float lineWidth_Static = 1;
 
 int pointsPerSecond = 500;
-float pixelPerPoint = 3 * 60.0f / 500.0f;
+float pixelPerPoint = 3 * 65.0f / 500.0f;
 int pointPerDraw = 500.0f * 0.04f;
 
 - (id)initWithFrame:(CGRect)frame {
