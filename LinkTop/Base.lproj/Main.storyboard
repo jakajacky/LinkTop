@@ -36,7 +36,7 @@
         <scene sceneID="hBo-5n-ffX">
             <objects>
                 <viewController id="aMj-0X-InC" customClass="MeasureListViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bsc-6l-cvA">
+                    <view key="view" contentMode="scaleToFill" id="bsc-6l-cvA" customClass="MeasureListView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.95294117647058818" green="0.96470588235294119" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

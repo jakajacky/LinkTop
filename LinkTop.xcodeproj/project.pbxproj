@@ -190,6 +190,12 @@
 		6E8A352D1F9CA05C00F42229 /* port@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E8A352A1F9CA05600F42229 /* port@3x.png */; };
 		6E8A35311F9CA77D00F42229 /* TripleECGView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8A35301F9CA77A00F42229 /* TripleECGView.m */; };
 		6E8A35341F9CAE1B00F42229 /* LeadPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8A35321F9CAE1B00F42229 /* LeadPlayer.m */; };
+		6E8A355E1F9E0CB600F42229 /* nodata@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E8A355C1F9E0CA200F42229 /* nodata@2x.png */; };
+		6E8A355F1F9E0CB600F42229 /* nodata@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E8A355D1F9E0CA200F42229 /* nodata@3x.png */; };
+		6E8A35721F9E143C00F42229 /* VegaScrollFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8A35711F9E143A00F42229 /* VegaScrollFlowLayout.swift */; };
+		6E8A357D1F9E173200F42229 /* MeasureListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8A357C1F9E173200F42229 /* MeasureListView.m */; };
+		6E8A35801F9E17F600F42229 /* ShareCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8A357E1F9E17F300F42229 /* ShareCell.swift */; };
+		6E8A35821F9E19E800F42229 /* ShareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E8A35811F9E19E800F42229 /* ShareCell.xib */; };
 		6E8F096C1F8C5BA10002467A /* MeasureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8F096B1F8C5BA10002467A /* MeasureViewController.m */; };
 		6E8F096F1F8C5BB20002467A /* MeasureListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8F096E1F8C5BB20002467A /* MeasureListViewController.m */; };
 		6E8F09721F8C5BCC0002467A /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8F09711F8C5BCC0002467A /* QuestionViewController.m */; };
@@ -518,6 +524,14 @@
 		6E8A35301F9CA77A00F42229 /* TripleECGView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TripleECGView.m; sourceTree = "<group>"; };
 		6E8A35321F9CAE1B00F42229 /* LeadPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeadPlayer.m; sourceTree = "<group>"; };
 		6E8A35331F9CAE1B00F42229 /* LeadPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeadPlayer.h; sourceTree = "<group>"; };
+		6E8A355C1F9E0CA200F42229 /* nodata@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nodata@2x.png"; sourceTree = "<group>"; };
+		6E8A355D1F9E0CA200F42229 /* nodata@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nodata@3x.png"; sourceTree = "<group>"; };
+		6E8A35711F9E143A00F42229 /* VegaScrollFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VegaScrollFlowLayout.swift; sourceTree = "<group>"; };
+		6E8A357A1F9E160F00F42229 /* LinkTop-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LinkTop-Bridging-Header.h"; sourceTree = "<group>"; };
+		6E8A357B1F9E173200F42229 /* MeasureListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeasureListView.h; sourceTree = "<group>"; };
+		6E8A357C1F9E173200F42229 /* MeasureListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeasureListView.m; sourceTree = "<group>"; };
+		6E8A357E1F9E17F300F42229 /* ShareCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareCell.swift; sourceTree = "<group>"; };
+		6E8A35811F9E19E800F42229 /* ShareCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareCell.xib; sourceTree = "<group>"; };
 		6E8F096A1F8C5BA10002467A /* MeasureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeasureViewController.h; sourceTree = "<group>"; };
 		6E8F096B1F8C5BA10002467A /* MeasureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeasureViewController.m; sourceTree = "<group>"; };
 		6E8F096D1F8C5BB20002467A /* MeasureListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeasureListViewController.h; sourceTree = "<group>"; };
@@ -644,6 +658,7 @@
 		6E575AC01F94866700C073F5 /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				6E8A355B1F9E0CA200F42229 /* MeasureList */,
 				6E80DE311F9618EE00D39FE0 /* Measure */,
 				6E80DE071F95919400D39FE0 /* NaviBars */,
 				6E575AC11F94874200C073F5 /* TabBars */,
@@ -688,6 +703,7 @@
 		6E575AE61F948D7D00C073F5 /* Supports */ = {
 			isa = PBXGroup;
 			children = (
+				6E8A35621F9E0F6A00F42229 /* VegaScroll */,
 				6E8A352E1F9CA77A00F42229 /* ECGDrawView */,
 				6E878D441F9999E4007C1265 /* SVProgressHUD */,
 				6E442AB51F98B6FB00D1293B /* ViewAnimation */,
@@ -1253,6 +1269,43 @@
 			path = ECGDrawView;
 			sourceTree = "<group>";
 		};
+		6E8A355B1F9E0CA200F42229 /* MeasureList */ = {
+			isa = PBXGroup;
+			children = (
+				6E8A355C1F9E0CA200F42229 /* nodata@2x.png */,
+				6E8A355D1F9E0CA200F42229 /* nodata@3x.png */,
+			);
+			path = MeasureList;
+			sourceTree = "<group>";
+		};
+		6E8A35601F9E0F1600F42229 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6E8A357B1F9E173200F42229 /* MeasureListView.h */,
+				6E8A357C1F9E173200F42229 /* MeasureListView.m */,
+				6E8A35611F9E0F2500F42229 /* Cell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6E8A35611F9E0F2500F42229 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6E8A357E1F9E17F300F42229 /* ShareCell.swift */,
+				6E8A35811F9E19E800F42229 /* ShareCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		6E8A35621F9E0F6A00F42229 /* VegaScroll */ = {
+			isa = PBXGroup;
+			children = (
+				6E8A35711F9E143A00F42229 /* VegaScrollFlowLayout.swift */,
+				6E8A357A1F9E160F00F42229 /* LinkTop-Bridging-Header.h */,
+			);
+			path = VegaScroll;
+			sourceTree = "<group>";
+		};
 		6E8F09661F8C5B910002467A /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -1267,6 +1320,7 @@
 			children = (
 				6E8F096D1F8C5BB20002467A /* MeasureListViewController.h */,
 				6E8F096E1F8C5BB20002467A /* MeasureListViewController.m */,
+				6E8A35601F9E0F1600F42229 /* Views */,
 			);
 			path = MeasureList;
 			sourceTree = "<group>";
@@ -1364,6 +1418,7 @@
 				TargetAttributes = {
 					6EAFB5141F8B7C3400949C31 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1394,6 +1449,7 @@
 				6E80DE191F95E0BF00D39FE0 /* measurelist_selected@3x.png in Resources */,
 				6E822F491F974B2D005A6804 /* back_icon@3x.png in Resources */,
 				6E80DE0F1F95B20400D39FE0 /* share@2x.png in Resources */,
+				6E8A355E1F9E0CB600F42229 /* nodata@2x.png in Resources */,
 				6E80DE0E1F95B20200D39FE0 /* share@3x.png in Resources */,
 				6E8A35181F9C504F00F42229 /* bloodpre_tutorial@3x.png in Resources */,
 				6E878D5E1F99D977007C1265 /* spo2h_tutorial@3x.png in Resources */,
@@ -1413,6 +1469,7 @@
 				6E80DE3C1F961ECE00D39FE0 /* indicator@2x.png in Resources */,
 				6E822F221F97093B005A6804 /* hr_icon@3x.png in Resources */,
 				6E8A35291F9C9DA600F42229 /* ecg_tutorial@3x.png in Resources */,
+				6E8A35821F9E19E800F42229 /* ShareCell.xib in Resources */,
 				6E878D5D1F99D977007C1265 /* spo2h_tutorial@2x.png in Resources */,
 				6E8A35261F9C9DA600F42229 /* ecg_icon@2x.png in Resources */,
 				6E575ADF1F94875000C073F5 /* setting_normal@3x.png in Resources */,
@@ -1428,6 +1485,7 @@
 				6E8A35271F9C9DA600F42229 /* ecg_icon@3x.png in Resources */,
 				6E878D761F99F464007C1265 /* heartRate_loading@3x.png in Resources */,
 				6EAFB5221F8B7C3400949C31 /* Assets.xcassets in Resources */,
+				6E8A355F1F9E0CB600F42229 /* nodata@3x.png in Resources */,
 				6E8A35101F9C4FBF00F42229 /* bloodpre_icon@3x.png in Resources */,
 				6E80DE2A1F95FE6400D39FE0 /* ble_icon@3x.png in Resources */,
 				6E80DE341F96191000D39FE0 /* RI_logo@2x.png in Resources */,
@@ -1482,6 +1540,7 @@
 				6E8A35311F9CA77D00F42229 /* TripleECGView.m in Sources */,
 				6EAFB5281F8B7C3400949C31 /* main.m in Sources */,
 				6E575C601F9495A800C073F5 /* YYWeakProxy.m in Sources */,
+				6E8A35801F9E17F600F42229 /* ShareCell.swift in Sources */,
 				6E575C6C1F94965B00C073F5 /* YYTextContainerView.m in Sources */,
 				6E575C771F94966B00C073F5 /* YYAnimatedImageView.m in Sources */,
 				6E575C861F94968000C073F5 /* UIColor+YYAdd.m in Sources */,
@@ -1522,6 +1581,7 @@
 				6E575C7B1F94966B00C073F5 /* YYImageCoder.m in Sources */,
 				6E575C5A1F9495A800C073F5 /* YYReachability.m in Sources */,
 				6E575C701F94965B00C073F5 /* YYTextKeyboardManager.m in Sources */,
+				6E8A35721F9E143C00F42229 /* VegaScrollFlowLayout.swift in Sources */,
 				6E575C971F94969300C073F5 /* NSDictionary+YYAdd.m in Sources */,
 				6E575C5C1F9495A800C073F5 /* YYThreadSafeArray.m in Sources */,
 				6E575C631F94964E00C073F5 /* NSAttributedString+YYText.m in Sources */,
@@ -1571,6 +1631,7 @@
 				6E575C841F94968000C073F5 /* UIBarButtonItem+YYAdd.m in Sources */,
 				6E575C761F94966200C073F5 /* YYClassInfo.m in Sources */,
 				6E575C6B1F94964E00C073F5 /* YYTextUtilities.m in Sources */,
+				6E8A357D1F9E173200F42229 /* MeasureListView.m in Sources */,
 				6E575C691F94964E00C073F5 /* YYTextRubyAnnotation.m in Sources */,
 				6E575AE51F948C6D00C073F5 /* MeasureView.m in Sources */,
 				6E575C621F94964200C073F5 /* YYTextView.m in Sources */,
@@ -1717,8 +1778,11 @@
 		6EAFB52C1F8B7C3400949C31 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = R6223ZBKTR;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1732,6 +1796,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = lohas.LinkTop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LinkTop/Supports/VegaScroll/LinkTop-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
@@ -1740,8 +1807,11 @@
 		6EAFB52D1F8B7C3400949C31 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = R6223ZBKTR;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1755,6 +1825,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = lohas.LinkTop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LinkTop/Supports/VegaScroll/LinkTop-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};

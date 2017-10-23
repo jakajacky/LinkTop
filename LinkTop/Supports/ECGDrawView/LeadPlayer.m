@@ -153,8 +153,8 @@ int pointPerDraw = 500.0f * 0.04f;
 				i+=3; pointCount+=3; count+=3;
 			}
 			
-			CGFloat value = full_height/2 - [[self.pointsArray objectAtIndex:currentPoint] intValue] * uVpb * pixelPerUV;
-			drawingPoints[i] = CGPointMake(pos_x, value); 
+            CGFloat value = full_height/2 - [[self.pointsArray objectAtIndex:currentPoint] intValue] * uVpb * pixelPerUV;
+			drawingPoints[i] = CGPointMake(pos_x, value);
 						
 			currentPoint++;	
 			count++;
