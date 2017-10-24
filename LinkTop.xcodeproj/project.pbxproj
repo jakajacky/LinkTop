@@ -172,6 +172,9 @@
 		6E878D761F99F464007C1265 /* heartRate_loading@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E878D741F99F45C007C1265 /* heartRate_loading@3x.png */; };
 		6E878D791F99F4E7007C1265 /* heartRate_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E878D781F99F4E4007C1265 /* heartRate_icon@2x.png */; };
 		6E878D7A1F99F4E7007C1265 /* heartRate_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E878D771F99F4E4007C1265 /* heartRate_icon@3x.png */; };
+		6E887D411F9EEA9D00FC6F7F /* ECGCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E887D3F1F9EEA9D00FC6F7F /* ECGCell.swift */; };
+		6E887D421F9EEA9D00FC6F7F /* ECGCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E887D401F9EEA9D00FC6F7F /* ECGCell.xib */; };
+		6E887D481F9F1D6B00FC6F7F /* VegaScrollFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E887D471F9F1D6B00FC6F7F /* VegaScrollFlowLayout.m */; };
 		6E8A35071F9C4ACD00F42229 /* BloodPreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8A35061F9C4ACD00F42229 /* BloodPreViewController.m */; };
 		6E8A350B1F9C4AF400F42229 /* BloodPreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8A350A1F9C4AF400F42229 /* BloodPreView.m */; };
 		6E8A350F1F9C4FBF00F42229 /* bloodpre_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E8A350D1F9C4FBC00F42229 /* bloodpre_icon@2x.png */; };
@@ -500,6 +503,10 @@
 		6E878D741F99F45C007C1265 /* heartRate_loading@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heartRate_loading@3x.png"; sourceTree = "<group>"; };
 		6E878D771F99F4E4007C1265 /* heartRate_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heartRate_icon@3x.png"; sourceTree = "<group>"; };
 		6E878D781F99F4E4007C1265 /* heartRate_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heartRate_icon@2x.png"; sourceTree = "<group>"; };
+		6E887D3F1F9EEA9D00FC6F7F /* ECGCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ECGCell.swift; sourceTree = "<group>"; };
+		6E887D401F9EEA9D00FC6F7F /* ECGCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ECGCell.xib; sourceTree = "<group>"; };
+		6E887D461F9F1D6B00FC6F7F /* VegaScrollFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VegaScrollFlowLayout.h; sourceTree = "<group>"; };
+		6E887D471F9F1D6B00FC6F7F /* VegaScrollFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VegaScrollFlowLayout.m; sourceTree = "<group>"; };
 		6E8A35051F9C4ACD00F42229 /* BloodPreViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BloodPreViewController.h; sourceTree = "<group>"; };
 		6E8A35061F9C4ACD00F42229 /* BloodPreViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BloodPreViewController.m; sourceTree = "<group>"; };
 		6E8A35091F9C4AF400F42229 /* BloodPreView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BloodPreView.h; sourceTree = "<group>"; };
@@ -1293,6 +1300,8 @@
 			children = (
 				6E8A357E1F9E17F300F42229 /* ShareCell.swift */,
 				6E8A35811F9E19E800F42229 /* ShareCell.xib */,
+				6E887D3F1F9EEA9D00FC6F7F /* ECGCell.swift */,
+				6E887D401F9EEA9D00FC6F7F /* ECGCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1302,6 +1311,8 @@
 			children = (
 				6E8A35711F9E143A00F42229 /* VegaScrollFlowLayout.swift */,
 				6E8A357A1F9E160F00F42229 /* LinkTop-Bridging-Header.h */,
+				6E887D461F9F1D6B00FC6F7F /* VegaScrollFlowLayout.h */,
+				6E887D471F9F1D6B00FC6F7F /* VegaScrollFlowLayout.m */,
 			);
 			path = VegaScroll;
 			sourceTree = "<group>";
@@ -1521,6 +1532,7 @@
 				6E822F4B1F974B2D005A6804 /* faq_icon@3x.png in Resources */,
 				6E575ADB1F94875000C073F5 /* question_normal@3x.png in Resources */,
 				6E575AD51F94875000C073F5 /* measure_selected@3x.png in Resources */,
+				6E887D421F9EEA9D00FC6F7F /* ECGCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1606,6 +1618,7 @@
 				6E8A350B1F9C4AF400F42229 /* BloodPreView.m in Sources */,
 				6E80DE261F95EFD800D39FE0 /* NSLayoutConstraint+PureLayout.m in Sources */,
 				6E575C711F94965B00C073F5 /* YYTextLayout.m in Sources */,
+				6E887D411F9EEA9D00FC6F7F /* ECGCell.swift in Sources */,
 				6E8F096C1F8C5BA10002467A /* MeasureViewController.m in Sources */,
 				6E575C681F94964E00C073F5 /* YYTextParser.m in Sources */,
 				6E8A35071F9C4ACD00F42229 /* BloodPreViewController.m in Sources */,
@@ -1619,6 +1632,7 @@
 				6E575C6A1F94964E00C073F5 /* YYTextRunDelegate.m in Sources */,
 				6EAFB51A1F8B7C3400949C31 /* AppDelegate.m in Sources */,
 				6E575C561F9495A800C073F5 /* YYDispatchQueuePool.m in Sources */,
+				6E887D481F9F1D6B00FC6F7F /* VegaScrollFlowLayout.m in Sources */,
 				6E575C671F94964E00C073F5 /* YYTextAttribute.m in Sources */,
 				6E575C541F94912200C073F5 /* ChangeView2GradientColor.m in Sources */,
 				6E575C7C1F94966B00C073F5 /* YYSpriteSheetImage.m in Sources */,
