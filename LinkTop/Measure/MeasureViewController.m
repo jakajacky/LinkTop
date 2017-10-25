@@ -11,6 +11,7 @@
 #import "MeasureNaviLeftView.h"
 #import "LibHealthCombineSDK.h"
 #import "SDKHealthMoniter.h"
+#import "LoginViewController.h"
 
 #define ConnectTimeout 10
 
@@ -58,6 +59,12 @@
 //    else {
 //        [self.sdkHealth scanStart];
 //    }
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    LoginViewController *login = [story instantiateViewControllerWithIdentifier:@"login"];
+    
+    [self presentViewController:login animated:YES completion:^{
+        
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

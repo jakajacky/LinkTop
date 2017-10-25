@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DCMVVMConfiguration.h"
-
+#import "LoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,6 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [self initializeMVVM];
+    
     return YES;
 }
 
