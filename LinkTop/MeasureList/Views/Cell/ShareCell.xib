@@ -49,16 +49,26 @@
                         <color key="textColor" red="0.29019607843137252" green="0.56470588235294117" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lFz-3P-IDh">
+                        <rect key="frame" x="0.0" y="0.0" width="4" height="239"/>
+                        <color key="backgroundColor" red="0.29019607843137252" green="0.56470588235294117" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="4" id="yji-L1-whK"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="J2B-iI-d8p" firstAttribute="leading" secondItem="wiV-jQ-Ey0" secondAttribute="leading" constant="30" id="4GM-24-EP5"/>
                 <constraint firstItem="qzg-uj-2gz" firstAttribute="leading" secondItem="wiV-jQ-Ey0" secondAttribute="leading" constant="30" id="5om-Ta-9mm"/>
+                <constraint firstItem="lFz-3P-IDh" firstAttribute="leading" secondItem="wiV-jQ-Ey0" secondAttribute="leading" id="8DV-7e-4Mg"/>
                 <constraint firstItem="ZxR-0s-oue" firstAttribute="centerY" secondItem="J2B-iI-d8p" secondAttribute="centerY" id="BGk-ae-Ctb"/>
+                <constraint firstItem="lFz-3P-IDh" firstAttribute="top" secondItem="wiV-jQ-Ey0" secondAttribute="top" id="JeO-Cs-nQy"/>
                 <constraint firstAttribute="bottom" secondItem="qzg-uj-2gz" secondAttribute="bottom" constant="10" id="KVv-ec-Sya"/>
                 <constraint firstItem="J2B-iI-d8p" firstAttribute="top" secondItem="wiV-jQ-Ey0" secondAttribute="top" constant="10" id="P3p-fg-PY9"/>
                 <constraint firstItem="dFP-7B-lq4" firstAttribute="centerY" secondItem="giT-Tc-aWc" secondAttribute="centerY" id="UxM-wz-IlO"/>
+                <constraint firstAttribute="bottom" secondItem="lFz-3P-IDh" secondAttribute="bottom" id="YdU-dd-49J"/>
                 <constraint firstAttribute="trailing" secondItem="dFP-7B-lq4" secondAttribute="trailing" constant="25" id="aja-Ia-ZfX"/>
                 <constraint firstItem="giT-Tc-aWc" firstAttribute="leading" secondItem="qzg-uj-2gz" secondAttribute="trailing" constant="5" id="fTW-g8-169"/>
                 <constraint firstAttribute="trailing" secondItem="ZxR-0s-oue" secondAttribute="trailing" constant="25" id="hAo-Dn-sMe"/>
@@ -69,7 +79,7 @@
             <connections>
                 <outlet property="timeL" destination="ZxR-0s-oue" id="iup-ay-NpA"/>
             </connections>
-            <point key="canvasLocation" x="90" y="-91"/>
+            <point key="canvasLocation" x="90" y="-91.5"/>
         </collectionViewCell>
     </objects>
 </document>

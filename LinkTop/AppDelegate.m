@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "DCMVVMConfiguration.h"
+
 
 @interface AppDelegate ()
 
@@ -16,8 +18,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  // Override point for customization after application launch.
-  return YES;
+    // Override point for customization after application launch.
+    [self initializeMVVM];
+    return YES;
 }
 
 
@@ -45,6 +48,23 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
   // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)initializeMVVM
+{
+    DCMVVMConfiguration *config = [DCMVVMConfiguration getInstance];
+    
+    config.appGroupId                      = kAppGroupIdentifier;
+    
+    config.httpRquestAllowsLogHeader       = kHttpRequestAllowsLogHeader;
+    config.httpRquestAllowsLogMethod       = kHttpRequestAllowsLogMethod;
+    config.httpRquestAllowsLogResponseGET  = kHttpRequestAllowsLogResponseGET;
+    config.httpRquestAllowsLogResponsePOST = kHttpRequestAllowsLogResponsePOST;
+    config.httpRquestAllowsLogRequestError = kHttpRequestAllowsLogRequestError;
+    
+    config.databaseShouldEncrypt           = kDatabaseShouldEncrypt;
+    config.databaseAllowsLogStatement      = kDatabaseAllowsLogStatement;
+    config.databaseAllowsLogError          = kDatabaseAllowsLogError;
 }
 
 

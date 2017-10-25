@@ -92,20 +92,30 @@
                             <color key="titleColor" red="0.29019607843137252" green="0.56470588235294117" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FJj-bH-578">
+                        <rect key="frame" x="0.0" y="0.0" width="4" height="150"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="4" id="etQ-6C-k0u"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="LxV-Hv-2sd" firstAttribute="centerY" secondItem="JNX-6Z-Yqu" secondAttribute="centerY" id="1W7-Nq-8wc"/>
+                <constraint firstItem="FJj-bH-578" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="1Yr-6f-fu2"/>
                 <constraint firstItem="1Et-Gj-M3Y" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="202-YS-tLB"/>
                 <constraint firstItem="7jP-Xc-uNN" firstAttribute="top" secondItem="0H2-qr-rBh" secondAttribute="bottom" constant="6" id="4SM-sA-8wX"/>
                 <constraint firstItem="83T-BZ-I41" firstAttribute="centerY" secondItem="7jP-Xc-uNN" secondAttribute="centerY" id="6J8-Fw-J06"/>
                 <constraint firstAttribute="trailing" secondItem="g8V-7j-MgL" secondAttribute="trailing" constant="10" id="6Rx-6G-71N"/>
                 <constraint firstItem="0H2-qr-rBh" firstAttribute="leading" secondItem="1Et-Gj-M3Y" secondAttribute="leading" id="Ctu-dX-W6O"/>
                 <constraint firstItem="LXJ-cK-GgA" firstAttribute="centerY" secondItem="1Et-Gj-M3Y" secondAttribute="centerY" id="M4g-fe-iHb"/>
+                <constraint firstAttribute="bottom" secondItem="FJj-bH-578" secondAttribute="bottom" id="MHr-Iq-PLX"/>
                 <constraint firstAttribute="trailing" secondItem="LXJ-cK-GgA" secondAttribute="trailing" constant="10" id="P61-ml-hLa"/>
                 <constraint firstItem="7jP-Xc-uNN" firstAttribute="leading" secondItem="0H2-qr-rBh" secondAttribute="leading" id="QV1-65-eXY"/>
                 <constraint firstItem="1Et-Gj-M3Y" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="30" id="WHM-bm-AbC"/>
+                <constraint firstItem="FJj-bH-578" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="X42-sm-Klg"/>
                 <constraint firstItem="vye-RO-lIU" firstAttribute="top" secondItem="LXJ-cK-GgA" secondAttribute="bottom" constant="2" id="XMG-d5-Ha5"/>
                 <constraint firstItem="LxV-Hv-2sd" firstAttribute="leading" secondItem="JNX-6Z-Yqu" secondAttribute="trailing" constant="5" id="Zxj-JP-MmF"/>
                 <constraint firstAttribute="trailing" secondItem="vye-RO-lIU" secondAttribute="trailing" constant="10" id="aCI-qz-zIr"/>
@@ -125,6 +135,7 @@
             <connections>
                 <outlet property="timeL" destination="vye-RO-lIU" id="zha-AY-ocu"/>
             </connections>
+            <point key="canvasLocation" x="34.5" y="79"/>
         </collectionViewCell>
     </objects>
 </document>
