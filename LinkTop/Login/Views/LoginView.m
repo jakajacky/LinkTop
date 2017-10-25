@@ -7,13 +7,28 @@
 //
 
 #import "LoginView.h"
+#import "UITextField+YYAdd.h"
+@interface LoginView ()<UITextFieldDelegate>
+{
+    BOOL _isLoginBtnSelected;
+    BOOL _isKboradAppear;
+    CGRect _oldFrame;
+    CGRect _newFrame;
+    
+}
+@end
 
 @implementation LoginView
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
+    _isLoginBtnSelected = YES;
     [self reloadViews];
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self selector:@selector(keyboradWillAppear:) name:UIKeyboardWillShowNotification object:nil];
+    [center addObserver:self selector:@selector(keyboradWillDisappear:) name:UIKeyboardWillHideNotification object:nil];
+    [center addObserver:self selector:@selector(keyboradDidAppear:) name:UIKeyboardDidShowNotification object:nil];
+    [center addObserver:self selector:@selector(registerSuccess:) name:RegisterSuccessNotification object:nil];
 }
 
 - (void)reloadViews {
@@ -50,6 +65,41 @@
     self.loginBtn.layer.borderColor = (__bridge CGColorRef)([UIColor colorWithWhite:1 alpha:0.6]);
     [self.loginBtn.layer setLayerShadow:shadowColor offset:shadowOffset radius:4];
     
+}
+
+#pragma mark - 监听键盘事件
+- (void)keyboradWillAppear:(NSNotification *)notifi {
+    
+    if (_isKboradAppear) {
+        
+        return;
+    }
+    _isKboradAppear = YES;
+    
+    CGRect kb_frame   = [notifi.userInfo[@"UIKeyboardFrameEndUserInfoKey"] CGRectValue];
+    _oldFrame = self.frame;
+    
+    self.transform = CGAffineTransformMakeTranslation(0, -90);
+}
+
+- (void)keyboradWillDisappear:(NSNotification *)notifi {
+    _isKboradAppear = NO;
+    self.transform = CGAffineTransformMakeTranslation(0, 0);
+    
+}
+
+- (void)keyboradDidAppear:(NSNotification *)notifi {
+    if (_nameField.editing) {
+        [_nameField selectAll:self];
+    }
+    if (self.nameField.editing) {
+        [self.nameField selectAllText];
+    }
+}
+
+- (void)resignAllTextField {
+    [self.nameField resignFirstResponder];
+    [self.pwdField resignFirstResponder];
 }
 
 @end

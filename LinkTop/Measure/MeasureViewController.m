@@ -59,17 +59,26 @@
 //    else {
 //        [self.sdkHealth scanStart];
 //    }
-    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    LoginViewController *login = [story instantiateViewControllerWithIdentifier:@"login"];
     
-    [self presentViewController:login animated:YES completion:^{
-        
-    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    // 如果未登录
+    if (![LoginManager defaultManager].currentPatient) {
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        LoginViewController *login = [story instantiateViewControllerWithIdentifier:@"login"];
+        
+        [self presentViewController:login animated:YES completion:^{
+            
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

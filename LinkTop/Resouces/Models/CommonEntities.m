@@ -39,13 +39,19 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self = [super initWithDictionary:dictionary];
     if (self) {
-        _name = dictionary[@"name"];
-        _mobile = dictionary[@"mobile"];
+        _Id         = dictionary[@"Id"];
+        _user_id    = dictionary[@"user_id"];
+        _login_name = dictionary[@"login_name"];
+        _password   = dictionary[@"password"];
         _gender = dictionary[@"gender"];
-        _age    = dictionary[@"age"]==[NSNull null]?@"0":dictionary[@"age"];
+        _age    = [dictionary[@"age"] intValue];
         _birth  = dictionary[@"birth"];
         _height = [dictionary[@"height"] integerValue];
         _weight = [dictionary[@"weight"] integerValue];
+        _APP_KEY = [dictionary[@"APP_KEY"] longLongValue];
+        _APP_TOKEN = dictionary[@"APP_TOKEN"];
+        _is_quest = dictionary[@"is_quest"];;
+        _isLastAdd = dictionary[@"isLastAdd"];
     }
     return self;
 }

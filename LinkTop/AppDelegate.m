@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "DCMVVMConfiguration.h"
 #import "LoginViewController.h"
+#import "DCReachability.h"
 
 @interface AppDelegate ()
 
@@ -19,7 +20,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [[DCReachability getInstance] startMonitoring];
+    
     [self initializeMVVM];
+    [self initializeSVHUD];
     
     return YES;
 }
@@ -66,6 +70,12 @@
     config.databaseShouldEncrypt           = kDatabaseShouldEncrypt;
     config.databaseAllowsLogStatement      = kDatabaseAllowsLogStatement;
     config.databaseAllowsLogError          = kDatabaseAllowsLogError;
+}
+
+- (void)initializeSVHUD {
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+    [SVProgressHUD setMaximumDismissTimeInterval:1.5];
+    [SVProgressHUD setMaximumDismissTimeInterval:1.5];
 }
 
 

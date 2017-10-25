@@ -20,4 +20,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *registerBtn;
 
+- (void)resignAllTextField;
+
 @end

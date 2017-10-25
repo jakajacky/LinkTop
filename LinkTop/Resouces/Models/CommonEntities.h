@@ -42,12 +42,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @property (copy) NSString *Id;
+@property (copy) NSString *user_id;
 @property (copy) NSString *login_name;
-@property (copy) NSString *name;//" : "18515982821",
-@property (copy) NSString *mobile;//" : "18515982821",
+@property (copy) NSString *password;
 
 @property (copy) NSString *gender;//" : "男",
-@property (copy) NSString  *age;//" : 43,
+@property        NSInteger age;//" : 43,
 @property        NSInteger height;//" : 170,
 @property        NSInteger weight;//" : 70,
 @property (copy) NSString *birth;
@@ -56,8 +56,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property        long long APP_KEY;
 
 @property        BOOL      isLastAdd;
+@property        BOOL      is_quest;
 
-//- (instancetype)initWithUser:(User *)user;
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 NS_ASSUME_NONNULL_END
 

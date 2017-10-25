@@ -209,13 +209,16 @@
 		6E7D39E81FA0660200225DBC /* logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E7D39DF1FA065FA00225DBC /* logo@3x.png */; };
 		6E7D39E91FA0660200225DBC /* pwd_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E7D39E01FA065FA00225DBC /* pwd_icon@2x.png */; };
 		6E7D39EA1FA0660200225DBC /* pwd_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E7D39E11FA065FA00225DBC /* pwd_icon@3x.png */; };
-		6E7D39EB1FA0660200225DBC /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E7D39E21FA065FA00225DBC /* bg.png */; };
 		6E7D39EC1FA0660200225DBC /* rothman_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E7D39E31FA065FA00225DBC /* rothman_icon@2x.png */; };
 		6E7D39ED1FA0660200225DBC /* rothman_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E7D39E41FA065FA00225DBC /* rothman_icon@3x.png */; };
 		6E7D39EE1FA0660200225DBC /* tel_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E7D39E51FA065FA00225DBC /* tel_icon@2x.png */; };
 		6E7D39EF1FA0660200225DBC /* tel_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E7D39E61FA065FA00225DBC /* tel_icon@3x.png */; };
 		6E7D39F31FA06AAB00225DBC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7D39F21FA06AAB00225DBC /* LoginViewController.m */; };
 		6E7D39F71FA06B5200225DBC /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7D39F61FA06B5200225DBC /* LoginView.m */; };
+		6E7D39F91FA081EB00225DBC /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E7D39F81FA081E700225DBC /* splash.png */; };
+		6E7D39FB1FA0822700225DBC /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E7D39FA1FA0822300225DBC /* bg.png */; };
+		6E7D39FF1FA085D900225DBC /* LoginAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7D39FE1FA085D900225DBC /* LoginAPI.m */; };
+		6E7D3A031FA0903E00225DBC /* LoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7D3A021FA0903E00225DBC /* LoginManager.m */; };
 		6E80DE0A1F95919800D39FE0 /* Oval@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E80DE091F95919400D39FE0 /* Oval@3x.png */; };
 		6E80DE0B1F95919A00D39FE0 /* Oval@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E80DE081F95919400D39FE0 /* Oval@2x.png */; };
 		6E80DE0E1F95B20200D39FE0 /* share@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E80DE0D1F95B1FC00D39FE0 /* share@3x.png */; };
@@ -723,7 +726,6 @@
 		6E7D39DF1FA065FA00225DBC /* logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@3x.png"; sourceTree = "<group>"; };
 		6E7D39E01FA065FA00225DBC /* pwd_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pwd_icon@2x.png"; sourceTree = "<group>"; };
 		6E7D39E11FA065FA00225DBC /* pwd_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pwd_icon@3x.png"; sourceTree = "<group>"; };
-		6E7D39E21FA065FA00225DBC /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		6E7D39E31FA065FA00225DBC /* rothman_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rothman_icon@2x.png"; sourceTree = "<group>"; };
 		6E7D39E41FA065FA00225DBC /* rothman_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rothman_icon@3x.png"; sourceTree = "<group>"; };
 		6E7D39E51FA065FA00225DBC /* tel_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tel_icon@2x.png"; sourceTree = "<group>"; };
@@ -732,6 +734,12 @@
 		6E7D39F21FA06AAB00225DBC /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		6E7D39F51FA06B5200225DBC /* LoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
 		6E7D39F61FA06B5200225DBC /* LoginView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
+		6E7D39F81FA081E700225DBC /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
+		6E7D39FA1FA0822300225DBC /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		6E7D39FD1FA085D900225DBC /* LoginAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginAPI.h; sourceTree = "<group>"; };
+		6E7D39FE1FA085D900225DBC /* LoginAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginAPI.m; sourceTree = "<group>"; };
+		6E7D3A011FA0903E00225DBC /* LoginManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginManager.h; sourceTree = "<group>"; };
+		6E7D3A021FA0903E00225DBC /* LoginManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginManager.m; sourceTree = "<group>"; };
 		6E80DE081F95919400D39FE0 /* Oval@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Oval@2x.png"; sourceTree = "<group>"; };
 		6E80DE091F95919400D39FE0 /* Oval@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Oval@3x.png"; sourceTree = "<group>"; };
 		6E80DE0C1F95B1FB00D39FE0 /* share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share@2x.png"; sourceTree = "<group>"; };
@@ -1856,11 +1864,11 @@
 		6E7D39DD1FA065FA00225DBC /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				6E7D39FA1FA0822300225DBC /* bg.png */,
 				6E7D39DE1FA065FA00225DBC /* logo@2x.png */,
 				6E7D39DF1FA065FA00225DBC /* logo@3x.png */,
 				6E7D39E01FA065FA00225DBC /* pwd_icon@2x.png */,
 				6E7D39E11FA065FA00225DBC /* pwd_icon@3x.png */,
-				6E7D39E21FA065FA00225DBC /* bg.png */,
 				6E7D39E31FA065FA00225DBC /* rothman_icon@2x.png */,
 				6E7D39E41FA065FA00225DBC /* rothman_icon@3x.png */,
 				6E7D39E51FA065FA00225DBC /* tel_icon@2x.png */,
@@ -1875,6 +1883,7 @@
 				6E7D39F11FA06AAB00225DBC /* LoginViewController.h */,
 				6E7D39F21FA06AAB00225DBC /* LoginViewController.m */,
 				6E7D39F41FA06B4600225DBC /* Views */,
+				6E7D39FC1FA085C200225DBC /* APIs */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1886,6 +1895,24 @@
 				6E7D39F61FA06B5200225DBC /* LoginView.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		6E7D39FC1FA085C200225DBC /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				6E7D39FD1FA085D900225DBC /* LoginAPI.h */,
+				6E7D39FE1FA085D900225DBC /* LoginAPI.m */,
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
+		6E7D3A001FA0902F00225DBC /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				6E7D3A011FA0903E00225DBC /* LoginManager.h */,
+				6E7D3A021FA0903E00225DBC /* LoginManager.m */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		6E80DE071F95919400D39FE0 /* NaviBars */ = {
@@ -2278,9 +2305,11 @@
 				6E8F09681F8C5B920002467A /* Question */,
 				6E8F09661F8C5B910002467A /* Settings */,
 				6E575ABF1F94864700C073F5 /* Resouces */,
+				6E7D3A001FA0902F00225DBC /* Managers */,
 				6E575AE61F948D7D00C073F5 /* Supports */,
 				6EAFB51E1F8B7C3400949C31 /* Main.storyboard */,
 				6EAFB5211F8B7C3400949C31 /* Assets.xcassets */,
+				6E7D39F81FA081E700225DBC /* splash.png */,
 				6EAFB5231F8B7C3400949C31 /* LaunchScreen.storyboard */,
 				6E575C531F94900300C073F5 /* PrefixHeader.pch */,
 				6EAFB5261F8B7C3400949C31 /* Info.plist */,
@@ -2378,8 +2407,10 @@
 				6E878D5D1F99D977007C1265 /* spo2h_tutorial@2x.png in Resources */,
 				6E8A35261F9C9DA600F42229 /* ecg_icon@2x.png in Resources */,
 				6E575ADF1F94875000C073F5 /* setting_normal@3x.png in Resources */,
+				6E7D39FB1FA0822700225DBC /* bg.png in Resources */,
 				6EAFB5251F8B7C3400949C31 /* LaunchScreen.storyboard in Resources */,
 				6E822F251F97093B005A6804 /* temp_icon@2x.png in Resources */,
+				6E7D39F91FA081EB00225DBC /* splash.png in Resources */,
 				6E442A5E1F98332D00D1293B /* tempre_tutorial@2x.png in Resources */,
 				6E442A5F1F98332D00D1293B /* tempre_tutorial@3x.png in Resources */,
 				6E575AE11F94875000C073F5 /* setting_selected@3x.png in Resources */,
@@ -2427,7 +2458,6 @@
 				6E8A35131F9C4FF700F42229 /* bloodpre_loading@2x.png in Resources */,
 				6E442A621F98392400D1293B /* tempre_loading@2x.png in Resources */,
 				6E878D7A1F99F4E7007C1265 /* heartRate_icon@3x.png in Resources */,
-				6E7D39EB1FA0660200225DBC /* bg.png in Resources */,
 				6E878D651F99E455007C1265 /* spo2h_icon@2x.png in Resources */,
 				6E822F4B1F974B2D005A6804 /* faq_icon@3x.png in Resources */,
 				6E575ADB1F94875000C073F5 /* question_normal@3x.png in Resources */,
@@ -2509,6 +2539,7 @@
 				6E575C8C1F94968000C073F5 /* UIScreen+YYAdd.m in Sources */,
 				6E575C9A1F94969300C073F5 /* NSNumber+YYAdd.m in Sources */,
 				6E7D39D61FA05E0900225DBC /* AFNetworkReachabilityManager.m in Sources */,
+				6E7D3A031FA0903E00225DBC /* LoginManager.m in Sources */,
 				6E575C9B1F94969300C073F5 /* NSObject+YYAdd.m in Sources */,
 				6E7D39C31FA05DEB00225DBC /* DCTextField.m in Sources */,
 				6E575C8E1F94968000C073F5 /* UITableView+YYAdd.m in Sources */,
@@ -2549,6 +2580,7 @@
 				6E575C801F94967200C073F5 /* YYDiskCache.m in Sources */,
 				6E7D39951FA05A1100225DBC /* DCProperty.m in Sources */,
 				6E7D39DC1FA05E1100225DBC /* AFgzipRequestSerializer.m in Sources */,
+				6E7D39FF1FA085D900225DBC /* LoginAPI.m in Sources */,
 				6E7D39911FA059D000225DBC /* DCDatabaseManager.m in Sources */,
 				6E7D39D81FA05E0900225DBC /* AFURLConnectionOperation.m in Sources */,
 				6E7D39F71FA06B5200225DBC /* LoginView.m in Sources */,
