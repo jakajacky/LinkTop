@@ -16,7 +16,7 @@ private let transformIdentity = CATransform3D(m11: 1, m12: 0, m13: 0, m14: 0,
 open class VegaScrollFlowLayout: UICollectionViewFlowLayout {
     
     open var springHardness: CGFloat = 15
-    open var isPagingEnabled: Bool = true
+    open var isPagingEnabled: Bool = false
     public var size:CGSize = CGSize(width: 50, height: 150)
     
     private var dynamicAnimator: UIDynamicAnimator!
@@ -78,24 +78,9 @@ open class VegaScrollFlowLayout: UICollectionViewFlowLayout {
         
         let row = ((proposedContentOffset.y) / (itemSize.height + minimumLineSpacing)).rounded()
         
-        
-        print("row:",row);
-        
-        if row>0 && row<=7 {
-            let calculatedOffset = (row-1) * 87 + row * minimumLineSpacing + 150;
-            let targetOffset = CGPoint(x: latestOffset.x, y: calculatedOffset)
-            return targetOffset
-        }
-        else if row>7 {
-            let calculatedOffset = (row-2) * 87 + row * minimumLineSpacing + 300;
-            let targetOffset = CGPoint(x: latestOffset.x, y: calculatedOffset)
-            return targetOffset
-        }
-        else {
         let calculatedOffset = row * 87 + row * minimumLineSpacing
         let targetOffset = CGPoint(x: latestOffset.x, y: calculatedOffset)
         return targetOffset
-        }
     }
  
     override open func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {

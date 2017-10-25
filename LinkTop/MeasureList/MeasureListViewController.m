@@ -9,6 +9,8 @@
 #import "MeasureListViewController.h"
 //#import "LinkTop-Swift.h"
 #import "VegaScrollFlowLayout.h"
+#import "ShareCell.h"
+#import "ECGCell.h"
 
 #define kTabBarHeight 49
 #define kNaviBarHeight 64
@@ -51,7 +53,8 @@
     _listView.backgroundColor = [UIColor clearColor];
     _layout.minimumLineSpacing = kItemSpacing;
     _layout.itemSize = CGSizeMake(kItemWidth, kItemHeight);
-    _layout.sectionInset = UIEdgeInsetsMake(kTopandBottomMargin, 0, kLeftandRightMargin, 0);
+    // 决定整体的上下边距
+    _layout.sectionInset = UIEdgeInsetsMake(kTopandBottomMargin, 0, kLeftandRightMargin-6, 0);
     
     /*
      * vega布局，一个缺点，自动恢复offset太快，不是无缝衔接的，
@@ -74,9 +77,15 @@
     UICollectionViewCell *cell;
     if (indexPath.item == 0 || indexPath.item == 7) {
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ECGCell" forIndexPath:indexPath];
+        ECGCell *ecgc = cell;
+        ecgc.index = indexPath.item;
+        ecgc.info  = [NSString stringWithFormat:@"--%d",indexPath.item];
     }
     else {
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ShareCell" forIndexPath:indexPath];
+        ShareCell *ecgc = cell;
+        ecgc.index = indexPath.item;
+        ecgc.info  = [NSString stringWithFormat:@"--%d",indexPath.item];
     }
     
     return cell;

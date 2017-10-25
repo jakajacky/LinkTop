@@ -7,6 +7,8 @@
 //
 
 #import "VegaScrollFlowLayout.h"
+#import "ShareCell.h"
+#import "ECGCell.h"
 
 @interface VegaScrollFlowLayout ()
 {
@@ -30,7 +32,7 @@
     self = [super init];
     if (self) {
         springHardness = 15;
-        isPagingEnabled = YES;
+        isPagingEnabled = NO;
         visibleIndexPaths = [NSMutableSet set];
         latestDelta = 0;
         _dynamicAnimator = [[UIDynamicAnimator alloc] initWithCollectionViewLayout:self];
@@ -85,24 +87,9 @@
     
     int row = ceil((proposedContentOffset.y) / (self.itemSize.height + self.minimumLineSpacing));
     
-    
-    NSLog(@"row:%d",row);
-    
-    if (row>0 && row<=7) {
-        CGFloat calculatedOffset = (row-1) * 87 + row * self.minimumLineSpacing + 150;
-        CGPoint targetOffset = CGPointMake(latestOffset.x, calculatedOffset);
-        return targetOffset;
-    }
-    else if (row>7) {
-        CGFloat calculatedOffset = (row-2) * 87 + row * self.minimumLineSpacing + 300;
-        CGPoint targetOffset = CGPointMake(latestOffset.x, calculatedOffset);
-        return targetOffset;
-    }
-    else {
-        CGFloat calculatedOffset = row * 87 + row * self.minimumLineSpacing;
-        CGPoint targetOffset = CGPointMake(latestOffset.x, calculatedOffset);
-        return targetOffset;
-    }
+    CGFloat calculatedOffset = row * 87 + row * self.minimumLineSpacing;
+    CGPoint targetOffset = CGPointMake(latestOffset.x, calculatedOffset);
+    return targetOffset;
 }
 
 - (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect {
@@ -139,7 +126,7 @@
 }
 
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
-    UIScrollView *scrollView = self.collectionView;
+    UICollectionView *scrollView = self.collectionView;
     CGFloat delta = newBounds.origin.y - scrollView.bounds.origin.y;
     latestDelta = delta;
     
@@ -170,7 +157,7 @@
     for (UIAttachmentBehavior *behaviour in noLongerVisibleBehaviours) {
         UICollectionViewLayoutAttributes *item = (UICollectionViewLayoutAttributes *)behaviour.items.firstObject;
         [self.dynamicAnimator removeBehavior:behaviour];
-        [visibleIndexPaths removeObject:item];
+        [visibleIndexPaths removeObject:item.indexPath];
     }
 }
 
