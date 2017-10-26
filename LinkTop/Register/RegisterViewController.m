@@ -57,7 +57,10 @@
     [self.registerAPI registerWithPhone:name pwd:pwd compeletion:^(BOOL success, id result) {
         if (success) {
             [SVProgressHUD showSuccessWithStatus:@"注册成功"];
-            [SVProgressHUD dismissWithDelay:1.5];
+            [SVProgressHUD dismissWithDelay:1.5 completion:^{
+                // 跳回登录页
+                [self loginBtnDidClicked:nil];
+            }];
         }
         else {
             [SVProgressHUD showErrorWithStatus:@"注册失败"];
@@ -67,7 +70,7 @@
 }
 
 #pragma mark - 按钮事件
-#pragma mark  跳转登录
+#pragma mark  跳转登录页
 - (void)loginBtnDidClicked:(id)sender {
     [self dismissViewControllerAnimated:YES completion:^{
         
