@@ -32,7 +32,12 @@
         complete(YES, result);
         
     } failure:^(NSInteger errCode, NSString *errMsg, NSDictionary *userInfo) {
-        complete(NO, errMsg);
+        if (errCode==20000) {
+            complete(NO, @"用户已存在");
+        }
+        else {
+            complete(NO, errMsg);
+        }
     }];
 }
 

@@ -63,7 +63,7 @@
             }];
         }
         else {
-            [SVProgressHUD showErrorWithStatus:@"注册失败"];
+            [SVProgressHUD showErrorWithStatus:result];
             [SVProgressHUD dismissWithDelay:1.5];
         }
     }];
