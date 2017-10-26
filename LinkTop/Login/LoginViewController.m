@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "LoginView.h"
 #import "LoginAPI.h"
+#import "RegisterViewController.h"
 
 @interface LoginViewController ()
 
@@ -39,8 +40,10 @@
 }
 
 - (void)setupViews {
+    [self.loginView.nameField addTarget:self action:@selector(textFieldDidReturn:) forControlEvents:UIControlEventEditingDidEndOnExit];
     [self.loginView.pwdField addTarget:self action:@selector(textFieldDidReturn:) forControlEvents:UIControlEventEditingDidEndOnExit];
     [self.loginView.loginBtn addTarget:self action:@selector(loginBtnDidClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.loginView.registerBtn addTarget:self action:@selector(registerBtnDidClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -49,7 +52,7 @@
 
 #pragma mark - functions
 #pragma mark 登录服务器
-- (void)login:(void(^)(BOOL success, NSString *msg))complete {
+- (void)login {
     NSString *name = self.loginView.nameField.text.stringByTrim;
     NSString *pwd  = self.loginView.pwdField.text.stringByTrim;
     if (name.length<=0) {
@@ -60,21 +63,11 @@
         [SVProgressHUD showInfoWithStatus:@"密码不能为空"];
         return;
     }
+    [SVProgressHUD show];
     [self.loginApi loginWithUserName:name pwd:pwd completion:^(BOOL success, Patient *user, NSString *msg) {
         if (success) {
             [LoginManager defaultManager].currentPatient = user;
-        }
-        complete(success,msg);
-    }];
-}
-
-#pragma mark 登录
-- (void)loginBtnDidClicked:(id)sender {
-    // 登录
-    NSLog(@"--------login-----------");
-    [SVProgressHUD show];
-    [self login:^(BOOL success,NSString *msg) {
-        if (success) {
+            
             [SVProgressHUD dismiss];
             [self dismissViewControllerAnimated:YES completion:nil];
         }
@@ -86,21 +79,33 @@
     }];
 }
 
-#pragma mark return 按钮
-- (void)textFieldDidReturn:(id)sender {
+#pragma mark 登录
+- (void)loginBtnDidClicked:(id)sender {
     // 登录
     NSLog(@"--------login-----------");
-    [SVProgressHUD show];
-    [self login:^(BOOL success,NSString *msg) {
-        if (success) {
-            [SVProgressHUD dismiss];
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }
-        else {
-            // tip
-            [SVProgressHUD showErrorWithStatus:@"帐号或密码错误"];
-        }
+    [self login];
+}
+
+#pragma mark 跳转注册页面
+- (void)registerBtnDidClicked:(id)sender {
+    // 登录
+    NSLog(@"--------register-----------");
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    RegisterViewController *registe = [story instantiateViewControllerWithIdentifier:@"register"];
+        
+    [self presentViewController:registe animated:YES completion:^{
+        
     }];
+}
+
+#pragma mark return 按钮
+- (void)textFieldDidReturn:(UITextField *)sender {
+    if (sender.tag==111) {
+        [self.loginView.pwdField becomeFirstResponder];
+    }
+    else {
+        [self login];
+    }
 }
 
 #pragma mark - properties

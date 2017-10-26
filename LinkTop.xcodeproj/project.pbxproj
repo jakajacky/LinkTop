@@ -308,6 +308,9 @@
 		6EAFB5221F8B7C3400949C31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EAFB5211F8B7C3400949C31 /* Assets.xcassets */; };
 		6EAFB5251F8B7C3400949C31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EAFB5231F8B7C3400949C31 /* LaunchScreen.storyboard */; };
 		6EAFB5281F8B7C3400949C31 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EAFB5271F8B7C3400949C31 /* main.m */; };
+		6ECF876B1FA1ADFA0050E2A0 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF876A1FA1ADFA0050E2A0 /* RegisterViewController.m */; };
+		6ECF876F1FA1AE170050E2A0 /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF876E1FA1AE170050E2A0 /* RegisterView.m */; };
+		6ECF87731FA1B57C0050E2A0 /* RegisterAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF87721FA1B57C0050E2A0 /* RegisterAPI.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -866,6 +869,12 @@
 		6EAFB5241F8B7C3400949C31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6EAFB5261F8B7C3400949C31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EAFB5271F8B7C3400949C31 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6ECF87691FA1ADFA0050E2A0 /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		6ECF876A1FA1ADFA0050E2A0 /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		6ECF876D1FA1AE170050E2A0 /* RegisterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
+		6ECF876E1FA1AE170050E2A0 /* RegisterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
+		6ECF87711FA1B57C0050E2A0 /* RegisterAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterAPI.h; sourceTree = "<group>"; };
+		6ECF87721FA1B57C0050E2A0 /* RegisterAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterAPI.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2310,6 +2319,7 @@
 				6E7D39861FA0574500225DBC /* HttpRequestConfig.h */,
 				6EAFB5181F8B7C3400949C31 /* AppDelegate.h */,
 				6EAFB5191F8B7C3400949C31 /* AppDelegate.m */,
+				6ECF87681FA1ADED0050E2A0 /* Register */,
 				6E7D39F01FA06A9D00225DBC /* Login */,
 				6E8F09691F8C5B920002467A /* Measure */,
 				6E8F09671F8C5B910002467A /* MeasureList */,
@@ -2326,6 +2336,35 @@
 				6EAFB5271F8B7C3400949C31 /* main.m */,
 			);
 			path = LinkTop;
+			sourceTree = "<group>";
+		};
+		6ECF87681FA1ADED0050E2A0 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				6ECF87691FA1ADFA0050E2A0 /* RegisterViewController.h */,
+				6ECF876A1FA1ADFA0050E2A0 /* RegisterViewController.m */,
+				6ECF876C1FA1AE0B0050E2A0 /* Views */,
+				6ECF87701FA1B5680050E2A0 /* APIs */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		6ECF876C1FA1AE0B0050E2A0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6ECF876D1FA1AE170050E2A0 /* RegisterView.h */,
+				6ECF876E1FA1AE170050E2A0 /* RegisterView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6ECF87701FA1B5680050E2A0 /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				6ECF87711FA1B57C0050E2A0 /* RegisterAPI.h */,
+				6ECF87721FA1B57C0050E2A0 /* RegisterAPI.m */,
+			);
+			path = APIs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2668,6 +2707,7 @@
 				6E7D39921FA059D000225DBC /* DCDatabaseObject.m in Sources */,
 				6E575C621F94964200C073F5 /* YYTextView.m in Sources */,
 				6E7D39B61FA05DC500225DBC /* UIView+AnimationShortcuts.m in Sources */,
+				6ECF87731FA1B57C0050E2A0 /* RegisterAPI.m in Sources */,
 				6E7D398A1FA0585C00225DBC /* MeasureAPI.m in Sources */,
 				6E7D39CA1FA05DEB00225DBC /* UITextField+HeadTailIcon.m in Sources */,
 				6E575C6E1F94965B00C073F5 /* YYTextEffectWindow.m in Sources */,
@@ -2680,6 +2720,7 @@
 				6E7D399A1FA05D6E00225DBC /* NSData-AES.m in Sources */,
 				6E7D39B31FA05DB700225DBC /* UIColor+DCFoundation.m in Sources */,
 				6E7D39CF1FA05DF900225DBC /* UIImageView+AFNetworking.m in Sources */,
+				6ECF876B1FA1ADFA0050E2A0 /* RegisterViewController.m in Sources */,
 				6E575C781F94966B00C073F5 /* YYFrameImage.m in Sources */,
 				6E8A35341F9CAE1B00F42229 /* LeadPlayer.m in Sources */,
 				6E878D521F9999ED007C1265 /* SVRadialGradientLayer.m in Sources */,
@@ -2690,6 +2731,7 @@
 				6E575C551F94959800C073F5 /* YYAsyncLayer.m in Sources */,
 				6E575C891F94968000C073F5 /* UIFont+YYAdd.m in Sources */,
 				6E8F096F1F8C5BB20002467A /* MeasureListViewController.m in Sources */,
+				6ECF876F1FA1AE170050E2A0 /* RegisterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

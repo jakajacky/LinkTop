@@ -43,15 +43,15 @@
         _user_id    = dictionary[@"user_id"];
         _login_name = dictionary[@"login_name"];
         _password   = dictionary[@"password"];
-        _gender = dictionary[@"gender"];
-        _age    = [dictionary[@"age"] intValue];
-        _birth  = dictionary[@"birth"];
-        _height = [dictionary[@"height"] integerValue];
-        _weight = [dictionary[@"weight"] integerValue];
-        _APP_KEY = [dictionary[@"APP_KEY"] longLongValue];
-        _APP_TOKEN = dictionary[@"APP_TOKEN"];
-        _is_quest = dictionary[@"is_quest"];;
-        _isLastAdd = dictionary[@"isLastAdd"];
+        _gender     = dictionary[@"gender"];
+        _age        = [dictionary[@"age"] intValue];
+        _birth      = dictionary[@"birth"];
+        _height     = [dictionary[@"height"] integerValue];
+        _weight     = [dictionary[@"weight"] integerValue];
+        _APP_KEY    = [dictionary[@"APP_KEY"] longLongValue];
+        _APP_TOKEN  = dictionary[@"APP_TOKEN"];
+        _is_quest   = [dictionary[@"is_quest"] boolValue];
+        _isLastAdd  = [dictionary[@"isLastAdd"] boolValue];
     }
     return self;
 }

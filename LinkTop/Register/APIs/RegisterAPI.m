@@ -1,57 +1,41 @@
 //
-//  LoginAPI.m
+//  RegisterAPI.m
 //  LinkTop
 //
-//  Created by XiaoQiang on 2017/10/25.
+//  Created by XiaoQiang on 2017/10/26.
 //  Copyright © 2017年 XiaoQiang. All rights reserved.
 //
 
-#import "LoginAPI.h"
+#import "RegisterAPI.h"
 #import "DCHttpRequest.h"
 #import "CommonEntities.h"
 
-@interface LoginAPI ()
+@interface RegisterAPI ()
 {
     NSDictionary *params;
 }
 @property (nonatomic, strong) DCHttpRequest *request;
 @property (nonatomic, strong) DCDatabase *mainDatabase;
 
-
 @end
 
-@implementation LoginAPI
+@implementation RegisterAPI
 
-- (void)loginWithUserName:(NSString *)name pwd:(NSString *)password completion:(void(^)(BOOL success, Patient *user, NSString *msg))complete {
-    params = @{@"login_name" : name,
-               @"password"   : password};
-    [self loadRequestPropertiesWithMethod:@"auth/linkLogin"];
+#pragma mark - network operation
+
+- (void)registerWithPhone:(NSString *)phone pwd:(NSString *)pwd compeletion:(void(^)(BOOL, id))complete {
+    params = @{@"login_name" : phone,
+               @"password" : pwd};
+    [self loadRequestPropertiesWithMethod:@"auth/linkReg"];
     
     [self.request startWithSuccess:^(id result) {
-        NSDictionary *dic = @{
-                              @"Id"        :(result[@"id"]!=nil)?result[@"id"]:@"",
-                              @"user_id"   :(result[@"user_id"]!=nil)?result[@"user_id"]:@"",
-                              @"login_name":name,
-                              @"password"  :password,
-                              @"gender"    :(result[@"gender"]!=nil)?result[@"gender"]:@"",
-                              @"age"       :(result[@"age"]!=nil)?result[@"age"]:@0,
-                              @"weight"    :(result[@"weight"]!=nil)?result[@"weight"]:@0,
-                              @"height"    :(result[@"height"]!=nil)?result[@"height"]:@0,
-                              @"birth"     :(result[@"birth"]!=nil)?result[@"birth"]:@"",
-                              @"APP_KEY"   :(result[@"APP_KEY"]!=nil)?result[@"APP_KEY"]:@0,
-                              @"APP_TOKEN" :(result[@"APP_TOKEN"]!=nil)?result[@"APP_TOKEN"]:@"",
-                              @"is_quest"  :(result[@"is_quest"]!=nil)?@([result[@"is_quest"] boolValue]):@0,
-                              @"isLastAdd" :@YES,
-                              };
-        Patient *patient = [[Patient alloc] initWithDictionary:dic];
-        // 存储到数据库
-        [self.mainDatabase updateObjects:@[patient]];
-        complete(YES, patient, @"");
+        complete(YES, result);
         
     } failure:^(NSInteger errCode, NSString *errMsg, NSDictionary *userInfo) {
-        complete(NO, nil,errMsg);
+        complete(NO, errMsg);
     }];
 }
+
 - (void)loadRequestPropertiesWithMethod:(NSString *)method
 {
     [self.request cancelRequest];
@@ -108,22 +92,6 @@
 }
 
 #pragma mark - database operation
-
-- (Patient *)getCurrentPatientFormMainDB {
-    NSString *sql = [NSString stringWithFormat:
-                     @"SELECT * FROM %@ where isLastAdd = ?",
-                     [Patient tableName]];
-    
-    NSArray *result = [self.mainDatabase query:sql withArguments:@[@(YES)] convertTo:[Patient class]];
-    
-    return result.firstObject;
-}
-
-- (void)deleteCurrentPatientFromMainDB:(Patient *)patient {
-    patient.isLastAdd = NO;
-    [self.mainDatabase updateObjects:@[patient]];
-}
-
 - (DCDatabase *)mainDatabase {
     return [self database:@"main.db" withKey:@"1234567890ABCDEF"];
 }
