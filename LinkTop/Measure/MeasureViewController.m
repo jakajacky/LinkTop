@@ -64,6 +64,7 @@
     [super viewDidAppear:animated];
     // 登录页面判断
     [[LoginManager defaultManager] shouldShowLoginViewControllerIn:self];
+    // 用户名称更新
     _leftview.name.text = [LoginManager defaultManager].currentPatient.login_name;
 }
 
