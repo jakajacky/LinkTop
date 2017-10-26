@@ -61,7 +61,7 @@
     UIColor *shadowColor = UIColorHex(#333333);
     
     self.bgView.image = [UIImage imageWithMName:@"bg.png"];
-    self.logoView.image = [UIImage imageWithMName:@"logo.png"];
+    self.logoView.image = [UIImage imageWithMName:@"corp_img.png"];
     
     // 登录表单
     self.nameField.layer.cornerRadius = 4;
