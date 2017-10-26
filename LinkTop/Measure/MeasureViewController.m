@@ -27,6 +27,8 @@
 
 @property (nonatomic, strong) MeasureNaviRightView *rightview;
 
+@property (nonatomic, strong) MeasureNaviLeftView  *leftview;
+
 @property (nonatomic, strong) NSTimer              *timer;
 
 @end
@@ -50,15 +52,6 @@
 //    self.sdkHealth.sdkHealthMoniterdelegate =self;
     
     self.peripherals = [NSMutableArray array];
-//    CBCentralManager *manager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
-//
-//    NSArray *a = [manager retrievePeripheralsWithIdentifiers:@[[[NSUUID alloc] initWithUUIDString:@"0B3041FC-F171-EDD1-D432-15F523D33ED2"]]];
-//    if (a.count>0) {
-//        [self.peripherals addObjectsFromArray:a];
-//    }
-//    else {
-//        [self.sdkHealth scanStart];
-//    }
     
 }
 
@@ -71,6 +64,7 @@
     [super viewDidAppear:animated];
     // 登录页面判断
     [[LoginManager defaultManager] shouldShowLoginViewControllerIn:self];
+    _leftview.name.text = [LoginManager defaultManager].currentPatient.login_name;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -85,7 +79,7 @@
     
     // 重新自定义设置导航栏
     // 左侧视图
-    MeasureNaviLeftView *leftview = [[MeasureNaviLeftView alloc] initWithFrame:CGRectMake(0, 0, 160, 44)];
+    _leftview = [[MeasureNaviLeftView alloc] initWithFrame:CGRectMake(0, 0, 160, 44)];
     
     // 标题
     UILabel *title_copy = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
@@ -126,7 +120,7 @@
         }
     };
     
-    [ChangeView2GradientColor changeControllerView:self.view withNavi:self.navigationItem setLeftView:leftview RightView:_rightview Title:title_copy];
+    [ChangeView2GradientColor changeControllerView:self.view withNavi:self.navigationItem setLeftView:_leftview RightView:_rightview Title:title_copy];
     
 }
 

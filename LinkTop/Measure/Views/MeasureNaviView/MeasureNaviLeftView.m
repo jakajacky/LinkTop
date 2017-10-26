@@ -17,18 +17,18 @@
         [head_icon setImage:[UIImage imageNamed:@"Oval"] forState:UIControlStateNormal];
         head_icon.frame = CGRectMake(0, 4, 36, 36);
         
-        UILabel *name = [[UILabel alloc] init];
-        name.frame = CGRectMake(0, 0, 102, 20);
-        name.text = @"18515982821";
-        name.font = [UIFont fontWithName:@"PingFangSC-Medium" size:14];
-        name.textColor = [UIColor whiteColor];
+        _name = [[UILabel alloc] init];
+        _name.frame = CGRectMake(0, 0, 102, 20);
+        _name.text = @"-";
+        _name.font = [UIFont fontWithName:@"PingFangSC-Medium" size:14];
+        _name.textColor = [UIColor whiteColor];
         
         
         [self addSubview:head_icon];
-        [self addSubview:name];
+        [self addSubview:_name];
         
-        [name autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:head_icon withOffset:8];
-        [name autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
+        [_name autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:head_icon withOffset:8];
+        [_name autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
     }
     return self;
 }

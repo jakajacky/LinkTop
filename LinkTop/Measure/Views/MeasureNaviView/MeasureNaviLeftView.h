@@ -10,4 +10,6 @@
 
 @interface MeasureNaviLeftView : UIView
 
+@property (nonatomic, strong) UILabel *name;
+
 @end
