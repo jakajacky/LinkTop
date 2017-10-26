@@ -69,16 +69,8 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-    // 如果未登录
-    if (![LoginManager defaultManager].currentPatient) {
-        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-        LoginViewController *login = [story instantiateViewControllerWithIdentifier:@"login"];
-        
-        [self presentViewController:login animated:YES completion:^{
-            
-        }];
-    }
+    // 登录页面判断
+    [[LoginManager defaultManager] shouldShowLoginViewControllerIn:self];
 }
 
 - (void)didReceiveMemoryWarning {

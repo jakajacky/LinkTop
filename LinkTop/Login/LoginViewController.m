@@ -30,6 +30,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    NSLog(@"LoginViewController 释放");
+    [self.loginView removeAllSubviews];
+    self.loginView = nil;
+    
+    self.loginApi = nil;
+}
+
 - (void)setupViews {
     [self.loginView.pwdField addTarget:self action:@selector(textFieldDidReturn:) forControlEvents:UIControlEventEditingDidEndOnExit];
     [self.loginView.loginBtn addTarget:self action:@selector(loginBtnDidClicked:) forControlEvents:UIControlEventTouchUpInside];

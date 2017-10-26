@@ -119,6 +119,11 @@
     return result.firstObject;
 }
 
+- (void)deleteCurrentPatientFromMainDB:(Patient *)patient {
+    patient.isLastAdd = NO;
+    [self.mainDatabase updateObjects:@[patient]];
+}
+
 - (DCDatabase *)mainDatabase {
     return [self database:@"main.db" withKey:@"1234567890ABCDEF"];
 }

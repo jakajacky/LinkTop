@@ -8,6 +8,7 @@
 
 #import "LoginView.h"
 #import "UITextField+YYAdd.h"
+#import "UIImage+memory.h"
 @interface LoginView ()<UITextFieldDelegate>
 {
     BOOL _isLoginBtnSelected;
@@ -31,9 +32,31 @@
     [center addObserver:self selector:@selector(registerSuccess:) name:RegisterSuccessNotification object:nil];
 }
 
+- (void)dealloc {
+    NSLog(@"LoginView 释放");
+    ((UIImageView *)self.nameField.leftView).image = nil;
+    [self.nameField removeAllSubviews];
+    self.nameField = nil;
+    
+    ((UIImageView *)self.pwdField.leftView).image = nil;
+    [self.pwdField removeAllSubviews];
+    self.pwdField = nil;
+    
+    self.loginBtn = nil;
+    self.forgetPwdBtn = nil;
+    self.registerBtn = nil;
+    self.bgView.image = nil;
+    self.bgView = nil;
+    self.logoView.image = nil;
+    self.logoView = nil;
+}
+
 - (void)reloadViews {
     CGSize shadowOffset  = CGSizeMake(0, 1);
     UIColor *shadowColor = UIColorHex(#333333);
+    
+    self.bgView.image = [UIImage imageWithMName:@"bg.png"];
+    self.logoView.image = [UIImage imageWithMName:@"logo.png"];
     
     // 登录表单
     self.nameField.layer.cornerRadius = 4;
@@ -52,8 +75,8 @@
     self.pwdField.backgroundColor = UIColorHex(#ffffff);
     [self.pwdField.layer setLayerShadow:shadowColor offset:shadowOffset radius:4];
     
-    self.pwdField.leftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pwd_icon"]];
-    self.nameField.leftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tel_icon"]];
+    self.pwdField.leftView = [[UIImageView alloc] initWithImage:[UIImage imageWithMName:@"pwd_icon"]];
+    self.nameField.leftView = [[UIImageView alloc] initWithImage:[UIImage imageWithMName:@"tel_icon"]];
     self.nameField.leftViewMode = UITextFieldViewModeAlways;
     self.pwdField.leftViewMode = UITextFieldViewModeAlways;
     self.pwdField.secureTextEntry = YES;

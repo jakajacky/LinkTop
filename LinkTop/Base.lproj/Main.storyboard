@@ -642,11 +642,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="UIc-Cu-K3G">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UIc-Cu-K3G">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="zyx-4l-2FR">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zyx-4l-2FR">
                                 <rect key="frame" x="115" y="90" width="144" height="122"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="144" id="6Nr-bl-GLG"/>
+                                    <constraint firstAttribute="height" constant="122" id="ksB-CC-lOS"/>
+                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czF-yM-0Kb">
                                 <rect key="frame" x="37" y="540" width="300" height="50"/>
@@ -659,7 +663,6 @@
                                 <state key="normal" title="登录">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="highlighted" backgroundImage="hightlighting.png"/>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入您的密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cI6-uf-L71" customClass="DCTextField">
                                 <rect key="frame" x="37" y="445" width="300" height="50"/>
@@ -717,8 +720,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="B08-R4-Yzg"/>
                         <connections>
+                            <outlet property="bgView" destination="UIc-Cu-K3G" id="Y4y-Pe-NgY"/>
                             <outlet property="forgetPwdBtn" destination="rxi-wE-IV1" id="b2T-FO-ezF"/>
                             <outlet property="loginBtn" destination="czF-yM-0Kb" id="Sri-5H-1GV"/>
+                            <outlet property="logoView" destination="zyx-4l-2FR" id="Ibf-nV-tWt"/>
                             <outlet property="nameField" destination="gKJ-Vt-SpU" id="2l1-r5-KTJ"/>
                             <outlet property="pwdField" destination="cI6-uf-L71" id="qdN-SS-VCX"/>
                             <outlet property="registerBtn" destination="4dE-kr-xEp" id="VhG-Ze-orv"/>
@@ -811,7 +816,7 @@
         <scene sceneID="kaM-yq-gBO">
             <objects>
                 <viewController id="6NQ-L4-fjG" customClass="SettingsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Dh7-dw-ddB">
+                    <view key="view" contentMode="scaleToFill" id="Dh7-dw-ddB" customClass="SettingsView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.95294117647058818" green="0.96470588235294119" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1478,16 +1483,13 @@
     <resources>
         <image name="HR_logo.png" width="64" height="60"/>
         <image name="RI_logo.png" width="48" height="64"/>
-        <image name="bg.png" width="1125" height="2001"/>
         <image name="bloodpre_loading.png" width="252" height="252"/>
         <image name="bloodpre_tutorial.png" width="249" height="154"/>
         <image name="bp_icon.png" width="50" height="50"/>
         <image name="ecg_tutorial.png" width="180" height="124"/>
         <image name="heartRate_loading.png" width="252" height="252"/>
-        <image name="hightlighting.png" width="16" height="16"/>
         <image name="hr_icon.png" width="50" height="50"/>
         <image name="indicator.png" width="9" height="15"/>
-        <image name="logo.png" width="144" height="122"/>
         <image name="measure_normal.png" width="22" height="25"/>
         <image name="measure_selected.png" width="22" height="25"/>
         <image name="measurelist_normal.png" width="24" height="22"/>

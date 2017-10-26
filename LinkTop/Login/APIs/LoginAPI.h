@@ -14,4 +14,6 @@
 
 - (Patient *)getCurrentPatientFormMainDB;
 
+- (void)deleteCurrentPatientFromMainDB:(Patient *)patient;
+
 @end

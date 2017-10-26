@@ -19,4 +19,9 @@
 
 + (instancetype)defaultManager;
 
+/**
+ * 是否需要登录
+ */
+- (void)shouldShowLoginViewControllerIn:(UIViewController *)viewcontroller;
+
 @end
