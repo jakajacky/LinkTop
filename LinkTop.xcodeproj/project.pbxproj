@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E254ACB1FA3018600294B0D /* SettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E254ACA1FA3018600294B0D /* SettingModel.m */; };
+		6E254AD31FA3130700294B0D /* Group@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E254AD11FA3130200294B0D /* Group@2x.png */; };
+		6E254AD41FA3130700294B0D /* Group@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E254AD21FA3130200294B0D /* Group@3x.png */; };
+		6E254AD81FA3139000294B0D /* DeviceInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E254AD71FA3139000294B0D /* DeviceInfoViewController.m */; };
+		6E254ADC1FA313BC00294B0D /* DeviceInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E254ADB1FA313BC00294B0D /* DeviceInfoView.m */; };
 		6E3F9DE91FA1D1CF00F6EC1E /* DeviceManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3F9DE81FA1D1CB00F6EC1E /* DeviceManger.m */; };
 		6E3F9DEC1FA1D1E100F6EC1E /* LoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3F9DEA1FA1D1DE00F6EC1E /* LoginManager.m */; };
 		6E3F9E491FA1F32A00F6EC1E /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E3F9DF11FA1F32300F6EC1E /* bg.png */; };
@@ -314,6 +319,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6E254AC91FA3018600294B0D /* SettingModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingModel.h; sourceTree = "<group>"; };
+		6E254ACA1FA3018600294B0D /* SettingModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingModel.m; sourceTree = "<group>"; };
+		6E254AD11FA3130200294B0D /* Group@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group@2x.png"; sourceTree = "<group>"; };
+		6E254AD21FA3130200294B0D /* Group@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group@3x.png"; sourceTree = "<group>"; };
+		6E254AD61FA3139000294B0D /* DeviceInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceInfoViewController.h; sourceTree = "<group>"; };
+		6E254AD71FA3139000294B0D /* DeviceInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceInfoViewController.m; sourceTree = "<group>"; };
+		6E254ADA1FA313BC00294B0D /* DeviceInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceInfoView.h; sourceTree = "<group>"; };
+		6E254ADB1FA313BC00294B0D /* DeviceInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceInfoView.m; sourceTree = "<group>"; };
 		6E3F9DE71FA1D1CB00F6EC1E /* DeviceManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceManger.h; sourceTree = "<group>"; };
 		6E3F9DE81FA1D1CB00F6EC1E /* DeviceManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceManger.m; sourceTree = "<group>"; };
 		6E3F9DEA1FA1D1DE00F6EC1E /* LoginManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginManager.m; sourceTree = "<group>"; };
@@ -896,6 +909,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E254AC81FA3017200294B0D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6E254AC91FA3018600294B0D /* SettingModel.h */,
+				6E254ACA1FA3018600294B0D /* SettingModel.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6E254AD01FA3130200294B0D /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				6E254AD11FA3130200294B0D /* Group@2x.png */,
+				6E254AD21FA3130200294B0D /* Group@3x.png */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		6E254AD51FA3138100294B0D /* DeviceInfoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6E254AD61FA3139000294B0D /* DeviceInfoViewController.h */,
+				6E254AD71FA3139000294B0D /* DeviceInfoViewController.m */,
+				6E254AD91FA313A900294B0D /* Views */,
+			);
+			path = DeviceInfoViewController;
+			sourceTree = "<group>";
+		};
+		6E254AD91FA313A900294B0D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6E254ADA1FA313BC00294B0D /* DeviceInfoView.h */,
+				6E254ADB1FA313BC00294B0D /* DeviceInfoView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		6E3F9DE41FA1D19300F6EC1E /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -926,6 +976,7 @@
 		6E3F9DEF1FA1F32300F6EC1E /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				6E254AD01FA3130200294B0D /* Setting */,
 				6E3F9DF01FA1F32300F6EC1E /* Login */,
 				6E3F9DFA1FA1F32300F6EC1E /* Measure */,
 				6E3F9E2E1FA1F32300F6EC1E /* MeasureList */,
@@ -2263,6 +2314,8 @@
 			children = (
 				6E8F09731F8C5BD70002467A /* SettingsViewController.h */,
 				6E8F09741F8C5BD70002467A /* SettingsViewController.m */,
+				6E254AD51FA3138100294B0D /* DeviceInfoViewController */,
+				6E254AC81FA3017200294B0D /* Models */,
 				6E7F4F521FA16DB1004607DB /* Views */,
 			);
 			path = Settings;
@@ -2444,6 +2497,7 @@
 				6E3F9E961FA1F37600F6EC1E /* bloodpre_tutorial@2x.png in Resources */,
 				6E3F9E7C1FA1F35300F6EC1E /* ble_icon@2x.png in Resources */,
 				6E3F9E701FA1F34A00F6EC1E /* back_icon@2x.png in Resources */,
+				6E254AD31FA3130700294B0D /* Group@2x.png in Resources */,
 				6E3F9E591FA1F33400F6EC1E /* indicator@3x.png in Resources */,
 				6E3F9E771FA1F34A00F6EC1E /* tempre_loading@3x.png in Resources */,
 				6E3F9E6B1FA1F34400F6EC1E /* spo2h_icon@3x.png in Resources */,
@@ -2502,6 +2556,7 @@
 				6E3F9E4C1FA1F32A00F6EC1E /* pwd_icon@2x.png in Resources */,
 				6E3F9E891FA1F35700F6EC1E /* measurelist_selected@3x.png in Resources */,
 				6E3F9E561FA1F33400F6EC1E /* HR_logo@2x.png in Resources */,
+				6E254AD41FA3130700294B0D /* Group@3x.png in Resources */,
 				6E878D531F9999EF007C1265 /* SVProgressHUD.bundle in Resources */,
 				6E3F9E8E1FA1F35700F6EC1E /* setting_normal@2x.png in Resources */,
 				6E3F9E801FA1F35300F6EC1E /* share@2x.png in Resources */,
@@ -2629,6 +2684,7 @@
 				6E7D39D21FA05DF900225DBC /* UIWebView+AFNetworking.m in Sources */,
 				6E575C921F94968600C073F5 /* YYCGUtilities.m in Sources */,
 				6E8F09721F8C5BCC0002467A /* QuestionViewController.m in Sources */,
+				6E254ACB1FA3018600294B0D /* SettingModel.m in Sources */,
 				6E7D39CB1FA05DF900225DBC /* AFNetworkActivityIndicatorManager.m in Sources */,
 				6E878D501F9999ED007C1265 /* SVProgressAnimatedView.m in Sources */,
 				6E7D399C1FA05D6E00225DBC /* rijndael.c in Sources */,
@@ -2652,6 +2708,7 @@
 				6E878D6D1F99F260007C1265 /* HeartRateViewController.m in Sources */,
 				6E80DE251F95EFD800D39FE0 /* NSArray+PureLayout.m in Sources */,
 				6E575CA01F94969300C073F5 /* NSTimer+YYAdd.m in Sources */,
+				6E254ADC1FA313BC00294B0D /* DeviceInfoView.m in Sources */,
 				6E7D39A11FA05D8A00225DBC /* DCHttpRequest.m in Sources */,
 				6E575C8A1F94968000C073F5 /* UIGestureRecognizer+YYAdd.m in Sources */,
 				6E7D39A31FA05D8A00225DBC /* NSString+HttpRequestAdditions.m in Sources */,
@@ -2719,6 +2776,7 @@
 				6E7D398A1FA0585C00225DBC /* MeasureAPI.m in Sources */,
 				6E7D39CA1FA05DEB00225DBC /* UITextField+HeadTailIcon.m in Sources */,
 				6E575C6E1F94965B00C073F5 /* YYTextEffectWindow.m in Sources */,
+				6E254AD81FA3139000294B0D /* DeviceInfoViewController.m in Sources */,
 				6E575C961F94969300C073F5 /* NSDate+YYAdd.m in Sources */,
 				6E822F511F9750C2005A6804 /* DRNavigationBar.m in Sources */,
 				6E7D39AE1FA05DAC00225DBC /* NSMutableAttributedString+DCFoundation.m in Sources */,

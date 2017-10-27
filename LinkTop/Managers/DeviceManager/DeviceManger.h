@@ -14,7 +14,6 @@
 
 @property (nonatomic, strong) NSString *softVersion;
 @property (nonatomic, strong) NSString *hardVersion;
-@property (nonatomic, strong) NSString *deviceID;
 
 + (instancetype)defaultManager;
 
@@ -84,4 +83,9 @@
  * 结束测量心电
  */
 - (void)endMeasureECG;
+
+/**
+ * 获取设备ID和key
+ */
+- (void)getDeviceIdAndKey:(void(^)(NSString *PID,NSString *key))receiveDeviceIDandKeyComplete;
 @end

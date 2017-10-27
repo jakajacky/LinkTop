@@ -27,6 +27,8 @@ typedef void(^ReceiveSmothWaveComplete)(int revdata);
 typedef void(^ReceiveHeartRateComplete)(int heartrate);
 typedef void(^ReceiveBreathRateComplete)(int breathrate);
 
+typedef void(^ReceiveDeviceIDandKeyComplete)(NSString *,NSString *);
+
 @interface DeviceManger ()<sdkHealthMoniterDelegate>
 {
     int isConnectTimeout;
@@ -47,6 +49,8 @@ typedef void(^ReceiveBreathRateComplete)(int breathrate);
     ReceiveSmothWaveComplete      _receiveSmothWaveComplete;
     ReceiveHeartRateComplete      _receiveHeartRateComplete;
     ReceiveBreathRateComplete     _receiveBreathRateComplete;
+    
+    ReceiveDeviceIDandKeyComplete _receiveDeviceIDandKeyComplete;
 }
 @property (nonatomic, strong) SDKHealthMoniter *sdkHealth;
 @property (nonatomic, strong) NSMutableArray   *peripherals;
@@ -207,7 +211,13 @@ static DeviceManger *deviceM = nil;
     [self.sdkHealth endECG];
 }
 
-#pragma mark - 蓝牙回调
+#pragma mark - 获取设备ID和key
+- (void)getDeviceIdAndKey:(void(^)(NSString *PID,NSString *key))receiveDeviceIDandKeyComplete {
+    [self.sdkHealth startToGetPidAndKey];
+    _receiveDeviceIDandKeyComplete = receiveDeviceIDandKeyComplete;
+}
+
+#pragma mark - 蓝牙和测量结果 回调
 - (void)didScanedPeripherals:(NSMutableArray *)foundPeripherals {
     NSLog(@"DM搜索到设备个数%ld",(long)foundPeripherals.count);
     [self.peripherals removeAllObjects];
@@ -217,7 +227,6 @@ static DeviceManger *deviceM = nil;
 - (void)didConnectPeripheral:(CBPeripheral *)peripheral {
     NSLog(@"DM连接到设备%@",peripheral);
     self.peripheral = peripheral;
-    [DeviceManger defaultManager].peripheral = peripheral;
     
     if (_didConnectedComplete_ble) {
         _didConnectedComplete_ble(peripheral);
@@ -234,7 +243,8 @@ static DeviceManger *deviceM = nil;
 - (void)disconnectPeripheral:(CBPeripheral *)peripheral {
     NSLog(@"DM蓝牙主动断开连接");
     self.peripheral = nil;
-    [DeviceManger defaultManager].peripheral = nil;
+    self.softVersion = nil;
+    self.hardVersion = nil;
     
     if (_disconnectComplete_ble) {
         _disconnectComplete_ble(peripheral);
@@ -270,15 +280,7 @@ static DeviceManger *deviceM = nil;
     }
 }
 
-
-
-
-/**
- *  @discussion Get BloodPressure results
- *
- *  @param BloodPressure Systolic_pressure value Diastolic_pressure value
- *          Heart_beat value
- */
+#pragma mark - 测量血压
 - (void)receiveBloodPressure:(int)Systolic_pressure andDiastolic_pressure:(int)Diastolic_pressure andHeart_beat:(int)Heart_beat {
     NSLog(@"DM血压测量结果：%d",Systolic_pressure);
     [self.sdkHealth endBloodPressure];
@@ -350,7 +352,8 @@ static DeviceManger *deviceM = nil;
 -(void)blueToothAbnormalDisconnect {
     NSLog(@"DM蓝牙异常断开连接");
     self.peripheral = nil;
-    [DeviceManger defaultManager].peripheral = nil;
+    self.softVersion = nil;
+    self.hardVersion = nil;
     
     [self.peripherals removeAllObjects];
     //    [self.sdkHealth scanStart];
@@ -388,7 +391,7 @@ static DeviceManger *deviceM = nil;
  */
 - (void)softVersion:(NSString*) softversion {
     NSLog(@"DM软件版本：%@",softversion);
-    [DeviceManger defaultManager].softVersion = softversion;
+    self.softVersion = softversion;
 }
 
 
@@ -401,7 +404,7 @@ static DeviceManger *deviceM = nil;
  */
 - (void)hardVersion:(NSString*)hardversion {
     NSLog(@"DM硬件版本：%@",hardversion);
-    [DeviceManger defaultManager].hardVersion = hardversion;
+    self.hardVersion = hardversion;
 }
 
 /*!
@@ -413,6 +416,9 @@ static DeviceManger *deviceM = nil;
  */
 - (void)devicePidAndKey:(NSString *)pid Key:(NSString *)key {
     NSLog(@"DM设备id:%@,安全码%@", pid,key);
+    if (_receiveDeviceIDandKeyComplete) {
+        _receiveDeviceIDandKeyComplete(pid,key);
+    }
 }
 
 

@@ -8,10 +8,12 @@
 
 #import "SettingsViewController.h"
 #import "SettingsView.h"
-
+#import "SettingModel.h"
+#import "DeviceInfoViewController.h"
 @interface SettingsViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) SettingsView *settingsView;
+@property (nonatomic, strong) SettingModel *settingsModel;
 
 @end
 
@@ -25,11 +27,20 @@
     self.settingsView.tableView.delegate = self;
     self.settingsView.tableView.dataSource = self;
     self.settingsView.tableView.scrollEnabled = NO;
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.settingsModel reloadData:^(BOOL success) {
+        [self.settingsView.tableView reloadData];
+    }];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -99,7 +110,7 @@
             }
             else {
                 cell.textLabel.text = @"设备ID";
-                cell.detailTextLabel.text = @"未绑定";
+                cell.detailTextLabel.text = self.settingsModel.deviceID;
             }
             break;
         }
@@ -133,17 +144,23 @@
             break;
         }
         case 1:{
-            
+            if (indexPath.row==0) {// 设备信息
+                UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+                DeviceInfoViewController *deviceInfo = [story instantiateViewControllerWithIdentifier:@"deviceinfo"];
+                deviceInfo.settingsModel = self.settingsModel;
+                [self presentViewController:deviceInfo animated:YES completion:^{
+                    
+                }];
+            }
             break;
         }
         case 2:{
             
             break;
         }
-        case 3:{
+        case 3:{// 退出登录
             [LoginManager defaultManager].currentPatient = nil;
-//            // 登录页面判断
-//            [[LoginManager defaultManager] shouldShowLoginViewControllerIn:self];
+
             [self.tabBarController setSelectedIndex:0];
             break;
         }
@@ -190,6 +207,13 @@
         _settingsView = (SettingsView *)self.view;
     }
     return _settingsView;
+}
+
+- (SettingModel *)settingsModel {
+    if (!_settingsModel) {
+        _settingsModel = [[SettingModel alloc] init];
+    }
+    return _settingsModel;
 }
 
 @end
