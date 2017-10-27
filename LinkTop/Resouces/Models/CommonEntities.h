@@ -17,6 +17,14 @@ typedef enum : NSUInteger {
     R_B_Aid,
 } Location;
 
+typedef enum : NSUInteger {
+    MTBloodPresure,
+    MTTemperature,
+    MTSpo2h,
+    MTHeartRate,
+    MTECG,
+} MeasureType;
+
 @interface Peripheral : DCDatabaseObject
 
 NS_ASSUME_NONNULL_BEGIN
@@ -92,26 +100,33 @@ NS_ASSUME_NONNULL_END
 NS_ASSUME_NONNULL_BEGIN
 
 
-@property (copy) NSString *Id;
-@property (copy) NSString *patient_id;
-@property        long long measure_time;
-@property        long long createTime;
-@property        CGFloat   l_pwv;
-@property        CGFloat   r_pwv;
-@property        CGFloat   l_ptt;
-@property        CGFloat   r_ptt;
-@property        NSInteger qualified_L;
-@property        NSInteger qualified_R;
-@property (copy) NSString *hr_list;
-@property (copy) NSString *pwv_list;
-@property (copy) NSString *la_q_list;
-@property (copy) NSString *la_i_list;
-@property (copy) NSString *ll_q_list;
-@property (copy) NSString *ll_i_list;
-@property (copy) NSString *ra_q_list;
-@property (copy) NSString *ra_i_list;
-@property (copy) NSString *rl_q_list;
-@property (copy) NSString *rl_i_list;
+@property (copy) NSString *Id;           // 数据标识
+@property (copy) NSString *user_id;      // 用户标识
+@property        long long measure_time; // 测量时间
+@property        long long create_date;  // 服务器返回
+@property (copy) NSString *sbp;
+@property (copy) NSString *dbp;
+@property (copy) NSString *spo2h;
+@property (copy) NSString *temp;
+@property (copy) NSString *hr;
+@property (copy) NSString *respiration;
+@property (copy) NSString *device_id;
+@property (copy) NSString *ecg_raw;
+@property        NSInteger ecg_freq;
+@property (copy) NSString  *spo2h_raw    ;
+@property        NSInteger spo2h_freq;
+@property        NSInteger rr;
+@property        NSInteger rr_max;
+@property        NSInteger rr_min;
+@property        NSInteger mood;
+@property        NSInteger hrv;
+@property        NSInteger device_power;
+
+@property (copy) NSString *device_key;
+@property (copy) NSString *device_soft_ver;
+@property (copy) NSString *device_hard_ver;
+
+@property        MeasureType type;
 
 @property        BOOL     isSent;
 

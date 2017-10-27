@@ -7,14 +7,7 @@
 //
 
 #import "DCBiz.h"
-
-typedef enum : NSUInteger {
-    MTBloodPresure,
-    MTTemperature,
-    MTSpo2h,
-    MTHeartRate,
-} MeasureType;
-
+#import "CommonEntities.h"
 @interface MeasureAPI : DCBiz
 
 - (void)uploadResult:(NSDictionary *)result type:(MeasureType)type completion:(void(^)(BOOL,id,NSString *))complete;

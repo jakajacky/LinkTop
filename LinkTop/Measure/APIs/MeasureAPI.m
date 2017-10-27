@@ -8,7 +8,7 @@
 
 #import "MeasureAPI.h"
 #import "DCHttpRequest.h"
-#import "CommonEntities.h"
+
 @interface MeasureAPI ()
 {
     NSDictionary *params;

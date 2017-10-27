@@ -14,4 +14,6 @@
 
 @property (nonatomic, strong) NSString *info;
 
+@property (nonatomic, strong) DiagnosticList *measureRecord;
+
 @end

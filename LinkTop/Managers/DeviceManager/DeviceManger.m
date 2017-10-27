@@ -280,6 +280,15 @@ static DeviceManger *deviceM = nil;
     }
 }
 
+/**
+ *   @discussion  Get Oximetry wave data
+ *
+ *   @param oxyWave 单个点的值
+ */
+-(void)receiveOximetryWave:(double)oxyWave {
+    NSLog(@"DM血氧revData：%f",oxyWave);
+}
+
 #pragma mark - 测量血压
 - (void)receiveBloodPressure:(int)Systolic_pressure andDiastolic_pressure:(int)Diastolic_pressure andHeart_beat:(int)Heart_beat {
     NSLog(@"DM血压测量结果：%d",Systolic_pressure);

@@ -18,9 +18,9 @@
 
 
 
-@property(nonatomic, strong) LT_ThermometerSDK * LT_ThermometerSDK; //体温计sdk
-@property(nonatomic, strong) SDKHealthMoniter * LT_HealthMonitor;   //健康监测仪sdk
-@property(nonatomic, strong) LT_iOS_CSS_SDK * LT_Css; //云服务
+@property(nonatomic, strong, readonly) LT_ThermometerSDK * LT_ThermometerSDK; //体温计sdk
+@property(nonatomic, strong, readonly) SDKHealthMoniter * LT_HealthMonitor;   //健康监测仪sdk
+@property(nonatomic, strong, readonly) LT_iOS_CSS_SDK * LT_Css; //云服务
 
 /**
  初始化实例 单例
@@ -35,7 +35,10 @@
  @return 服务启动结果
  */
 - (BOOL)StartThermeterServerceWithDelegate:(id<ThermometerDelegate>)delegate;
-
+/**
+ * 关闭体温计功能, 关闭后句柄为nil.
+ */
+-(void)stopThermeterServerce;
 /**
  启动健康检测仪功能
  
@@ -49,6 +52,10 @@
  */
 - (BOOL)StartHealthMonitorServiceWithDelegate:(id<sdkHealthMoniterDelegate>)delegate TcpStateChangeBlock: (void (^)(NSDictionary *dict)) stateNotiBlock;
 /**
+ * 关闭健康检测仪功能, 关闭后句柄为nil.
+ */
+- (void)StopHealthMonitorService;
+/**
 
  云服务
  
@@ -58,6 +65,9 @@
  */
 - (BOOL)StartCloudService:(NSString *)appKey AppSecret:(NSString *)secret;
 
-
+/**
+ * 关闭云服务功能, 关闭后句柄为nil.
+ */
+- (void)stopCloudService;
 
 @end

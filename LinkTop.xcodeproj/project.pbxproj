@@ -12,6 +12,7 @@
 		6E254AD41FA3130700294B0D /* Group@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E254AD21FA3130200294B0D /* Group@3x.png */; };
 		6E254AD81FA3139000294B0D /* DeviceInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E254AD71FA3139000294B0D /* DeviceInfoViewController.m */; };
 		6E254ADC1FA313BC00294B0D /* DeviceInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E254ADB1FA313BC00294B0D /* DeviceInfoView.m */; };
+		6E254ADE1FA33A0B00294B0D /* libLibHealthCombine_V2.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E254ADD1FA33A0B00294B0D /* libLibHealthCombine_V2.2.a */; };
 		6E3F9DE91FA1D1CF00F6EC1E /* DeviceManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3F9DE81FA1D1CB00F6EC1E /* DeviceManger.m */; };
 		6E3F9DEC1FA1D1E100F6EC1E /* LoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3F9DEA1FA1D1DE00F6EC1E /* LoginManager.m */; };
 		6E3F9E491FA1F32A00F6EC1E /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E3F9DF11FA1F32300F6EC1E /* bg.png */; };
@@ -102,7 +103,6 @@
 		6E442AAB1F988C3C00D1293B /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E442AAA1F988C3C00D1293B /* libstdc++.tbd */; };
 		6E442AAD1F988C4200D1293B /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E442AAC1F988C4200D1293B /* CoreBluetooth.framework */; };
 		6E442AAF1F988C4D00D1293B /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E442AAE1F988C4D00D1293B /* libsqlite3.tbd */; };
-		6E442AB41F98B3AB00D1293B /* libLibHealthCombine_V2.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E442A9F1F988BBA00D1293B /* libLibHealthCombine_V2.1.a */; };
 		6E442AB81F98BD6700D1293B /* UIView+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E442AB71F98BD6700D1293B /* UIView+Rotate.m */; };
 		6E442AC21F98D4EC00D1293B /* UIView+Corner.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E442AC01F98D4EC00D1293B /* UIView+Corner.m */; };
 		6E575AE51F948C6D00C073F5 /* MeasureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E575AE41F948C6D00C073F5 /* MeasureView.m */; };
@@ -327,6 +327,8 @@
 		6E254AD71FA3139000294B0D /* DeviceInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceInfoViewController.m; sourceTree = "<group>"; };
 		6E254ADA1FA313BC00294B0D /* DeviceInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceInfoView.h; sourceTree = "<group>"; };
 		6E254ADB1FA313BC00294B0D /* DeviceInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceInfoView.m; sourceTree = "<group>"; };
+		6E254ADD1FA33A0B00294B0D /* libLibHealthCombine_V2.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLibHealthCombine_V2.2.a; path = LinkTop/Supports/LinkTopSDK/libLibHealthCombine_V2.2.a; sourceTree = "<group>"; };
+		6E254ADF1FA33A3E00294B0D /* libLibHealthCombine_V2.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLibHealthCombine_V2.2.a; path = LinkTop/Supports/LinkTopSDK/libLibHealthCombine_V2.2.a; sourceTree = SOURCE_ROOT; };
 		6E3F9DE71FA1D1CB00F6EC1E /* DeviceManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceManger.h; sourceTree = "<group>"; };
 		6E3F9DE81FA1D1CB00F6EC1E /* DeviceManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceManger.m; sourceTree = "<group>"; };
 		6E3F9DEA1FA1D1DE00F6EC1E /* LoginManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginManager.m; sourceTree = "<group>"; };
@@ -424,7 +426,6 @@
 		6E442A9C1F988BBA00D1293B /* TH_MeasureDataObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TH_MeasureDataObj.h; sourceTree = "<group>"; };
 		6E442A9D1F988BBA00D1293B /* ThermometerBlueToohPtotocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThermometerBlueToohPtotocol.h; sourceTree = "<group>"; };
 		6E442A9E1F988BBA00D1293B /* ThermometerSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThermometerSDK.h; sourceTree = "<group>"; };
-		6E442A9F1F988BBA00D1293B /* libLibHealthCombine_V2.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libLibHealthCombine_V2.1.a; sourceTree = "<group>"; };
 		6E442AA21F988C1500D1293B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6E442AA41F988C2000D1293B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6E442AA61F988C2700D1293B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -895,7 +896,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E442AB41F98B3AB00D1293B /* libLibHealthCombine_V2.1.a in Frameworks */,
+				6E254ADE1FA33A0B00294B0D /* libLibHealthCombine_V2.2.a in Frameworks */,
 				6E442AAF1F988C4D00D1293B /* libsqlite3.tbd in Frameworks */,
 				6E442AAD1F988C4200D1293B /* CoreBluetooth.framework in Frameworks */,
 				6E442AAB1F988C3C00D1293B /* libstdc++.tbd in Frameworks */,
@@ -1164,7 +1165,7 @@
 			isa = PBXGroup;
 			children = (
 				6E442A941F988BBA00D1293B /* Heads */,
-				6E442A9F1F988BBA00D1293B /* libLibHealthCombine_V2.1.a */,
+				6E254ADF1FA33A3E00294B0D /* libLibHealthCombine_V2.2.a */,
 			);
 			path = LinkTopSDK;
 			sourceTree = "<group>";
@@ -1189,6 +1190,7 @@
 		6E442AA01F988BF100D1293B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6E254ADD1FA33A0B00294B0D /* libLibHealthCombine_V2.2.a */,
 				6E442AAE1F988C4D00D1293B /* libsqlite3.tbd */,
 				6E442AAC1F988C4200D1293B /* CoreBluetooth.framework */,
 				6E442AAA1F988C3C00D1293B /* libstdc++.tbd */,

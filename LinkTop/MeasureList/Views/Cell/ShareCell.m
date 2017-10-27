@@ -12,6 +12,11 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *timeL;
 
+@property (weak, nonatomic) IBOutlet UIView *colorLine;
+@property (weak, nonatomic) IBOutlet UILabel *titleL;
+@property (weak, nonatomic) IBOutlet UILabel *resultValue;
+@property (weak, nonatomic) IBOutlet UILabel *resultUnit;
+@property (weak, nonatomic) IBOutlet UILabel *resultDesc;
 
 @end
 

@@ -111,27 +111,32 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
   self = [super initWithDictionary:dictionary];
   if (self) {
-    _Id           = dictionary[@"Id"];
-    _patient_id   = dictionary[@"patient_id"];
-    _measure_time = [dictionary[@"measure_time"] longLongValue];
-    _createTime   = [dictionary[@"createTime"] longLongValue];
-    _l_pwv        = [dictionary[@"l_pwv"] floatValue];
-    _r_pwv        = [dictionary[@"r_pwv"] floatValue];
-    _l_ptt        = [dictionary[@"l_ptt"] floatValue];
-    _r_ptt        = [dictionary[@"r_ptt"] floatValue];
-    _qualified_L  = [dictionary[@"qualified_L"] integerValue];
-    _qualified_R  = [dictionary[@"qualified_R"] integerValue];
-    _hr_list      = dictionary[@"hr_list"];
-    _pwv_list     = dictionary[@"pwv_list"];
-    _la_q_list    = dictionary[@"la_q_list"];
-    _la_i_list    = dictionary[@"la_i_list"];
-    _ll_q_list    = dictionary[@"ll_q_list"];
-    _ll_i_list    = dictionary[@"ll_i_list"];
-    _ra_q_list    = dictionary[@"ra_q_list"];
-    _ra_i_list    = dictionary[@"ra_i_list"];
-    _rl_q_list    = dictionary[@"rl_q_list"];
-    _rl_i_list    = dictionary[@"rl_i_list"];
-    _isSent       = [dictionary[@"isSent"] boolValue];
+    _Id            = dictionary[@"Id"];
+    _user_id       = dictionary[@"patient_id"];
+    _measure_time  = [dictionary[@"measure_time"] longLongValue];
+    _create_date   = [dictionary[@"createTime"] longLongValue];
+    _sbp           = dictionary[@"sbp"];
+    _dbp           = dictionary[@"dbp"];
+    _spo2h         = dictionary[@"spo2h"];
+    _temp          = dictionary[@"temp"];
+    _hr            = dictionary[@"hr"];
+    _respiration   = dictionary[@"respiration"];
+    _device_id     = dictionary[@"device_id"];
+    _ecg_raw       = dictionary[@"ecg_raw"];
+    _ecg_freq      = [dictionary[@"ecg_freq"] integerValue];
+    _spo2h_raw     = dictionary[@"spo2h_raw"];
+    _spo2h_freq    = [dictionary[@"spo2h_freq"] integerValue];
+    _rr            = [dictionary[@"rr"] integerValue];
+    _rr_max        = [dictionary[@"rr_max"] integerValue];
+    _rr_min        = [dictionary[@"rr_min"] integerValue];
+    _mood          = [dictionary[@"mood"] integerValue];
+    _hrv           = [dictionary[@"hrv"] integerValue];
+    _device_power  = [dictionary[@"device_power"] integerValue];
+    _device_key    = dictionary[@"device_key"];
+    _device_soft_ver = dictionary[@"device_soft_ver"];
+    _device_hard_ver = dictionary[@"device_hard_ver"];
+    _isSent          = [dictionary[@"isSent"] boolValue];
+    _type            = [dictionary[@"type"] integerValue];
   }
   return self;
 }

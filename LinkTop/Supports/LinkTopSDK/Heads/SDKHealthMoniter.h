@@ -40,7 +40,12 @@ typedef NS_ENUM(NSUInteger, MSGTYPE) {
  */
 -(void)receiveOximetryData:(double)oxy andHeartRate:(int)heartRate;
 
-
+/**
+ *   @discussion  Get Oximetry wave data
+ *
+ *   @param oxyWave 单个点的值
+ */
+-(void)receiveOximetryWave:(double)oxyWave;
 
 
 /**

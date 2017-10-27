@@ -10,7 +10,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShareCell" customModule="LinkTop" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShareCell" customModule="LinkTop" customModuleProvider="target">
+            <connections>
+                <outlet property="colorLine" destination="lFz-3P-IDh" id="zES-6q-zuS"/>
+                <outlet property="resultDesc" destination="dFP-7B-lq4" id="JBi-V4-uen"/>
+                <outlet property="resultUnit" destination="giT-Tc-aWc" id="2hz-gu-zcW"/>
+                <outlet property="resultValue" destination="qzg-uj-2gz" id="CxV-VG-eom"/>
+                <outlet property="titleL" destination="J2B-iI-d8p" id="Usv-M5-IPN"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ShareCell" id="wiV-jQ-Ey0" customClass="ShareCell">
             <rect key="frame" x="0.0" y="0.0" width="614" height="239"/>

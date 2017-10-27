@@ -30,6 +30,8 @@
 @synthesize liveMode, startRecordingIndex, HR, stopTheTimer;
 @synthesize buffer, DEMO, newBornMode;
 
+static int ind = 0;
+
 int leadCount = 1;
 int sampleRate = 500;
 float uVpb = 0.9;
@@ -41,7 +43,7 @@ float pixelPerUV = 5 * 10.0 / 1000;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     __weak typeof(self) myself = self;
-    
+    ind = 0;
     self.ecgView.navi.leftViewDidClicked = ^{
         [myself dismissViewControllerAnimated:YES completion:^{
             
@@ -128,8 +130,6 @@ float pixelPerUV = 5 * 10.0 / 1000;
 {
     [self popDemoDataAndPushToLeads];
 }
-
-static int ind = 0;
 
 - (void)popDemoDataAndPushToLeads
 {
@@ -242,6 +242,7 @@ static int ind = 0;
     sender.selected = !sender.selected;
     if (sender.selected) {
         // 开始测量
+        ind = 0;
         
         [[DeviceManger defaultManager] measureECGWithConnect:^(CBPeripheral *peripheral) {
             
