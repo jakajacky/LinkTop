@@ -19,6 +19,14 @@ typedef void(^ReceiveTempComplete)(double temperatrue);
 typedef void(^ReceiveSpo2hComplete)(double oxy,int heartrate);
 typedef void(^ReceiveBloodPComplete)(int s_p,int d_p,int heartrate);
 
+typedef void(^ReceiveRRMaxComplete)(int rrmax);
+typedef void(^ReceiveRRMinComplete)(int rrmin);
+typedef void(^ReceiveHRVComplete)(int hrv);
+typedef void(^ReceiveMoodComplete)(int mood);
+typedef void(^ReceiveSmothWaveComplete)(int revdata);
+typedef void(^ReceiveHeartRateComplete)(int heartrate);
+typedef void(^ReceiveBreathRateComplete)(int breathrate);
+
 @interface DeviceManger ()<sdkHealthMoniterDelegate>
 {
     int isConnectTimeout;
@@ -32,7 +40,13 @@ typedef void(^ReceiveBloodPComplete)(int s_p,int d_p,int heartrate);
     ReceiveBloodPComplete         _receiveBloodPComplete;
     BpAbnormalComplete            _bpAbnormalComplete;
     
-    
+    ReceiveRRMaxComplete          _receiveRRMaxComplete;
+    ReceiveRRMinComplete          _receiveRRMinComplete;
+    ReceiveHRVComplete            _receiveHRVComplete;
+    ReceiveMoodComplete           _receiveMoodComplete;
+    ReceiveSmothWaveComplete      _receiveSmothWaveComplete;
+    ReceiveHeartRateComplete      _receiveHeartRateComplete;
+    ReceiveBreathRateComplete     _receiveBreathRateComplete;
 }
 @property (nonatomic, strong) SDKHealthMoniter *sdkHealth;
 @property (nonatomic, strong) NSMutableArray   *peripherals;
@@ -124,7 +138,7 @@ static DeviceManger *deviceM = nil;
     [self.sdkHealth endThermometerTest];
 }
 
-#pragma mark - 测量血氧
+#pragma mark -测量血氧
 - (void)measureSpo2hWithConnect:(void(^)(CBPeripheral *peripheral))didConnectedComplete
                            disconnect:(void(^)(CBPeripheral *peripheral))disconnectComplete
                           bleAbnormal:(void(^)(void))bleAbnormalDisconnectComplete
@@ -160,6 +174,37 @@ static DeviceManger *deviceM = nil;
 #pragma mark - 结束测量血压
 - (void)endMeasureBloodPresure {
     [self.sdkHealth endBloodPressure];
+}
+
+#pragma mark - 测量ECG
+- (void)measureECGWithConnect:(void(^)(CBPeripheral *peripheral))didConnectedComplete
+                            disconnect:(void(^)(CBPeripheral *peripheral))disconnectComplete
+                           bleAbnormal:(void(^)(void))bleAbnormalDisconnectComplete
+                 receiveRRMax:(void(^)(int rrmax))receiveRRMaxComplete
+                 receiveRRMin:(void(^)(int rrmin))receiveRRMinComplete
+                   receiveHRV:(void(^)(int hrv))receiveHRVComplete
+                  receiveMood:(void(^)(int mood))receiveMoodComplete
+             receiveSmothWave:(void(^)(int revdata))receiveSmothWaveComplete
+             receiveHeartRate:(void(^)(int heartrate))receiveHeartRateComplete
+    ReceiveBreathRateComplete:(void(^)(int breathrate))receiveBreathRateComplete {
+    [self.sdkHealth startECG];
+    
+    _didConnectedComplete_ble = didConnectedComplete;
+    _disconnectComplete_ble   = disconnectComplete;
+    _bleAbnormalDisconnectComplete_ble = bleAbnormalDisconnectComplete;
+    
+    _receiveRRMaxComplete = receiveRRMaxComplete;
+    _receiveRRMinComplete = receiveRRMinComplete;
+    _receiveHRVComplete   = receiveHRVComplete;
+    _receiveMoodComplete  = receiveMoodComplete;
+    _receiveSmothWaveComplete = receiveSmothWaveComplete;
+    _receiveHeartRateComplete = receiveHeartRateComplete;
+    _receiveBreathRateComplete = receiveBreathRateComplete;
+}
+
+#pragma mark - 结束测量ECG
+- (void)endMeasureECG {
+    [self.sdkHealth endECG];
 }
 
 #pragma mark - 蓝牙回调
@@ -252,36 +297,54 @@ static DeviceManger *deviceM = nil;
     
 }
 
-
-
-/**
- *  @discussion Get ECG results
- *
- *  @param ECGData rrMax value rrMin value HRV value
- *                  mood value smoothWave LineData heartRate Value
- */
-- (void)receiveECGDataRRmax:(int)rrMax {
-    
+-(void)receiveECGDataRRmax:(int)rrMax {
+    NSLog(@"DM心电区间最大值：%d",rrMax);
+    if (_receiveRRMaxComplete) {
+        _receiveRRMaxComplete(rrMax);
+    }
 }
 
-- (void)receiveECGDataRRMin:(int)rrMin {
-    
+-(void)receiveECGDataRRMin:(int)rrMin {
+    NSLog(@"DM心电区间最小值：%d",rrMin);
+    if (_receiveRRMinComplete) {
+        _receiveRRMinComplete(rrMin);
+    }
 }
 
-- (void)receiveECGDataHRV:(int)hrv {
-    
+-(void)receiveECGDataHRV:(int)hrv {
+    NSLog(@"DM心率变异性：%d",hrv);
+    [self.sdkHealth endECG];
+    if (_receiveHRVComplete) {
+        _receiveHRVComplete(hrv);
+    }
 }
 
-- (void)receiveECGDataMood:(int)mood {
-    
+-(void)receiveECGDataMood:(int)mood {
+    NSLog(@"DM心情值：%d",mood);
+    if (_receiveMoodComplete) {
+        _receiveMoodComplete(mood);
+    }
 }
 
-- (void)receiveECGDataSmoothedWave:(int)smoothedWave {
-    
+-(void)receiveECGDataSmoothedWave:(int)smoothedWave {
+    NSLog(@"DM revData：%d",smoothedWave);
+    if (_receiveSmothWaveComplete) {
+        _receiveSmothWaveComplete(smoothedWave);
+    }
 }
 
-- (void)receiveECGDataHeartRate:(int)heartRate {
-    
+-(void)receiveECGDataHeartRate:(int)heartRate {
+    NSLog(@"DM心率结果：%d",heartRate);
+    if (_receiveHeartRateComplete) {
+        _receiveHeartRateComplete(heartRate);
+    }
+}
+
+- (void)receiveECGDataBreathRate:(int)breathRate {
+    NSLog(@"DM呼吸率：%d", breathRate);
+    if (_receiveBreathRateComplete) {
+        _receiveBreathRateComplete(breathRate);
+    }
 }
 
 -(void)blueToothAbnormalDisconnect {
@@ -350,10 +413,6 @@ static DeviceManger *deviceM = nil;
  */
 - (void)devicePidAndKey:(NSString *)pid Key:(NSString *)key {
     NSLog(@"DM设备id:%@,安全码%@", pid,key);
-}
-
-- (void)receiveECGDataBreathRate:(int)breathRate {
-    NSLog(@"DM呼吸率：%d", breathRate);
 }
 
 

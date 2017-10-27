@@ -91,10 +91,14 @@
                 [SVProgressHUD dismissWithDelay:0.37];
             } disconnect:^(CBPeripheral *peripheral) {
                 NSLog(@"+++++++断开连接");
-                myself.rightview.isPeriperalConnected = NO;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    myself.rightview.isPeriperalConnected = NO;
+                });
             } bleAbnormal:^{
                 NSLog(@"+++++++异常断开");
-                myself.rightview.isPeriperalConnected = NO;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    myself.rightview.isPeriperalConnected = NO;
+                });
             }];
             
             

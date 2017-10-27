@@ -8,8 +8,7 @@
 
 #import "BloodPreViewController.h"
 #import "BloodPreView.h"
-#import "LibHealthCombineSDK.h"
-#import "SDKHealthMoniter.h"
+
 #import "UIView+Rotate.h"
 
 @interface BloodPreViewController ()

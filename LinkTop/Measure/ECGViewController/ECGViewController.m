@@ -8,17 +8,15 @@
 
 #import "ECGViewController.h"
 #import "ECGView.h"
-#import "LibHealthCombineSDK.h"
-#import "SDKHealthMoniter.h"
+
 #import "UIView+Rotate.h"
 #import "TripleECGView.h"
 #import "LeadPlayer.h"
 
-@interface ECGViewController ()<sdkHealthMoniterDelegate>
+@interface ECGViewController ()
 
 @property (nonatomic, strong) ECGView *ecgView;
 @property (nonatomic, strong) TripleECGView *ecgLine;
-@property (nonatomic, strong) SDKHealthMoniter *sdkHealth;
 
 @property (nonatomic, weak) NSTimer *drawingTimer, *popDataTimer;
 @property (nonatomic, strong) NSMutableArray *dataArr;
@@ -43,15 +41,7 @@ float pixelPerUV = 5 * 10.0 / 1000;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     __weak typeof(self) myself = self;
-    // 启动服务
-    [[LibHealthCombineSDK Instance] StartHealthMonitorServiceWithDelegate:self TcpStateChangeBlock:^(NSDictionary *dict) {
-        
-    }];
     
-    // 获取健康检测仪SDK对象
-    self.sdkHealth = [LibHealthCombineSDK Instance].LT_HealthMonitor;
-    //    self.sdkHealth = [[SDKHealthMoniter alloc] init];
-    //    self.sdkHealth.sdkHealthMoniterdelegate =self;
     self.ecgView.navi.leftViewDidClicked = ^{
         [myself dismissViewControllerAnimated:YES completion:^{
             
@@ -253,7 +243,33 @@ static int ind = 0;
     if (sender.selected) {
         // 开始测量
         
-        [self.sdkHealth startECG];
+        [[DeviceManger defaultManager] measureECGWithConnect:^(CBPeripheral *peripheral) {
+            
+        } disconnect:^(CBPeripheral *peripheral) {
+            
+        } bleAbnormal:^{
+            
+        } receiveRRMax:^(int rrmax) {
+            
+        } receiveRRMin:^(int rrmin) {
+            
+        } receiveHRV:^(int hrv) {
+            [_dataArr removeAllObjects];
+            _dataArr = nil;
+            // 主线程修改UI
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.ecgView.startMeasureBtn.selected = NO;
+                
+            });
+        } receiveMood:^(int mood) {
+            
+        } receiveSmothWave:^(int revdata) {
+            [_dataArr addObject:@(revdata/5)];
+        } receiveHeartRate:^(int heartrate) {
+            
+        } ReceiveBreathRateComplete:^(int breathrate) {
+            
+        }];
         
         [self startLiveMonitoring];
 //        [self popDataTimerEvent];
@@ -261,124 +277,9 @@ static int ind = 0;
     }
     else {
         // 结束测量
-        
-        [self.sdkHealth endECG];
+        [[DeviceManger defaultManager] endMeasureECG];
     }
     
-}
-
-#pragma mark - 蓝牙回调
-- (void)didScanedPeripherals:(NSMutableArray *)foundPeripherals {
-    NSLog(@"搜索到设备个数%ld",(long)foundPeripherals.count);
-}
-
-- (void)didConnectPeripheral:(CBPeripheral *)peripheral {
-    NSLog(@"连接到设备%@",peripheral);
-}
-
-- (void)disconnectPeripheral:(CBPeripheral *)peripheral {
-    NSLog(@"蓝牙断开连接");
-}
-
-/**
- * 测量温度的回调
- */
--(void)receiveThermometerData:(double)temperature {
-    NSLog(@"体温测量结果：%f",temperature);
-}
-
-
-/**
- *  @discussion  Get Oximetry results
- *
- *  @param Oximetry Oximetry value
- *  @param heartRate heartRate value
- */
--(void)receiveOximetryData:(double)oxy andHeartRate:(int)heartRate {
-    NSLog(@"血氧测量结果：%f, 脉率:%d",oxy,heartRate);
-    
-}
-
-
-
-
-/**
- *  @discussion Get BloodPressure results
- *
- *  @param BloodPressure Systolic_pressure value Diastolic_pressure value
- *          Heart_beat value
- */
--(void)receiveBloodPressure:(int)Systolic_pressure andDiastolic_pressure:(int)Diastolic_pressure andHeart_beat:(int)Heart_beat {
-    NSLog(@"血压测量结果：%d, %d",Systolic_pressure,Diastolic_pressure);
-
-}
-
-/**
- *  @discussion
- *
- *  @param msgtype msgType ENUM
- *  @param row     if row!=nil , according to this param ,invoke method getBloodSugarInRow in this object(SDKHealthMoniter) to transform blood sugar
- */
--(void) receiveBloodSugar:(MSGTYPE) msgtype andRow:(NSNumber*) row {
-    
-}
-
-
-
-/**
- *  @discussion Get ECG results
- *
- *  @param ECGData rrMax value rrMin value HRV value
- *                  mood value smoothWave LineData heartRate Value
- */
--(void)receiveECGDataRRmax:(int)rrMax {
-    NSLog(@"心电区间最大值：%d",rrMax);
-}
-
--(void)receiveECGDataRRMin:(int)rrMin {
-    NSLog(@"心电区间最小值：%d",rrMin);
-}
-
--(void)receiveECGDataHRV:(int)hrv {
-    NSLog(@"心率变异性：%d",hrv);
-    [_dataArr removeAllObjects];
-    _dataArr = nil;
-}
-
--(void)receiveECGDataMood:(int)mood {
-    NSLog(@"心情值：%d",mood);
-}
-
--(void)receiveECGDataSmoothedWave:(int)smoothedWave {
-    NSLog(@"revData：%d",smoothedWave);
-    [_dataArr addObject:@(smoothedWave/5)];
-}
-
--(void)receiveECGDataHeartRate:(int)heartRate {
-    NSLog(@"心率结果：%d",heartRate);
-    // 测量结束
-//    [self.sdkHealth endECG];
-    // 主线程修改UI
-    dispatch_async(dispatch_get_main_queue(), ^{
-        self.ecgView.startMeasureBtn.selected = NO;
-        
-    });
-}
-
--(void)receiveECGDataBreathRate:(int)breathRate {
-    NSLog(@"呼吸率：%d",breathRate);
-}
-
-/*!
- *  @method bloodPressureAbnormal
- *
- *  @param message   The <code>str</code> that abnormal message.
- *
- *  @discussion         This method is invoked when bloodPressure
- *  abnormal dicconnect
- */
--(void)bloodPressureAbnormal:(NSString *)message {
-    NSLog(@"血压异常：%@",message);
 }
 
 #pragma mark - properties
