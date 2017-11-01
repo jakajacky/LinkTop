@@ -11,6 +11,11 @@
 @interface ECGCell ()
 
 @property (weak, nonatomic) IBOutlet UILabel *timeL;
+@property (weak, nonatomic) IBOutlet UILabel *dateL;
+@property (weak, nonatomic) IBOutlet UILabel *rrmaxValue;
+@property (weak, nonatomic) IBOutlet UILabel *rrminValue;
+@property (weak, nonatomic) IBOutlet UILabel *moodValue;
+@property (weak, nonatomic) IBOutlet UILabel *hrValue;
 
 
 @end

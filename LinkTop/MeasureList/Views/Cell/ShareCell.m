@@ -7,7 +7,7 @@
 //
 
 #import "ShareCell.h"
-
+#import "UIView+Corner.h"
 @interface ShareCell ()
 
 @property (weak, nonatomic) IBOutlet UILabel *timeL;
@@ -28,7 +28,7 @@
     self.layer.cornerRadius = 4;
     self.layer.shadowColor = [UIColor blackColor].CGColor;
     self.layer.shadowOpacity = 0.3;
-    self.layer.shadowOffset = CGSizeMake(0, 5);
+    self.layer.shadowOffset = CGSizeMake(0, 2);
     self.layer.masksToBounds = YES;
 }
 

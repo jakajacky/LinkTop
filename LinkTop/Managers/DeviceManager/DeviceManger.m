@@ -414,6 +414,7 @@ static DeviceManger *deviceM = nil;
 - (void)hardVersion:(NSString*)hardversion {
     NSLog(@"DM硬件版本：%@",hardversion);
     self.hardVersion = hardversion;
+    [self.sdkHealth startToGetPidAndKey];
 }
 
 /*!
@@ -425,6 +426,8 @@ static DeviceManger *deviceM = nil;
  */
 - (void)devicePidAndKey:(NSString *)pid Key:(NSString *)key {
     NSLog(@"DM设备id:%@,安全码%@", pid,key);
+    self.deviceID  = pid;
+    self.deviceKEY = key;
     if (_receiveDeviceIDandKeyComplete) {
         _receiveDeviceIDandKeyComplete(pid,key);
     }

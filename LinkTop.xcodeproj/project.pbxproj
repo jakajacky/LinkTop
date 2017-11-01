@@ -316,6 +316,7 @@
 		6ECF876B1FA1ADFA0050E2A0 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF876A1FA1ADFA0050E2A0 /* RegisterViewController.m */; };
 		6ECF876F1FA1AE170050E2A0 /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF876E1FA1AE170050E2A0 /* RegisterView.m */; };
 		6ECF87731FA1B57C0050E2A0 /* RegisterAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF87721FA1B57C0050E2A0 /* RegisterAPI.m */; };
+		6EF8CAF81FA9760E00D910ED /* MeasureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF8CAF71FA9760E00D910ED /* MeasureManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -889,6 +890,8 @@
 		6ECF876E1FA1AE170050E2A0 /* RegisterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
 		6ECF87711FA1B57C0050E2A0 /* RegisterAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterAPI.h; sourceTree = "<group>"; };
 		6ECF87721FA1B57C0050E2A0 /* RegisterAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterAPI.m; sourceTree = "<group>"; };
+		6EF8CAF61FA9760E00D910ED /* MeasureManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeasureManager.h; sourceTree = "<group>"; };
+		6EF8CAF71FA9760E00D910ED /* MeasureManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeasureManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -950,6 +953,7 @@
 		6E3F9DE41FA1D19300F6EC1E /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				6EF8CAF51FA975FB00D910ED /* MeasureManager */,
 				6E3F9DE61FA1D1CB00F6EC1E /* DeviceManager */,
 				6E3F9DE51FA1D19300F6EC1E /* LoginManager */,
 			);
@@ -2430,6 +2434,15 @@
 			path = APIs;
 			sourceTree = "<group>";
 		};
+		6EF8CAF51FA975FB00D910ED /* MeasureManager */ = {
+			isa = PBXGroup;
+			children = (
+				6EF8CAF61FA9760E00D910ED /* MeasureManager.h */,
+				6EF8CAF71FA9760E00D910ED /* MeasureManager.m */,
+			);
+			path = MeasureManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2589,6 +2602,7 @@
 				6E575C591F9495A800C073F5 /* YYKeychain.m in Sources */,
 				6E822F3D1F972EF8005A6804 /* TemperViewController.m in Sources */,
 				6E575C8B1F94968000C073F5 /* UIImage+YYAdd.m in Sources */,
+				6EF8CAF81FA9760E00D910ED /* MeasureManager.m in Sources */,
 				6E7D39B71FA05DC500225DBC /* UIView+DCFoundation.m in Sources */,
 				6E7D399F1FA05D7900225DBC /* DCViewController.m in Sources */,
 				6E575C5B1F9495A800C073F5 /* YYSentinel.m in Sources */,

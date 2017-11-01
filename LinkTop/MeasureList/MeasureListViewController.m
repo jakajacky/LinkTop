@@ -77,13 +77,13 @@
     UICollectionViewCell *cell;
     if (indexPath.item == 0 || indexPath.item == 7) {
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ECGCell" forIndexPath:indexPath];
-        ECGCell *ecgc = cell;
+        ECGCell *ecgc = (ECGCell *)cell;
         ecgc.index = indexPath.item;
         ecgc.info  = [NSString stringWithFormat:@"--%d",indexPath.item];
     }
     else {
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ShareCell" forIndexPath:indexPath];
-        ShareCell *ecgc = cell;
+        ShareCell *ecgc = (ShareCell *)cell;
         ecgc.index = indexPath.item;
         ecgc.info  = [NSString stringWithFormat:@"--%d",indexPath.item];
     }

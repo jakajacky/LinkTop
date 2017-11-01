@@ -8,12 +8,13 @@
 
 #import "TemperViewController.h"
 #import "TempreView.h"
-
+#import "MeasureAPI.h"
+#import "DeviceManger.h"
 #import "UIView+Rotate.h"
 @interface TemperViewController ()
 
 @property (nonatomic, strong) TempreView *tempreView;
-
+@property (nonatomic, strong) MeasureAPI *measureAPI;
 @end
 
 @implementation TemperViewController
@@ -73,9 +74,6 @@
         } bleAbnormal:^{
             NSLog(@"--+++temp--++蓝牙异常++--+++");
         } receiveThermometerData:^(double temperature) {
-            // 结束
-            self.tempreView.startMeasureBtn.selected = NO;
-            [self.tempreView.tempre_loading stopRotating];
             
             // 更新UI结果
             double temperatureNew = temperature*1.8+32;
@@ -88,6 +86,29 @@
                 self.tempreView.tempreType.text = @"℃";
             }
             self.tempreView.tempretureValue.text = [NSString stringWithFormat:@"%.1f",temperatureNew];
+            // 上传数据
+            Patient *user = [LoginManager defaultManager].currentPatient;
+            NSString *temp = self.tempreView.tempretureValue.text;
+            NSString *device_id  = [DeviceManger defaultManager].deviceID;
+            NSString *device_key = [DeviceManger defaultManager].deviceKEY;
+            NSString *soft_v  = [DeviceManger defaultManager].softVersion;
+            NSString *hard_v  = [DeviceManger defaultManager].hardVersion;
+            NSDictionary *params = @{@"user_id"         : user.user_id,   // 用户名
+                                     @"temp"            : temp,      // 体温
+                                     @"device_id"       : device_id?device_id:@"", // 设备id
+                                     @"device_key"      : device_key?device_key:@"", // 设备key
+                                     @"device_soft_ver" : soft_v?soft_v:@"", // 软件版本
+                                     @"device_hard_ver" : hard_v?hard_v:@"", // 硬件版本
+                       };
+            [self.measureAPI uploadResult:params type:MTTemperature completion:^(BOOL success, id result, NSString *msg) {
+                // 结束UI
+                self.tempreView.startMeasureBtn.selected = NO;
+                [self.tempreView.tempre_loading stopRotating];
+                // 保存数据库
+                NSLog(@"temp result:%@", result);
+                
+            }];
+            
         }];
     }
     else {
@@ -123,15 +144,13 @@
     }
     return _tempreView;
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (MeasureAPI *)measureAPI {
+    if (!_measureAPI) {
+        _measureAPI = [MeasureAPI biz];
+    }
+    return _measureAPI;
 }
-*/
 
 
 @end

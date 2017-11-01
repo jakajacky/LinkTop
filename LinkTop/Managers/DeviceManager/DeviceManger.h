@@ -14,6 +14,8 @@
 
 @property (nonatomic, strong) NSString *softVersion;
 @property (nonatomic, strong) NSString *hardVersion;
+@property (nonatomic, strong) NSString *deviceID;
+@property (nonatomic, strong) NSString *deviceKEY;
 
 + (instancetype)defaultManager;
 

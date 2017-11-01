@@ -14,4 +14,7 @@
 
 @property (nonatomic, strong) NSString *info;
 
+@property (weak, nonatomic) IBOutlet UIButton *checkECGViewBtn;
+
+
 @end

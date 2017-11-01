@@ -133,6 +133,12 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
+                <outlet property="checkECGViewBtn" destination="g8V-7j-MgL" id="L6T-7T-kPY"/>
+                <outlet property="dateL" destination="LXJ-cK-GgA" id="3ZU-Vz-fL2"/>
+                <outlet property="hrValue" destination="ckU-Ow-zwa" id="2u8-1E-2wo"/>
+                <outlet property="moodValue" destination="LxV-Hv-2sd" id="moX-Na-Hxw"/>
+                <outlet property="rrmaxValue" destination="3Hm-ey-cfi" id="QC9-en-nXC"/>
+                <outlet property="rrminValue" destination="83T-BZ-I41" id="Jb4-af-DP4"/>
                 <outlet property="timeL" destination="vye-RO-lIU" id="zha-AY-ocu"/>
             </connections>
             <point key="canvasLocation" x="34.5" y="79"/>
