@@ -51,6 +51,8 @@
         
         DiagnosticList *diagnotic = [[DiagnosticList alloc] initWithDictionary:result];
         diagnotic.Id = result[@"id"];
+        diagnotic.spo2h_raw = params[@"spo2h_raw"];
+        diagnotic.ecg_raw   = params[@"ecg_raw"];
         diagnotic.isSent = YES;
         diagnotic.type = type;
         // 存储数据库
