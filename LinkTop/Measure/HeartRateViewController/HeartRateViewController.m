@@ -8,11 +8,12 @@
 
 #import "HeartRateViewController.h"
 #import "HeartRateView.h"
-
+#import "MeasureAPI.h"
 #import "UIView+Rotate.h"
 @interface HeartRateViewController ()
 
 @property (nonatomic, strong) HeartRateView *heartRateView;
+@property (nonatomic, strong) MeasureAPI    *measureAPI;
 
 @end
 
@@ -57,12 +58,37 @@
             
         } bleAbnormal:^{
             
-        } receiveSpo2hData:^(double oxy, int heartrate) {
-            // 测量结束
-            [self.heartRateView.tempre_loading stopRotating];
-            self.heartRateView.startMeasureBtn.selected = NO;
+        } receiveSpo2hData:^(double oxy) {
+            
+        } receiveSpo2hResult:^(double oxy, int heartrate) {
             
             self.heartRateView.heartRateValue.text = [NSString stringWithFormat:@"%d",heartrate];
+            
+            // 上传数据
+            Patient *user = [LoginManager defaultManager].currentPatient;
+            NSString *device_id  = [DeviceManger defaultManager].deviceID;
+            NSString *device_key = [DeviceManger defaultManager].deviceKEY;
+            NSString *soft_v  = [DeviceManger defaultManager].softVersion;
+            NSString *hard_v  = [DeviceManger defaultManager].hardVersion;
+            NSDictionary *params = @{@"user_id"         : user.user_id,   // 用户名
+                                     @"hr"              : @(heartrate),      // 心率
+                                     @"device_id"       : device_id?device_id:@"", // 设备id
+                                     @"device_key"      : device_key?device_key:@"", // 设备key
+                                     @"device_soft_ver" : soft_v?soft_v:@"", // 软件版本
+                                     @"device_hard_ver" : hard_v?hard_v:@"", // 硬件版本
+                                     };
+            [self.measureAPI uploadResult:params type:MTHeartRate completion:^(BOOL success, id result, NSString *msg) {
+                // 测量结束
+                [self.heartRateView.tempre_loading stopRotating];
+                self.heartRateView.startMeasureBtn.selected = NO;
+                if (success) {
+                    
+                }
+                else {
+                    [SVProgressHUD showErrorWithStatus:@"上传失败"];
+                    [SVProgressHUD dismissWithDelay:1.5];
+                }
+            }];
         }];
     }
     else {
@@ -79,6 +105,13 @@
         _heartRateView = (HeartRateView *)self.view;
     }
     return _heartRateView;
+}
+
+- (MeasureAPI *)measureAPI {
+    if (!_measureAPI) {
+        _measureAPI = [MeasureAPI biz];
+    }
+    return _measureAPI;
 }
 
 @end

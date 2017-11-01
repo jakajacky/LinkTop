@@ -48,8 +48,15 @@
     [self loadRequestProperties];
     
     [self.request startWithSuccess:^(id result) {
-        complete(YES, result, @"");
         
+        DiagnosticList *diagnotic = [[DiagnosticList alloc] initWithDictionary:result];
+        diagnotic.Id = result[@"id"];
+        diagnotic.isSent = YES;
+        diagnotic.type = type;
+        // 存储数据库
+        [self.mainDatabase updateObjects:@[diagnotic]];
+        
+        complete(YES, result, @"");
     } failure:^(NSInteger errCode, NSString *errMsg, NSDictionary *userInfo) {
         complete(NO, userInfo,errMsg);
     }];
@@ -88,6 +95,27 @@
         _request = [[DCHttpRequest alloc] init];
     }
     return _request;
+}
+
+#pragma mark - database operation
+
+- (Patient *)getCurrentPatientFormMainDB {
+    NSString *sql = [NSString stringWithFormat:
+                     @"SELECT * FROM %@ where isLastAdd = ?",
+                     [Patient tableName]];
+    
+    NSArray *result = [self.mainDatabase query:sql withArguments:@[@(YES)] convertTo:[Patient class]];
+    
+    return result.firstObject;
+}
+
+- (void)deleteCurrentPatientFromMainDB:(Patient *)patient {
+    patient.isLastAdd = NO;
+    [self.mainDatabase updateObjects:@[patient]];
+}
+
+- (DCDatabase *)mainDatabase {
+    return [self database:@"main.db" withKey:@"1234567890ABCDEF"];
 }
 
 @end

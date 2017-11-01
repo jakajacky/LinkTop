@@ -17,6 +17,7 @@ typedef void(^BleAbnormalDisconnectComplete)(void);
 typedef void(^BpAbnormalComplete)(NSString *message);
 typedef void(^ReceiveTempComplete)(double temperatrue);
 typedef void(^ReceiveSpo2hComplete)(double oxy,int heartrate);
+typedef void(^ReceiveSpo2hDataComplete)(double oxy);
 typedef void(^ReceiveBloodPComplete)(int s_p,int d_p,int heartrate);
 
 typedef void(^ReceiveRRMaxComplete)(int rrmax);
@@ -39,6 +40,7 @@ typedef void(^ReceiveDeviceIDandKeyComplete)(NSString *,NSString *);
     
     ReceiveTempComplete           _receiveTempComplete;
     ReceiveSpo2hComplete          _receiveSpo2hComplete;
+    ReceiveSpo2hDataComplete      _receiveSpo2hDataComplete;
     ReceiveBloodPComplete         _receiveBloodPComplete;
     BpAbnormalComplete            _bpAbnormalComplete;
     
@@ -144,14 +146,16 @@ static DeviceManger *deviceM = nil;
 
 #pragma mark -测量血氧
 - (void)measureSpo2hWithConnect:(void(^)(CBPeripheral *peripheral))didConnectedComplete
-                           disconnect:(void(^)(CBPeripheral *peripheral))disconnectComplete
-                          bleAbnormal:(void(^)(void))bleAbnormalDisconnectComplete
-               receiveSpo2hData:(void(^)(double oxy,int heartrate))receiveComplete {
+                     disconnect:(void(^)(CBPeripheral *peripheral))disconnectComplete
+                    bleAbnormal:(void(^)(void))bleAbnormalDisconnectComplete
+               receiveSpo2hData:(void(^)(double oxy))receiveSpo2hDataComplete
+               receiveSpo2hResult:(void(^)(double oxy,int heartrate))receiveComplete {
     [self.sdkHealth startOximetryTest];
     
     _didConnectedComplete_ble = didConnectedComplete;
     _disconnectComplete_ble   = disconnectComplete;
     _bleAbnormalDisconnectComplete_ble = bleAbnormalDisconnectComplete;
+    _receiveSpo2hDataComplete = receiveSpo2hDataComplete;
     _receiveSpo2hComplete     = receiveComplete;
 }
 
@@ -287,6 +291,9 @@ static DeviceManger *deviceM = nil;
  */
 -(void)receiveOximetryWave:(double)oxyWave {
     NSLog(@"DM血氧revData：%f",oxyWave);
+    if (_receiveSpo2hDataComplete) {
+        _receiveSpo2hDataComplete(oxyWave);
+    }
 }
 
 #pragma mark - 测量血压

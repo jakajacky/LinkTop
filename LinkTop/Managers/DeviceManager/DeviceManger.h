@@ -49,7 +49,8 @@
 - (void)measureSpo2hWithConnect:(void(^)(CBPeripheral *peripheral))didConnectedComplete
                      disconnect:(void(^)(CBPeripheral *peripheral))disconnectComplete
                     bleAbnormal:(void(^)(void))bleAbnormalDisconnectComplete
-               receiveSpo2hData:(void(^)(double oxy,int heartrate))receiveComplete;
+               receiveSpo2hData:(void(^)(double oxy))receiveSpo2hDataComplete
+             receiveSpo2hResult:(void(^)(double oxy,int heartrate))receiveComplete;
 /**
  * 结束测量血氧
  */

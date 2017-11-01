@@ -104,6 +104,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (copy) NSString *user_id;      // 用户标识
 @property        long long measure_time; // 测量时间
 @property        long long create_date;  // 服务器返回
+@property        NSInteger ri;
 @property (copy) NSString *sbp;
 @property (copy) NSString *dbp;
 @property (copy) NSString *spo2h;

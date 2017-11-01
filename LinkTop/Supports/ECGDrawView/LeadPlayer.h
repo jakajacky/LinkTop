@@ -8,15 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class ECGViewController;
-
 @interface LeadPlayer : UIView <UIGestureRecognizerDelegate> {
 	CGPoint drawingPoints[1000];
 	CGPoint endPoint, endPoint2, endPoint3, viewCenter;
 	int currentPoint;
 	CGContextRef context;
 	
-	ECGViewController *__unsafe_unretained liveMonitor;
+	UIViewController *__unsafe_unretained liveMonitor;
 	
 	NSMutableArray *pointsArray;
 	int index;
@@ -30,12 +28,13 @@
 @property (nonatomic, strong) NSMutableArray *pointsArray;
 @property (nonatomic, strong) UIView *lightSpot;
 @property (nonatomic, strong) NSString *label;
-@property (nonatomic, unsafe_unretained) ECGViewController *liveMonitor;
+@property (nonatomic, unsafe_unretained) UIViewController *liveMonitor;
 
 @property (nonatomic) int index;
 @property (nonatomic) int currentPoint;
 @property (nonatomic) int pos_x_offset;
 @property (nonatomic) CGPoint viewCenter;
+@property (nonatomic) BOOL isbgLine;
 
 
 - (void)fireDrawing;

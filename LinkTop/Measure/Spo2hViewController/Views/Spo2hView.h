@@ -21,5 +21,6 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *startMeasureBtn;
 @property (strong, nonatomic) IBOutlet UIImageView *tempre_loading;
+@property (weak, nonatomic) IBOutlet UIView *spo2hViewContainer;
 
 @end

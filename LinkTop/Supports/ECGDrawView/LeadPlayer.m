@@ -26,7 +26,12 @@ int pointPerDraw = 500.0f * 0.04f;
     
     self = [super initWithFrame:frame];
     if (self) {
-		self.backgroundColor = [UIColor blackColor];
+        if (_isbgLine) {
+            self.backgroundColor = [UIColor clearColor];
+        }
+        else {
+            self.backgroundColor = [UIColor blackColor];
+        }
 		self.clearsContextBeforeDrawing = YES;
 		
 		[self addGestureRecgonizer];
@@ -48,7 +53,13 @@ int pointPerDraw = 500.0f * 0.04f;
 	CGFloat cell_square_width = pixelsPerCell;
 	
 	CGContextSetLineWidth(ctx, 0.2);
-	CGContextSetStrokeColorWithColor(ctx, [UIColor greenColor].CGColor);
+    if (self.isbgLine) {
+        self.backgroundColor = [UIColor clearColor];
+       CGContextSetStrokeColorWithColor(ctx, [UIColor clearColor].CGColor);
+    }
+    else {
+        CGContextSetStrokeColorWithColor(ctx, [UIColor greenColor].CGColor);
+    }
 	
 	int pos_x = 1;
 	while (pos_x < full_width) {
@@ -116,7 +127,7 @@ int pointPerDraw = 500.0f * 0.04f;
 {	
 	if (count == 0) return;
 	
-	CGContextSetLineWidth(ctx, lineWidth_LiveMonitor);
+    CGContextSetLineWidth(ctx, _isbgLine?1:lineWidth_LiveMonitor);
 	CGContextSetStrokeColorWithColor(ctx, [UIColor greenColor].CGColor);
 	
 	CGContextAddLines(ctx, drawingPoints, count);

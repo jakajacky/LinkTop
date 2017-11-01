@@ -104,9 +104,13 @@
                 // 结束UI
                 self.tempreView.startMeasureBtn.selected = NO;
                 [self.tempreView.tempre_loading stopRotating];
-                // 保存数据库
-                NSLog(@"temp result:%@", result);
-                
+                if (success) {
+                    
+                }
+                else {
+                    [SVProgressHUD showErrorWithStatus:@"上传失败"];
+                    [SVProgressHUD dismissWithDelay:1.5];
+                }
             }];
             
         }];
