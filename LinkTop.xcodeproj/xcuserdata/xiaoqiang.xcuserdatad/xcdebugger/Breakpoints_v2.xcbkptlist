@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LinkTop/Supports/ECGDrawView/LeadPlayer.m"
-            timestampString = "531220897.746796"
+            filePath = "LinkTop/Measure/ECGViewController/ECGViewController.m"
+            timestampString = "531224597.081527"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "-drawGrid:"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "-popDemoDataAndPushToLeads"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

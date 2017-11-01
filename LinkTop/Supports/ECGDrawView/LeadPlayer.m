@@ -7,7 +7,6 @@
 //
 
 #import "LeadPlayer.h"
-#import "ECGViewController.h"
 
 @implementation LeadPlayer
 @synthesize pointsArray, index, label, liveMonitor, lightSpot, currentPoint, pos_x_offset, viewCenter;

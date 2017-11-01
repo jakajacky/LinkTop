@@ -75,6 +75,7 @@ float pixelPerUV = 5 * 10.0 / 1000;
 
 - (void)dealloc {
     NSLog(@"ECGViewController 释放");
+    _dataArr = nil;
     [self.view removeFromSuperview];
     [self.view removeAllSubviews];
     self.view = nil;
@@ -238,8 +239,11 @@ float pixelPerUV = 5 * 10.0 / 1000;
     }];
 }
 
+#pragma mark - 开始&结束测量
 - (void)startMeasureBtnDidClicked:(UIButton *)sender {
     sender.selected = !sender.selected;
+    self.ecgView.resultView.hidden = NO;
+    self.ecgView.tutorialView.hidden = YES;
     if (sender.selected) {
         // 开始测量
         ind = 0;
@@ -251,25 +255,44 @@ float pixelPerUV = 5 * 10.0 / 1000;
         } bleAbnormal:^{
             
         } receiveRRMax:^(int rrmax) {
-            
+            // 主线程修改UI
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.ecgView.rrmaxValue.text = [NSString stringWithFormat:@"%d",rrmax];
+                
+            });
         } receiveRRMin:^(int rrmin) {
-            
+            // 主线程修改UI
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.ecgView.rrminValue.text = [NSString stringWithFormat:@"%d",rrmin];
+                
+            });
         } receiveHRV:^(int hrv) {
             [_dataArr removeAllObjects];
-            _dataArr = nil;
+            [drawingTimer invalidate];
+            [popDataTimer invalidate];
+            drawingTimer = nil;
+            popDataTimer = nil;
             // 主线程修改UI
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.ecgView.startMeasureBtn.selected = NO;
-                
+                self.ecgView.hrvValue.text = [NSString stringWithFormat:@"%d",hrv];
             });
         } receiveMood:^(int mood) {
             
         } receiveSmothWave:^(int revdata) {
             [_dataArr addObject:@(revdata/5)];
         } receiveHeartRate:^(int heartrate) {
-            
+            // 主线程修改UI
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.ecgView.hrValue.text = [NSString stringWithFormat:@"%d",heartrate];
+                
+            });
         } ReceiveBreathRateComplete:^(int breathrate) {
-            
+            // 主线程修改UI
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.ecgView.brValue.text = [NSString stringWithFormat:@"%d",breathrate];
+                
+            });
         }];
         
         [self startLiveMonitoring];
