@@ -76,17 +76,24 @@
         } receiveThermometerData:^(double temperature) {
             
             // 更新UI结果
-            double temperatureNew = temperature*1.8+32;
-            if (self.tempreView.controlTypeOfTemp.currentIndex==1) {
-                self.tempreView.tempreType.text = @"℉";
-                temperatureNew = temperature*1.8+32;
-            }
-            else {
-                temperatureNew = temperature;
-                self.tempreView.tempreType.text = @"℃";
-            }
-            self.tempreView.tempretureValue.text = [NSString stringWithFormat:@"%.1f",temperatureNew];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                double temperatureNew = temperature*1.8+32;
+                if (self.tempreView.controlTypeOfTemp.currentIndex==1) {
+                    self.tempreView.tempreType.text = @"℉";
+                    temperatureNew = temperature*1.8+32;
+                }
+                else {
+                    temperatureNew = temperature;
+                    self.tempreView.tempreType.text = @"℃";
+                }
+                self.tempreView.tempretureValue.text = [NSString stringWithFormat:@"%.1f",temperatureNew];
+                // 结束UI
+                self.tempreView.startMeasureBtn.selected = NO;
+                [self.tempreView.tempre_loading stopRotating];
+            });
+            
             // 上传数据
+            [SVProgressHUD showWithStatus:@"正在上传"];
             Patient *user = [LoginManager defaultManager].currentPatient;
             NSString *temp = self.tempreView.tempretureValue.text;
             NSString *device_id  = [DeviceManger defaultManager].deviceID;
@@ -97,15 +104,15 @@
                                      @"temp"            : temp,      // 体温
                                      @"device_id"       : device_id?device_id:@"", // 设备id
                                      @"device_key"      : device_key?device_key:@"", // 设备key
+                                     @"device_power"    : @(100),
                                      @"device_soft_ver" : soft_v?soft_v:@"", // 软件版本
                                      @"device_hard_ver" : hard_v?hard_v:@"", // 硬件版本
                        };
             [self.measureAPI uploadResult:params type:MTTemperature completion:^(BOOL success, id result, NSString *msg) {
-                // 结束UI
-                self.tempreView.startMeasureBtn.selected = NO;
-                [self.tempreView.tempre_loading stopRotating];
+                
                 if (success) {
-                    
+                    [SVProgressHUD showSuccessWithStatus:@"上传成功"];
+                    [SVProgressHUD dismissWithDelay:1.5];
                 }
                 else {
                     [SVProgressHUD showErrorWithStatus:@"上传失败"];

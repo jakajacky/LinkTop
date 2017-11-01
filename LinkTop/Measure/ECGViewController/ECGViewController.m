@@ -8,15 +8,25 @@
 
 #import "ECGViewController.h"
 #import "ECGView.h"
-
+#import "MeasureAPI.h"
 #import "UIView+Rotate.h"
 #import "TripleECGView.h"
 #import "LeadPlayer.h"
 
 @interface ECGViewController ()
-
+{
+    NSInteger _heartrate;
+    NSInteger _rr;
+    NSInteger _rr_max;
+    NSInteger _rr_min;
+    NSInteger _respiration;
+    NSInteger _mood;
+    NSInteger _hrv;
+}
 @property (nonatomic, strong) ECGView *ecgView;
 @property (nonatomic, strong) TripleECGView *ecgLine;
+
+@property (nonatomic, strong) MeasureAPI *measureAPI;
 
 @property (nonatomic, weak) NSTimer *drawingTimer, *popDataTimer;
 @property (nonatomic, strong) NSMutableArray *dataArr;
@@ -247,7 +257,7 @@ float pixelPerUV = 5 * 10.0 / 1000;
     if (sender.selected) {
         // 开始测量
         ind = 0;
-        
+        NSMutableString *ecg_raw = [NSMutableString string];
         [[DeviceManger defaultManager] measureECGWithConnect:^(CBPeripheral *peripheral) {
             
         } disconnect:^(CBPeripheral *peripheral) {
@@ -255,18 +265,21 @@ float pixelPerUV = 5 * 10.0 / 1000;
         } bleAbnormal:^{
             
         } receiveRRMax:^(int rrmax) {
+            _rr_max = rrmax;
             // 主线程修改UI
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.ecgView.rrmaxValue.text = [NSString stringWithFormat:@"%d",rrmax];
                 
             });
         } receiveRRMin:^(int rrmin) {
+            _rr_min = rrmin;
             // 主线程修改UI
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.ecgView.rrminValue.text = [NSString stringWithFormat:@"%d",rrmin];
                 
             });
         } receiveHRV:^(int hrv) {
+            _hrv = hrv;
             [_dataArr removeAllObjects];
             [drawingTimer invalidate];
             [popDataTimer invalidate];
@@ -277,17 +290,62 @@ float pixelPerUV = 5 * 10.0 / 1000;
                 self.ecgView.startMeasureBtn.selected = NO;
                 self.ecgView.hrvValue.text = [NSString stringWithFormat:@"%d",hrv];
             });
-        } receiveMood:^(int mood) {
             
+            // 上传数据
+            [SVProgressHUD showWithStatus:@"正在上传"];
+            Patient *user = [LoginManager defaultManager].currentPatient;
+            NSString *device_id  = [DeviceManger defaultManager].deviceID;
+            NSString *device_key = [DeviceManger defaultManager].deviceKEY;
+            NSString *soft_v  = [DeviceManger defaultManager].softVersion;
+            NSString *hard_v  = [DeviceManger defaultManager].hardVersion;
+            NSDictionary *params = @{@"user_id"         : user.user_id,   // 用户名
+                                     @"ecg_raw"         : ecg_raw, // 收缩压
+                                     @"ecg_freq"        : @(122),// 舒张压
+                                     @"rr_max"          : @(_rr_max),  // 最大值
+                                     @"rr_min"          : @(_rr_min),  // 最小值
+                                     @"mood"            : @(_mood),    // 心情
+                                     @"hrv"             : @(_hrv),        // 心率异常
+                                     @"hr"              : @(_heartrate),   // 心率
+                                     @"respiration"     : @(_respiration), // 呼吸率
+                                     @"device_id"       : device_id?device_id:@"", // 设备id
+                                     @"device_key"      : device_key?device_key:@"", // 设备key
+                                     @"device_power"    : @(100),
+                                     @"device_soft_ver" : soft_v?soft_v:@"", // 软件版本
+                                     @"device_hard_ver" : hard_v?hard_v:@"", // 硬件版本
+                                     };
+            [self.measureAPI uploadResult:params type:MTECG completion:^(BOOL success, id result, NSString *msg) {
+                
+                if (success) {
+                    // 清除字符串
+                    [ecg_raw deleteCharactersInRange:NSMakeRange(0, ecg_raw.length)];
+                    [SVProgressHUD showSuccessWithStatus:@"上传成功"];
+                    [SVProgressHUD dismissWithDelay:1.5];
+                }
+                else {
+                    [SVProgressHUD showErrorWithStatus:@"上传失败"];
+                    [SVProgressHUD dismissWithDelay:1.5];
+                }
+            }];
+            
+        } receiveMood:^(int mood) {
+            _mood = mood;
         } receiveSmothWave:^(int revdata) {
             [_dataArr addObject:@(revdata/5)];
+            if (ecg_raw.length==0) {
+                [ecg_raw appendFormat:@"%d",revdata];
+            }
+            else {
+                [ecg_raw appendFormat:@",%d",revdata];
+            }
         } receiveHeartRate:^(int heartrate) {
+            _heartrate = heartrate;
             // 主线程修改UI
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.ecgView.hrValue.text = [NSString stringWithFormat:@"%d",heartrate];
                 
             });
         } ReceiveBreathRateComplete:^(int breathrate) {
+            _respiration = breathrate;
             // 主线程修改UI
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.ecgView.brValue.text = [NSString stringWithFormat:@"%d",breathrate];
@@ -312,6 +370,13 @@ float pixelPerUV = 5 * 10.0 / 1000;
         _ecgView = (ECGView *)self.view;
     }
     return _ecgView;
+}
+
+- (MeasureAPI *)measureAPI {
+    if (!_measureAPI) {
+        _measureAPI = [MeasureAPI biz];
+    }
+    return _measureAPI;
 }
 
 @end

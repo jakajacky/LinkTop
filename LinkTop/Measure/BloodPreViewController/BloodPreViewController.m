@@ -61,10 +61,13 @@
         } receiveBloodPData:^(int systolic_pressure, int diastolic_pressure, int heartrate) {
             // 主线程修改UI
             dispatch_async(dispatch_get_main_queue(), ^{
+                [self.bloodPreView.tempre_loading stopRotating];
+                self.bloodPreView.startMeasureBtn.selected = NO;
                 self.bloodPreView.resultValue.text = [NSString stringWithFormat:@"%d/%d",systolic_pressure, diastolic_pressure];
             });
             
             // 上传数据
+            [SVProgressHUD showWithStatus:@"正在上传"];
             Patient *user = [LoginManager defaultManager].currentPatient;
             NSString *device_id  = [DeviceManger defaultManager].deviceID;
             NSString *device_key = [DeviceManger defaultManager].deviceKEY;
@@ -75,17 +78,15 @@
                                      @"dbp"             : @(diastolic_pressure),// 舒张压
                                      @"device_id"       : device_id?device_id:@"", // 设备id
                                      @"device_key"      : device_key?device_key:@"", // 设备key
+                                     @"device_power"    : @(100),
                                      @"device_soft_ver" : soft_v?soft_v:@"", // 软件版本
                                      @"device_hard_ver" : hard_v?hard_v:@"", // 硬件版本
                                      };
             [self.measureAPI uploadResult:params type:MTBloodPresure completion:^(BOOL success, id result, NSString *msg) {
-                // 结束UI
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.bloodPreView.tempre_loading stopRotating];
-                    self.bloodPreView.startMeasureBtn.selected = NO;
-                });
+                
                 if (success) {
-                    
+                    [SVProgressHUD showSuccessWithStatus:@"上传成功"];
+                    [SVProgressHUD dismissWithDelay:1.5];
                 }
                 else {
                     [SVProgressHUD showErrorWithStatus:@"上传失败"];

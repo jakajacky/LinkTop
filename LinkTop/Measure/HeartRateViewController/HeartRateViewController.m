@@ -61,10 +61,16 @@
         } receiveSpo2hData:^(double oxy) {
             
         } receiveSpo2hResult:^(double oxy, int heartrate) {
-            
-            self.heartRateView.heartRateValue.text = [NSString stringWithFormat:@"%d",heartrate];
+            // 测量结束
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.heartRateView.heartRateValue.text = [NSString stringWithFormat:@"%d",heartrate];
+                
+                [self.heartRateView.tempre_loading stopRotating];
+                self.heartRateView.startMeasureBtn.selected = NO;
+            });
             
             // 上传数据
+            [SVProgressHUD showWithStatus:@"正在上传"];
             Patient *user = [LoginManager defaultManager].currentPatient;
             NSString *device_id  = [DeviceManger defaultManager].deviceID;
             NSString *device_key = [DeviceManger defaultManager].deviceKEY;
@@ -74,15 +80,15 @@
                                      @"hr"              : @(heartrate),      // 心率
                                      @"device_id"       : device_id?device_id:@"", // 设备id
                                      @"device_key"      : device_key?device_key:@"", // 设备key
+                                     @"device_power"    : @(100),
                                      @"device_soft_ver" : soft_v?soft_v:@"", // 软件版本
                                      @"device_hard_ver" : hard_v?hard_v:@"", // 硬件版本
                                      };
             [self.measureAPI uploadResult:params type:MTHeartRate completion:^(BOOL success, id result, NSString *msg) {
-                // 测量结束
-                [self.heartRateView.tempre_loading stopRotating];
-                self.heartRateView.startMeasureBtn.selected = NO;
+                
                 if (success) {
-                    
+                    [SVProgressHUD showSuccessWithStatus:@"上传成功"];
+                    [SVProgressHUD dismissWithDelay:1.5];
                 }
                 else {
                     [SVProgressHUD showErrorWithStatus:@"上传失败"];

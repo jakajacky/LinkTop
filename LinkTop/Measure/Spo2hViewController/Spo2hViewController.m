@@ -70,6 +70,7 @@ float pixelPerUV_s = 5 * 10.0 / 1000;
 
 - (void)dealloc {
     NSLog(@"Spo2hViewController 释放");
+    _dataArr = nil;
     [self.view removeFromSuperview];
     [self.view removeAllSubviews];
     self.view = nil;
@@ -240,6 +241,7 @@ float pixelPerUV_s = 5 * 10.0 / 1000;
     sender.selected = !sender.selected;
     if (sender.selected) {
         // 开始测量
+        ind = 0;
         [self.spo2hView.tempre_loading startRotating];
         NSMutableString *spo_raw = [NSMutableString string];
         [[DeviceManger defaultManager] measureSpo2hWithConnect:^(CBPeripheral *peripheral) {
@@ -258,14 +260,25 @@ float pixelPerUV_s = 5 * 10.0 / 1000;
             }
         } receiveSpo2hResult:^(double oxy, int heartrate) {
             [_dataArr removeAllObjects];
-            _dataArr = nil;
+            
+            [drawingTimer invalidate];
+            [popDataTimer invalidate];
+            drawingTimer = nil;
+            popDataTimer = nil;
             // 更新UI结果
-            self.spo2hView.Spo2hValue.text     = [NSString stringWithFormat:@"%.0f",oxy];
-            self.spo2hView.PulseRateValue.text = [NSString stringWithFormat:@"%d",heartrate];
-            self.spo2hView.spo2h_unit.text = @"%";
-            self.spo2hView.pulse_unit.text = @"bmp";
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.spo2hView.Spo2hValue.text     = [NSString stringWithFormat:@"%.0f",oxy];
+                self.spo2hView.PulseRateValue.text = [NSString stringWithFormat:@"%d",heartrate];
+                self.spo2hView.spo2h_unit.text = @"%";
+                self.spo2hView.pulse_unit.text = @"bmp";
+                
+                //结束
+                self.spo2hView.startMeasureBtn.selected = NO;
+                [self.spo2hView.tempre_loading stopRotating];
+            });
             
             // 上传数据
+            [SVProgressHUD showWithStatus:@"正在上传"];
             Patient *user = [LoginManager defaultManager].currentPatient;
             NSString *device_id  = [DeviceManger defaultManager].deviceID;
             NSString *device_key = [DeviceManger defaultManager].deviceKEY;
@@ -273,19 +286,20 @@ float pixelPerUV_s = 5 * 10.0 / 1000;
             NSString *hard_v  = [DeviceManger defaultManager].hardVersion;
             NSDictionary *params = @{@"user_id"         : user.user_id,   // 用户名
                                      @"spo2h"           : @(oxy), // 血氧
+                                     @"hr"              : @(heartrate), // 心率
                                      @"spo2h_raw"       : spo_raw,    // 血氧原始数据
                                      @"spo2h_freq"      : @(120), // 血氧采样率
                                      @"device_id"       : device_id?device_id:@"", // 设备id
                                      @"device_key"      : device_key?device_key:@"", // 设备key
+                                     @"device_power"    : @(100),
                                      @"device_soft_ver" : soft_v?soft_v:@"", // 软件版本
                                      @"device_hard_ver" : hard_v?hard_v:@"", // 硬件版本
                                      };
             [self.measureAPI uploadResult:params type:MTSpo2h completion:^(BOOL success, id result, NSString *msg) {
-                //结束
-                self.spo2hView.startMeasureBtn.selected = NO;
-                [self.spo2hView.tempre_loading stopRotating];
+                
                 if (success) {
-                    
+                    [SVProgressHUD showSuccessWithStatus:@"上传成功"];
+                    [SVProgressHUD dismissWithDelay:1.5];
                 }
                 else {
                     [SVProgressHUD showErrorWithStatus:@"上传失败"];
