@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+#define kTabBarHeight 49
+#define kNaviBarHeight 64
+#define kLeftandRightMargin 10
+#define kTopandBottomMargin 8
+#define kItemWidth (self.width-(2*kLeftandRightMargin))
+#define kItemHeight 87
+#define kItemSpacing 4
 @interface MeasureListView : UIView
+
+@property (nonatomic, strong) UICollectionView *listView;
 
 @end

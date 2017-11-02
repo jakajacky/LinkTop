@@ -12,19 +12,12 @@
 #import "ShareCell.h"
 #import "ECGCell.h"
 #import "MeasureListModel.h"
-
-#define kTabBarHeight 49
-#define kNaviBarHeight 64
-#define kLeftandRightMargin 10
-#define kTopandBottomMargin 8
-#define kItemWidth (self.listView.width-(2*kLeftandRightMargin))
-#define kItemHeight 87
-#define kItemSpacing 4
+#import "MeasureListView.h"
 
 @interface MeasureListViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
-@property (nonatomic, strong) UICollectionView *listView;
-@property (nonatomic, strong) VegaScrollFlowLayout *layout;
+@property (nonatomic, strong) MeasureListView  *measureListView;
+
 @property (nonatomic, strong) MeasureListModel  *measureListModel;
 
 @end
@@ -36,14 +29,18 @@
     // Do any additional setup after loading the view.
     [self prepareNavigationColor];
     
-    [self setupViews];
-    [self.listView registerNib:[UINib nibWithNibName:@"ShareCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ShareCell"];
-    [self.listView registerNib:[UINib nibWithNibName:@"ECGCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ECGCell"];
+    [self.measureListView.listView registerNib:[UINib nibWithNibName:@"ShareCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ShareCell"];
+    [self.measureListView.listView registerNib:[UINib nibWithNibName:@"ECGCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ECGCell"];
     
+    self.measureListView.listView.delegate = self;
+    self.measureListView.listView.dataSource = self;
+    // 下拉刷新
+    self.measureListView.listView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(pullToReloadMoreData)];
+    // 请求数据并刷新
     [self.measureListModel reloadData:^(BOOL success) {
         if (success) {
             // 数据
-            [self.listView reloadData];
+            [self.measureListView.listView reloadData];
         }
         else {
             [SVProgressHUD showErrorWithStatus:@"获取数据失败"];
@@ -57,30 +54,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - 设置子视图
-- (void)setupViews {
-    _layout  = [[VegaScrollFlowLayout alloc] init];
-    _listView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, kNaviBarHeight, self.view.width, self.view.height-kNaviBarHeight-kTabBarHeight) collectionViewLayout:_layout];
-    _listView.backgroundColor = [UIColor clearColor];
-    _layout.minimumLineSpacing = kItemSpacing;
-    _layout.itemSize = CGSizeMake(kItemWidth, kItemHeight);
-    // 决定整体的上下边距
-    _layout.sectionInset = UIEdgeInsetsMake(kTopandBottomMargin, 0, kLeftandRightMargin-6, 0);
-    
-    /*
-     * vega布局，一个缺点，自动恢复offset太快，不是无缝衔接的，
-     * 但是如果增加下拉刷新后，这个缺点就可以忽略了
-     * _listView.bounces = NO;
-     */
-    _listView.scrollsToTop = NO;
-    _listView.delegate = self;
-    _listView.dataSource = self;
-    [self.view addSubview:_listView];
-    
-    // 下拉刷新
-    _listView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(pullToReloadMoreData)];
-}
-
 #pragma mark - 修改导航栏和状态栏渐变色
 - (void)prepareNavigationColor {
     // iOS7之后，设置状态栏和导航栏统一背景色，是很简单的，但是渐变颜色又是特殊的一种
@@ -90,8 +63,8 @@
 #pragma mark - 上拉刷新更早数据
 - (void)pullToReloadMoreData {
     [self.measureListModel reloadData:^(BOOL success) {
-        [self.listView.mj_footer endRefreshing];
-        [self.listView reloadData];
+        [self.measureListView.listView.mj_footer endRefreshing];
+        [self.measureListView.listView reloadData];
     }];
 }
 
@@ -116,10 +89,10 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(nonnull UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     DiagnosticList *diag = self.measureListModel.dataSource[indexPath.item];
     if (diag.type==MTECG) {
-        return CGSizeMake(kItemWidth, 150);
+        return CGSizeMake((self.measureListView.listView.width-(2*kLeftandRightMargin)), 150);
     }
     else {
-        return CGSizeMake(kItemWidth, kItemHeight);
+        return CGSizeMake((self.measureListView.listView.width-(2*kLeftandRightMargin)), kItemHeight);
     }
 }
 
@@ -133,6 +106,13 @@
         _measureListModel = [[MeasureListModel alloc] init];
     }
     return _measureListModel;
+}
+
+- (MeasureListView *)measureListView {
+    if (!_measureListView) {
+        _measureListView = (MeasureListView *)self.view;
+    }
+    return _measureListView;
 }
 
 @end
