@@ -10,4 +10,6 @@
 
 @interface UIAlertController (Element)
 
+- (void)setMessageColor:(UIColor *)color Font:(UIFont *)font;
+
 @end

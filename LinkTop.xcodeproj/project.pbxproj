@@ -338,6 +338,8 @@
 		6ECF876B1FA1ADFA0050E2A0 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF876A1FA1ADFA0050E2A0 /* RegisterViewController.m */; };
 		6ECF876F1FA1AE170050E2A0 /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF876E1FA1AE170050E2A0 /* RegisterView.m */; };
 		6ECF87731FA1B57C0050E2A0 /* RegisterAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF87721FA1B57C0050E2A0 /* RegisterAPI.m */; };
+		6ECF8B9A1FAB02FB00542F72 /* UIAlertController+Element.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF8B991FAB02FB00542F72 /* UIAlertController+Element.m */; };
+		6ECF8B9E1FAB106900542F72 /* KeyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF8B9D1FAB106900542F72 /* KeyController.m */; };
 		6EF8CAF81FA9760E00D910ED /* MeasureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF8CAF71FA9760E00D910ED /* MeasureManager.m */; };
 		6EF8CAFB1FA9D0FA00D910ED /* ecg_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EF8CAFA1FA9D0F500D910ED /* ecg_red@2x.png */; };
 		6EF8CAFC1FA9D0FA00D910ED /* ecg_red@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EF8CAF91FA9D0F300D910ED /* ecg_red@3x.png */; };
@@ -958,6 +960,10 @@
 		6ECF876E1FA1AE170050E2A0 /* RegisterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
 		6ECF87711FA1B57C0050E2A0 /* RegisterAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterAPI.h; sourceTree = "<group>"; };
 		6ECF87721FA1B57C0050E2A0 /* RegisterAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterAPI.m; sourceTree = "<group>"; };
+		6ECF8B981FAB02FB00542F72 /* UIAlertController+Element.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Element.h"; sourceTree = "<group>"; };
+		6ECF8B991FAB02FB00542F72 /* UIAlertController+Element.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Element.m"; sourceTree = "<group>"; };
+		6ECF8B9C1FAB106900542F72 /* KeyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyController.h; sourceTree = "<group>"; };
+		6ECF8B9D1FAB106900542F72 /* KeyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyController.m; sourceTree = "<group>"; };
 		6EF8CAF61FA9760E00D910ED /* MeasureManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeasureManager.h; sourceTree = "<group>"; };
 		6EF8CAF71FA9760E00D910ED /* MeasureManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeasureManager.m; sourceTree = "<group>"; };
 		6EF8CAF91FA9D0F300D910ED /* ecg_red@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ecg_red@3x.png"; sourceTree = "<group>"; };
@@ -1886,6 +1892,8 @@
 				6E7D38ED1FA056D700225DBC /* UIImage+memory.m */,
 				6E7D38F01FA056D700225DBC /* UITextField+HeadTailIcon.h */,
 				6E7D38F11FA056D700225DBC /* UITextField+HeadTailIcon.m */,
+				6ECF8B981FAB02FB00542F72 /* UIAlertController+Element.h */,
+				6ECF8B991FAB02FB00542F72 /* UIAlertController+Element.m */,
 			);
 			path = Categorys;
 			sourceTree = "<group>";
@@ -1893,6 +1901,7 @@
 		6E7D38F21FA056D700225DBC /* DCMVVM */ = {
 			isa = PBXGroup;
 			children = (
+				6ECF8B9B1FAB104300542F72 /* DCKeyViewController */,
 				6E7D38F31FA056D700225DBC /* DCApi */,
 				6E7D38F91FA056D700225DBC /* DCBiz */,
 				6E7D39071FA056D700225DBC /* DCDatabase */,
@@ -2624,6 +2633,15 @@
 			path = APIs;
 			sourceTree = "<group>";
 		};
+		6ECF8B9B1FAB104300542F72 /* DCKeyViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6ECF8B9C1FAB106900542F72 /* KeyController.h */,
+				6ECF8B9D1FAB106900542F72 /* KeyController.m */,
+			);
+			path = DCKeyViewController;
+			sourceTree = "<group>";
+		};
 		6EF8CAF51FA975FB00D910ED /* MeasureManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -2921,6 +2939,7 @@
 				6E575C831F94968000C073F5 /* UIApplication+YYAdd.m in Sources */,
 				6E878D6D1F99F260007C1265 /* HeartRateViewController.m in Sources */,
 				6E80DE251F95EFD800D39FE0 /* NSArray+PureLayout.m in Sources */,
+				6ECF8B9E1FAB106900542F72 /* KeyController.m in Sources */,
 				6E4892041FAAC9970027BAD3 /* MJRefreshAutoStateFooter.m in Sources */,
 				6E575CA01F94969300C073F5 /* NSTimer+YYAdd.m in Sources */,
 				6E4891FA1FAAC96C0027BAD3 /* UIView+MJExtension.m in Sources */,
@@ -2933,6 +2952,7 @@
 				6E4891C61FAAAE890027BAD3 /* MeasureListModel.m in Sources */,
 				6E7D39D31FA05E0900225DBC /* AFHTTPRequestOperation.m in Sources */,
 				6E575C911F94968600C073F5 /* CALayer+YYAdd.m in Sources */,
+				6ECF8B9A1FAB02FB00542F72 /* UIAlertController+Element.m in Sources */,
 				6E7D39BA1FA05DC500225DBC /* UIView+UIShortcuts.m in Sources */,
 				6E7D39961FA05A1500225DBC /* DCDatabase+PrivateMethods.m in Sources */,
 				6E7D399D1FA05D7900225DBC /* DCProtocol.m in Sources */,
@@ -3163,6 +3183,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = R6223ZBKTR;
@@ -3176,13 +3197,15 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LinkTop/Supports/LinkTopSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = lohas.LinkTop;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lohas.LinkTop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "LinkTop/Supports/VegaScroll/LinkTop-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = "arm64  armv7s";
 			};
 			name = Debug;
 		};
@@ -3192,6 +3215,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = R6223ZBKTR;
@@ -3205,12 +3229,15 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LinkTop/Supports/LinkTopSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = lohas.LinkTop;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lohas.LinkTop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "LinkTop/Supports/VegaScroll/LinkTop-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = "arm64  armv7s";
 			};
 			name = Release;
 		};

@@ -10,4 +10,12 @@
 
 @implementation UIAlertController (Element)
 
+
+- (void)setMessageColor:(UIColor *)color Font:(UIFont *)font {
+    NSMutableAttributedString *alertControllerMessageStr = [[NSMutableAttributedString alloc] initWithString:self.message];
+    [alertControllerMessageStr addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(0, self.message.length)];
+    [alertControllerMessageStr addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, self.message.length)];
+    [self setValue:alertControllerMessageStr forKey:@"attributedMessage"];
+}
+
 @end

@@ -72,6 +72,7 @@
      * 但是如果增加下拉刷新后，这个缺点就可以忽略了
      * _listView.bounces = NO;
      */
+    _listView.scrollsToTop = NO;
     _listView.delegate = self;
     _listView.dataSource = self;
     [self.view addSubview:_listView];
