@@ -340,6 +340,7 @@
 		6ECF87731FA1B57C0050E2A0 /* RegisterAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF87721FA1B57C0050E2A0 /* RegisterAPI.m */; };
 		6ECF8B9A1FAB02FB00542F72 /* UIAlertController+Element.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF8B991FAB02FB00542F72 /* UIAlertController+Element.m */; };
 		6ECF8B9E1FAB106900542F72 /* KeyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF8B9D1FAB106900542F72 /* KeyController.m */; };
+		6ECF8BA21FAB145600542F72 /* CheckBLEPowerOn.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF8BA11FAB145600542F72 /* CheckBLEPowerOn.m */; };
 		6EF8CAF81FA9760E00D910ED /* MeasureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF8CAF71FA9760E00D910ED /* MeasureManager.m */; };
 		6EF8CAFB1FA9D0FA00D910ED /* ecg_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EF8CAFA1FA9D0F500D910ED /* ecg_red@2x.png */; };
 		6EF8CAFC1FA9D0FA00D910ED /* ecg_red@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EF8CAF91FA9D0F300D910ED /* ecg_red@3x.png */; };
@@ -964,6 +965,8 @@
 		6ECF8B991FAB02FB00542F72 /* UIAlertController+Element.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Element.m"; sourceTree = "<group>"; };
 		6ECF8B9C1FAB106900542F72 /* KeyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyController.h; sourceTree = "<group>"; };
 		6ECF8B9D1FAB106900542F72 /* KeyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyController.m; sourceTree = "<group>"; };
+		6ECF8BA01FAB145600542F72 /* CheckBLEPowerOn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckBLEPowerOn.h; sourceTree = "<group>"; };
+		6ECF8BA11FAB145600542F72 /* CheckBLEPowerOn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckBLEPowerOn.m; sourceTree = "<group>"; };
 		6EF8CAF61FA9760E00D910ED /* MeasureManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeasureManager.h; sourceTree = "<group>"; };
 		6EF8CAF71FA9760E00D910ED /* MeasureManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeasureManager.m; sourceTree = "<group>"; };
 		6EF8CAF91FA9D0F300D910ED /* ecg_red@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ecg_red@3x.png"; sourceTree = "<group>"; };
@@ -1901,6 +1904,7 @@
 		6E7D38F21FA056D700225DBC /* DCMVVM */ = {
 			isa = PBXGroup;
 			children = (
+				6ECF8B9F1FAB13BB00542F72 /* DCCheckBLEPowerOn */,
 				6ECF8B9B1FAB104300542F72 /* DCKeyViewController */,
 				6E7D38F31FA056D700225DBC /* DCApi */,
 				6E7D38F91FA056D700225DBC /* DCBiz */,
@@ -2642,6 +2646,15 @@
 			path = DCKeyViewController;
 			sourceTree = "<group>";
 		};
+		6ECF8B9F1FAB13BB00542F72 /* DCCheckBLEPowerOn */ = {
+			isa = PBXGroup;
+			children = (
+				6ECF8BA01FAB145600542F72 /* CheckBLEPowerOn.h */,
+				6ECF8BA11FAB145600542F72 /* CheckBLEPowerOn.m */,
+			);
+			path = DCCheckBLEPowerOn;
+			sourceTree = "<group>";
+		};
 		6EF8CAF51FA975FB00D910ED /* MeasureManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -2846,6 +2859,7 @@
 				6E7D39991FA05D6E00225DBC /* Base64.m in Sources */,
 				6E822F2D1F972C61005A6804 /* MeasureNaviRightView.m in Sources */,
 				6E7D39AF1FA05DAC00225DBC /* NSMutableString+DCFoundation.m in Sources */,
+				6ECF8BA21FAB145600542F72 /* CheckBLEPowerOn.m in Sources */,
 				6E822F121F96F893005A6804 /* DeviceName.m in Sources */,
 				6E7D39BD1FA05DD800225DBC /* DCBizNetworkOperation.m in Sources */,
 				6E7D39C61FA05DEB00225DBC /* NSString+Pinyin.m in Sources */,
