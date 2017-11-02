@@ -26,7 +26,7 @@ static int page = 1;
     return self;
 }
 
-- (void)reloadData:(void(^)(BOOL success))complete {
+- (void)reloadData:(void(^)(BOOL success, NSString *msg))complete {
     Patient *user = [LoginManager defaultManager].currentPatient;
     NSDictionary *param = @{
                             @"user_id" : user.user_id,
@@ -41,8 +41,13 @@ static int page = 1;
         else {
             
         }
-        complete(success);
+        complete(success,msg);
     }];
+}
+
+- (void)clearDatasource {
+    [_dataSource removeAllObjects];
+    page = 1;
 }
 
 - (MeasureListAPI *)measurelistAPI {

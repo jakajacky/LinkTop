@@ -19,4 +19,6 @@
 
 @property (nonatomic, strong) UICollectionView *listView;
 
+@property (nonatomic, assign) BOOL isNull;
+
 @end

@@ -12,6 +12,6 @@
 
 @property (nonatomic, strong) NSMutableArray *dataSource;
 
-- (void)reloadData:(void(^)(BOOL success))complete;
-
+- (void)reloadData:(void(^)(BOOL success, NSString *msg))complete;
+- (void)clearDatasource;
 @end

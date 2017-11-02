@@ -13,7 +13,7 @@
 #import "ECGCell.h"
 #import "MeasureListModel.h"
 #import "MeasureListView.h"
-
+#import "UIImage+memory.h"
 @interface MeasureListViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, strong) MeasureListView  *measureListView;
@@ -36,22 +36,57 @@
     self.measureListView.listView.dataSource = self;
     // 下拉刷新
     self.measureListView.listView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(pullToReloadMoreData)];
-    // 请求数据并刷新
-    [self.measureListModel reloadData:^(BOOL success) {
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [SVProgressHUD showWithStatus:@"正在获取数据"];
+    // 请求数据
+    [self.measureListModel reloadData:^(BOOL success, NSString *msg) {
         if (success) {
-            // 数据
+            [SVProgressHUD dismissWithDelay:0.75];
+            // 刷新
+            if (self.measureListModel.dataSource.count<=0) {
+                self.measureListView.isNull = YES;
+            }
+            else {
+                self.measureListView.isNull = NO;
+            }
             [self.measureListView.listView reloadData];
         }
         else {
-            [SVProgressHUD showErrorWithStatus:@"获取数据失败"];
+            [SVProgressHUD showErrorWithStatus:msg];
             [SVProgressHUD dismissWithDelay:1.5];
         }
     }];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    // 清空数据源、起始页page置1，保证再次进入后，从新开始
+    [self.measureListModel clearDatasource];
+    /*
+     * 清空数据后，刷新一下listView，否则listView缓存的的indexpath.
+     * item有可能>=datasource.count，导致越界
+     */
+    [self.measureListView.listView reloadData];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc {
+    NSLog(@"MeasureListViewController 释放");
+    [self.measureListView removeAllSubviews];
+    self.measureListView = nil;
 }
 
 #pragma mark - 修改导航栏和状态栏渐变色
@@ -62,7 +97,7 @@
 
 #pragma mark - 上拉刷新更早数据
 - (void)pullToReloadMoreData {
-    [self.measureListModel reloadData:^(BOOL success) {
+    [self.measureListModel reloadData:^(BOOL success, NSString *msg) {
         [self.measureListView.listView.mj_footer endRefreshing];
         [self.measureListView.listView reloadData];
     }];
