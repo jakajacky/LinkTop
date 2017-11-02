@@ -95,7 +95,7 @@
             break;
         case 4: {
             message = @"该设备尚未打开蓝牙,请在设置中打开";
-            // 提示
+            // 提示去设置打开蓝牙
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"打开蓝牙来允许“多合一”连接到配件" preferredStyle:UIAlertControllerStyleAlert];
             [alert setMessageColor:UIColorHex(#333333) Font:[UIFont systemFontOfSize:17 weight:UIFontWeightBold]];
             UIAlertAction *action_ok = [UIAlertAction actionWithTitle:@"好" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
