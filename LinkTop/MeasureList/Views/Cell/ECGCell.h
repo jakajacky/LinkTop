@@ -10,9 +10,7 @@
 
 @interface ECGCell : UICollectionViewCell
 
-@property (nonatomic, assign) NSInteger index;
-
-@property (nonatomic, strong) NSString *info;
+@property (nonatomic, strong) DiagnosticList *measureRecord;
 
 @property (weak, nonatomic) IBOutlet UIButton *checkECGViewBtn;
 

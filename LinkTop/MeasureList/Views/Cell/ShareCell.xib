@@ -26,7 +26,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017/10/24 12:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxR-0s-oue">
-                        <rect key="frame" x="477" y="12" width="112" height="17"/>
+                        <rect key="frame" x="492" y="12" width="112" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -71,7 +71,7 @@
                 <constraint firstAttribute="bottom" secondItem="lFz-3P-IDh" secondAttribute="bottom" id="YdU-dd-49J"/>
                 <constraint firstAttribute="trailing" secondItem="dFP-7B-lq4" secondAttribute="trailing" constant="25" id="aja-Ia-ZfX"/>
                 <constraint firstItem="giT-Tc-aWc" firstAttribute="leading" secondItem="qzg-uj-2gz" secondAttribute="trailing" constant="5" id="fTW-g8-169"/>
-                <constraint firstAttribute="trailing" secondItem="ZxR-0s-oue" secondAttribute="trailing" constant="25" id="hAo-Dn-sMe"/>
+                <constraint firstAttribute="trailing" secondItem="ZxR-0s-oue" secondAttribute="trailing" constant="10" id="hAo-Dn-sMe"/>
                 <constraint firstItem="giT-Tc-aWc" firstAttribute="centerY" secondItem="qzg-uj-2gz" secondAttribute="centerY" id="my7-FJ-9Vz"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="c18-9p-eOl"/>

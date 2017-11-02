@@ -11,6 +11,7 @@
 #import "VegaScrollFlowLayout.h"
 #import "ShareCell.h"
 #import "ECGCell.h"
+#import "MeasureListModel.h"
 
 #define kTabBarHeight 49
 #define kNaviBarHeight 64
@@ -23,8 +24,8 @@
 @interface MeasureListViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, strong) UICollectionView *listView;
-
 @property (nonatomic, strong) VegaScrollFlowLayout *layout;
+@property (nonatomic, strong) MeasureListModel  *measureListModel;
 
 @end
 
@@ -39,6 +40,16 @@
     [self.listView registerNib:[UINib nibWithNibName:@"ShareCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ShareCell"];
     [self.listView registerNib:[UINib nibWithNibName:@"ECGCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ECGCell"];
     
+    [self.measureListModel reloadData:^(BOOL success) {
+        if (success) {
+            // 数据
+            [self.listView reloadData];
+        }
+        else {
+            [SVProgressHUD showErrorWithStatus:@"获取数据失败"];
+            [SVProgressHUD dismissWithDelay:1.5];
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -75,24 +86,24 @@
 #pragma mark - datasource & delegate
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell;
-    if (indexPath.item == 0 || indexPath.item == 7) {
+    DiagnosticList *diag = self.measureListModel.dataSource[indexPath.item];
+    if (diag.type==MTECG) {
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ECGCell" forIndexPath:indexPath];
         ECGCell *ecgc = (ECGCell *)cell;
-        ecgc.index = indexPath.item;
-        ecgc.info  = [NSString stringWithFormat:@"--%d",indexPath.item];
+        ecgc.measureRecord = diag;
     }
     else {
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ShareCell" forIndexPath:indexPath];
-        ShareCell *ecgc = (ShareCell *)cell;
-        ecgc.index = indexPath.item;
-        ecgc.info  = [NSString stringWithFormat:@"--%d",indexPath.item];
+        ShareCell *sharcell = (ShareCell *)cell;
+        sharcell.measureRecord = diag;
     }
     
     return cell;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(nonnull UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    if (indexPath.item == 0 || indexPath.item == 7) {
+    DiagnosticList *diag = self.measureListModel.dataSource[indexPath.item];
+    if (diag.type==MTECG) {
         return CGSizeMake(kItemWidth, 150);
     }
     else {
@@ -101,7 +112,14 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 17;
+    return self.measureListModel.dataSource.count;
+}
+
+- (MeasureListModel *)measureListModel {
+    if (!_measureListModel) {
+        _measureListModel = [[MeasureListModel alloc] init];
+    }
+    return _measureListModel;
 }
 
 @end

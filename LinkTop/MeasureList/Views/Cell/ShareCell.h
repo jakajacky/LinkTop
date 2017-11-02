@@ -10,10 +10,6 @@
 
 @interface ShareCell : UICollectionViewCell
 
-@property (nonatomic, assign) NSInteger index;
-
-@property (nonatomic, strong) NSString *info;
-
 @property (nonatomic, strong) DiagnosticList *measureRecord;
 
 @end
