@@ -70,17 +70,28 @@
     /*
      * vega布局，一个缺点，自动恢复offset太快，不是无缝衔接的，
      * 但是如果增加下拉刷新后，这个缺点就可以忽略了
+     * _listView.bounces = NO;
      */
-    _listView.bounces = NO;
     _listView.delegate = self;
     _listView.dataSource = self;
     [self.view addSubview:_listView];
+    
+    // 下拉刷新
+    _listView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(pullToReloadMoreData)];
 }
 
 #pragma mark - 修改导航栏和状态栏渐变色
 - (void)prepareNavigationColor {
     // iOS7之后，设置状态栏和导航栏统一背景色，是很简单的，但是渐变颜色又是特殊的一种
     [ChangeView2GradientColor changeView:self.navigationController.navigationBar toGradientColors:@[UIColorHex(#1F67B6),UIColorHex(#51A8F2),UIColorHex(#89BDF4),UIColorHex(#C1E4FE)]];
+}
+
+#pragma mark - 上拉刷新更早数据
+- (void)pullToReloadMoreData {
+    [self.measureListModel reloadData:^(BOOL success) {
+        [self.listView.mj_footer endRefreshing];
+        [self.listView reloadData];
+    }];
 }
 
 #pragma mark - datasource & delegate
@@ -115,6 +126,7 @@
     return self.measureListModel.dataSource.count;
 }
 
+#pragma mark - propertiese
 - (MeasureListModel *)measureListModel {
     if (!_measureListModel) {
         _measureListModel = [[MeasureListModel alloc] init];

@@ -10,7 +10,7 @@
 
 @interface MeasureListModel : NSObject
 
-@property (nonatomic, strong) NSArray *dataSource;
+@property (nonatomic, strong) NSMutableArray *dataSource;
 
 - (void)reloadData:(void(^)(BOOL success))complete;
 

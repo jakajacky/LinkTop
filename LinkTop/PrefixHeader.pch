@@ -39,6 +39,8 @@
 
 #import "LoginManager.h"
 
+#import "MJRefresh.h"
+
 #endif
 
 #endif /* PrefixHeader_pch */

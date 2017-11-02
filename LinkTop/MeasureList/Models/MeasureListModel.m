@@ -16,16 +16,27 @@
 
 @implementation MeasureListModel
 
+static int page = 1;
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _dataSource = [NSMutableArray array];
+    }
+    return self;
+}
+
 - (void)reloadData:(void(^)(BOOL success))complete {
     Patient *user = [LoginManager defaultManager].currentPatient;
     NSDictionary *param = @{
                             @"user_id" : user.user_id,
-                            @"reg_id"  : @(1),
+                            @"reg_id"  : @(page),
                             @"end_pos" : @(10),
                             };
     [self.measurelistAPI downloadRecentData:param completion:^(BOOL success, id result, NSString *msg) {
         if (success) {
-            self.dataSource = result;
+            page += 1;
+            [self.dataSource insertObjects:result atIndex:self.dataSource.count];
         }
         else {
             

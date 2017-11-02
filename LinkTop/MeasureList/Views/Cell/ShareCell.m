@@ -49,18 +49,22 @@
             self.resultValue.text = [NSString stringWithFormat:@"%@/%@",measureRecord.sbp,measureRecord.dbp];
             if ([measureRecord.sbp intValue]<=90 || [measureRecord.dbp intValue]<=60) {
                 self.resultDesc.text = @"过低";
+                self.resultDesc.textColor = UIColorHex(#F5A623);
                 self.colorLine.backgroundColor = UIColorHex(#F5A623);
             }
             else if ([measureRecord.sbp intValue]>=140 || [measureRecord.dbp intValue]>=90) {
                 self.resultDesc.text = @"过高";
+                self.resultDesc.textColor = UIColorHex(#D0021B);
                 self.colorLine.backgroundColor = UIColorHex(#D0021B);
             }
             else if ([measureRecord.sbp intValue]>=140 && [measureRecord.dbp intValue]<=60) {
                 self.resultDesc.text = @"过高";
+                self.resultDesc.textColor = UIColorHex(#D0021B);
                 self.colorLine.backgroundColor = UIColorHex(#D0021B);
             }
             else {
                 self.resultDesc.text = @"正常";
+                self.resultDesc.textColor = UIColorHex(#4A90E2);
                 self.colorLine.backgroundColor = UIColorHex(#4A90E2);
             }
             break;
@@ -71,14 +75,17 @@
             self.resultValue.text = [NSString stringWithFormat:@"%@",measureRecord.temp];
             if ([measureRecord.temp intValue]<=36.2) {
                 self.resultDesc.text = @"过低";
+                self.resultDesc.textColor = UIColorHex(#F5A623);
                 self.colorLine.backgroundColor = UIColorHex(#F5A623);
             }
             else if ([measureRecord.temp intValue]>=37.3) {
                 self.resultDesc.text = @"过高";
+                self.resultDesc.textColor = UIColorHex(#D0021B);
                 self.colorLine.backgroundColor = UIColorHex(#D0021B);
             }
             else {
                 self.resultDesc.text = @"正常";
+                self.resultDesc.textColor = UIColorHex(#4A90E2);
                 self.colorLine.backgroundColor = UIColorHex(#4A90E2);
             }
             break;
@@ -89,10 +96,12 @@
             self.resultValue.text = [NSString stringWithFormat:@"%@",measureRecord.spo2h];
             if ([measureRecord.spo2h intValue]<=94) {
                 self.resultDesc.text = @"过低";
+                self.resultDesc.textColor = UIColorHex(#F5A623);
                 self.colorLine.backgroundColor = UIColorHex(#F5A623);
             }
             else {
                 self.resultDesc.text = @"正常";
+                self.resultDesc.textColor = UIColorHex(#4A90E2);
                 self.colorLine.backgroundColor = UIColorHex(#4A90E2);
             }
             break;
@@ -103,14 +112,17 @@
             self.resultValue.text = [NSString stringWithFormat:@"%@",measureRecord.hr];
             if ([measureRecord.hr intValue]<=55) {
                 self.resultDesc.text = @"过低";
+                self.resultDesc.textColor = UIColorHex(#F5A623);
                 self.colorLine.backgroundColor = UIColorHex(#F5A623);
             }
             else if ([measureRecord.hr intValue]>=100) {
                 self.resultDesc.text = @"过高";
+                self.resultDesc.textColor = UIColorHex(#D0021B);
                 self.colorLine.backgroundColor = UIColorHex(#D0021B);
             }
             else {
                 self.resultDesc.text = @"正常";
+                self.resultDesc.textColor = UIColorHex(#4A90E2);
                 self.colorLine.backgroundColor = UIColorHex(#4A90E2);
             }
             break;
