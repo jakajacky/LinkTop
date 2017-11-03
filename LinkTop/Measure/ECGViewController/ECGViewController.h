@@ -47,4 +47,8 @@ int newBornMode, errorCount;
 @property (nonatomic) int startRecordingIndex, HR, newBornMode;
 @property (nonatomic) BOOL stopTheTimer;
 
+@property (nonatomic, assign) BOOL isRothmanMeasure;
+
+- (void)startRothmanStepFourMeasureWithViewController:(UIViewController *)vc endCompletion:(void(^)(BOOL success,id result))complete;
+
 @end

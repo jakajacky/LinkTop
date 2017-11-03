@@ -13,6 +13,8 @@
 #import "TripleECGView.h"
 #import "LeadPlayer.h"
 
+typedef void(^RothmanStepFourComplete)(BOOL,id);
+
 @interface ECGViewController ()
 {
     NSInteger _heartrate;
@@ -31,6 +33,7 @@
 @property (nonatomic, weak) NSTimer *drawingTimer, *popDataTimer;
 @property (nonatomic, strong) NSMutableArray *dataArr;
 @property (nonatomic, assign) int index,drawNumbers;
+@property (nonatomic, copy)   RothmanStepFourComplete rothmanStepFourComplete;
 
 @end
 
@@ -291,6 +294,34 @@ float pixelPerUV = 5 * 10.0 / 1000;
                 self.ecgView.hrvValue.text = [NSString stringWithFormat:@"%d",hrv];
             });
             
+//            @(_rr_max),  // 最大值
+//            @"rr_min"          : @(_rr_min),  // 最小值
+//            @"mood"            : @(_mood),    // 心情
+//            @"hrv"             : @(_hrv),        // 心率异常
+//            @"hr"              : @(_heartrate),   // 心率
+//            @"respiration"     : @(_respiration)
+            // 测量有误：
+            if (_heartrate<=0) {
+                return;
+            }
+            
+            // 测量无误，但是结果异常：
+            if (_isRothmanMeasure) {
+                DiagnosticList *diag = [[DiagnosticList alloc] initWithDictionary:@{@"rr_max":@(_rr_max),
+                                                                                    @"rr_min":@(_rr_min),
+                                                                                    @"mood":@(_mood),
+                                                                                    @"hrv":@(_hrv),
+                                                                                    @"hr":@(_heartrate),
+                                                                                    @"respiration":@(_respiration)}];
+                if (_heartrate<55 || _heartrate>100) {
+                    _rothmanStepFourComplete(NO,diag); // 异常
+                }
+                else {
+                    _rothmanStepFourComplete(YES,diag); // 正常
+                }
+                return;
+            }
+            
             // 上传数据
             [SVProgressHUD showWithStatus:@"正在上传"];
             Patient *user = [LoginManager defaultManager].currentPatient;
@@ -362,6 +393,13 @@ float pixelPerUV = 5 * 10.0 / 1000;
         [[DeviceManger defaultManager] endMeasureECG];
     }
     
+}
+
+- (void)startRothmanStepFourMeasureWithViewController:(UIViewController *)vc endCompletion:(void(^)(BOOL success,id result))complete {
+    _rothmanStepFourComplete = complete;
+    [vc presentViewController:self animated:YES completion:^{
+        
+    }];
 }
 
 #pragma mark - properties

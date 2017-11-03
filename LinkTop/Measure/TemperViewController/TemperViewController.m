@@ -11,10 +11,15 @@
 #import "MeasureAPI.h"
 #import "DeviceManger.h"
 #import "UIView+Rotate.h"
+
+typedef void(^RothmanStepTwoComplete)(BOOL,id);
+
 @interface TemperViewController ()
 
 @property (nonatomic, strong) TempreView *tempreView;
 @property (nonatomic, strong) MeasureAPI *measureAPI;
+@property (nonatomic, copy)   RothmanStepTwoComplete rothmanStepTwoComplete;
+
 @end
 
 @implementation TemperViewController
@@ -91,17 +96,33 @@
                 self.tempreView.startMeasureBtn.selected = NO;
                 [self.tempreView.tempre_loading stopRotating];
             });
+            NSString *handletemp = [NSString stringWithFormat:@"%.1f",temperature];
+            // 测量有误：
+            if (temperature<=0) {
+                return;
+            }
+            // 测量无误，但可能存在结果异常：
+            if (_isRothmanMeasure) {
+                
+                DiagnosticList *diag = [[DiagnosticList alloc] initWithDictionary:@{@"temp" : handletemp}];
+                if (temperature<36.2 || temperature>37.4) {
+                    _rothmanStepTwoComplete(NO,diag); // 异常
+                }
+                else {
+                    _rothmanStepTwoComplete(YES,diag); // 正常
+                }
+                return;
+            }
             
             // 上传数据
             [SVProgressHUD showWithStatus:@"正在上传"];
             Patient *user = [LoginManager defaultManager].currentPatient;
-            NSString *temp = self.tempreView.tempretureValue.text;
             NSString *device_id  = [DeviceManger defaultManager].deviceID;
             NSString *device_key = [DeviceManger defaultManager].deviceKEY;
             NSString *soft_v  = [DeviceManger defaultManager].softVersion;
             NSString *hard_v  = [DeviceManger defaultManager].hardVersion;
             NSDictionary *params = @{@"user_id"         : user.user_id,   // 用户名
-                                     @"temp"            : temp,      // 体温
+                                     @"temp"            : @(temperature), // 体温
                                      @"device_id"       : device_id?device_id:@"", // 设备id
                                      @"device_key"      : device_key?device_key:@"", // 设备key
                                      @"device_power"    : @(100),
@@ -128,6 +149,13 @@
         [[DeviceManger defaultManager] endMeasureThermometer];
     }
     
+}
+
+- (void)startRothmanStepTwoMeasureWithViewController:(UIViewController *)vc endCompletion:(void(^)(BOOL success,id result))complete {
+    _rothmanStepTwoComplete = complete;
+    [vc presentViewController:self animated:NO completion:^{
+        
+    }];
 }
 
 #pragma mark - 处理温度单位

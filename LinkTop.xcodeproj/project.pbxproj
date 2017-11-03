@@ -209,6 +209,8 @@
 		6E6DC1261FAC106300DE1653 /* RothmanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6DC1251FAC106300DE1653 /* RothmanView.m */; };
 		6E6DC12A1FAC113F00DE1653 /* rothman_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E6DC1281FAC113F00DE1653 /* rothman_icon@2x.png */; };
 		6E6DC12B1FAC113F00DE1653 /* rothman_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E6DC1291FAC113F00DE1653 /* rothman_icon@3x.png */; };
+		6E6DC1341FAC761800DE1653 /* RothmanResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6DC1331FAC761800DE1653 /* RothmanResultViewController.m */; };
+		6E6DC1371FAC765F00DE1653 /* RothmanResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6DC1361FAC765F00DE1653 /* RothmanResultView.m */; };
 		6E7D38911FA03B2300225DBC /* ShareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7D38901FA03B2300225DBC /* ShareCell.m */; };
 		6E7D38941FA03B6B00225DBC /* ECGCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7D38931FA03B6B00225DBC /* ECGCell.m */; };
 		6E7D38961FA0428400225DBC /* VegaScrollFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7D38951FA0428400225DBC /* VegaScrollFlowLayout.swift */; };
@@ -688,6 +690,10 @@
 		6E6DC1251FAC106300DE1653 /* RothmanView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RothmanView.m; sourceTree = "<group>"; };
 		6E6DC1281FAC113F00DE1653 /* rothman_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rothman_icon@2x.png"; sourceTree = "<group>"; };
 		6E6DC1291FAC113F00DE1653 /* rothman_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rothman_icon@3x.png"; sourceTree = "<group>"; };
+		6E6DC1321FAC761800DE1653 /* RothmanResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RothmanResultViewController.h; sourceTree = "<group>"; };
+		6E6DC1331FAC761800DE1653 /* RothmanResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RothmanResultViewController.m; sourceTree = "<group>"; };
+		6E6DC1351FAC765F00DE1653 /* RothmanResultView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RothmanResultView.h; sourceTree = "<group>"; };
+		6E6DC1361FAC765F00DE1653 /* RothmanResultView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RothmanResultView.m; sourceTree = "<group>"; };
 		6E7D388F1FA03B2300225DBC /* ShareCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareCell.h; sourceTree = "<group>"; };
 		6E7D38901FA03B2300225DBC /* ShareCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareCell.m; sourceTree = "<group>"; };
 		6E7D38921FA03B6B00225DBC /* ECGCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECGCell.h; sourceTree = "<group>"; };
@@ -1748,6 +1754,8 @@
 			children = (
 				6E6DC1201FAC0C7200DE1653 /* RothmanViewController.h */,
 				6E6DC1211FAC0C7200DE1653 /* RothmanViewController.m */,
+				6E6DC1321FAC761800DE1653 /* RothmanResultViewController.h */,
+				6E6DC1331FAC761800DE1653 /* RothmanResultViewController.m */,
 				6E6DC1231FAC105A00DE1653 /* Views */,
 			);
 			path = RothmanViewController;
@@ -1758,6 +1766,8 @@
 			children = (
 				6E6DC1241FAC106300DE1653 /* RothmanView.h */,
 				6E6DC1251FAC106300DE1653 /* RothmanView.m */,
+				6E6DC1351FAC765F00DE1653 /* RothmanResultView.h */,
+				6E6DC1361FAC765F00DE1653 /* RothmanResultView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2916,6 +2926,7 @@
 				6E7D39A01FA05D7900225DBC /* DCViewModel.m in Sources */,
 				6E575C581F9495A800C073F5 /* YYGestureRecognizer.m in Sources */,
 				6E7D39D41FA05E0900225DBC /* AFHTTPRequestOperationManager.m in Sources */,
+				6E6DC1371FAC765F00DE1653 /* RothmanResultView.m in Sources */,
 				6E7D39A81FA05D9B00225DBC /* NSDateComponents+DCFoundation.m in Sources */,
 				6E575C6D1F94965B00C073F5 /* YYTextDebugOption.m in Sources */,
 				6E575C951F94969300C073F5 /* NSData+YYAdd.m in Sources */,
@@ -3078,6 +3089,7 @@
 				6E7D39B61FA05DC500225DBC /* UIView+AnimationShortcuts.m in Sources */,
 				6ECF87731FA1B57C0050E2A0 /* RegisterAPI.m in Sources */,
 				6E4892091FAAC9A20027BAD3 /* MJRefreshHeader.m in Sources */,
+				6E6DC1341FAC761800DE1653 /* RothmanResultViewController.m in Sources */,
 				6E7D398A1FA0585C00225DBC /* MeasureAPI.m in Sources */,
 				6E4892051FAAC9A20027BAD3 /* MJRefreshAutoFooter.m in Sources */,
 				6E7D39CA1FA05DEB00225DBC /* UITextField+HeadTailIcon.m in Sources */,

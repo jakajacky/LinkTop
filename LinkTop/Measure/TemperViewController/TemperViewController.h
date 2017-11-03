@@ -10,4 +10,8 @@
 
 @interface TemperViewController : UIViewController
 
+@property (nonatomic, assign) BOOL isRothmanMeasure;
+
+- (void)startRothmanStepTwoMeasureWithViewController:(UIViewController *)vc endCompletion:(void(^)(BOOL success,id result))complete;
+
 @end

@@ -23,6 +23,7 @@ typedef enum : NSUInteger {
     MTSpo2h,
     MTHeartRate,
     MTECG,
+    MTRothmanIndex,
 } MeasureType;
 
 @interface Peripheral : DCDatabaseObject

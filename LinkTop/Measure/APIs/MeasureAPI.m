@@ -20,7 +20,10 @@
 
 @implementation MeasureAPI
 
-
+/**
+ * 上传测量数据
+ * 线上计算Rothman index
+ */
 - (void)uploadResult:(NSDictionary *)result type:(MeasureType)type completion:(void(^)(BOOL,id,NSString *))complete {
 //    params = @{@"user_id" : user.Id,  // 用户名
 //               @"sbp"     : @"L",     // 收缩压

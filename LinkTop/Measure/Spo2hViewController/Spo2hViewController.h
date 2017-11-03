@@ -46,4 +46,9 @@
 @property (nonatomic) BOOL liveMode, DEMO;
 @property (nonatomic) int startRecordingIndex, HR, newBornMode;
 @property (nonatomic) BOOL stopTheTimer;
+
+@property (nonatomic, assign) BOOL isRothmanMeasure;
+
+- (void)startRothmanStepThreeMeasureWithViewController:(UIViewController *)vc endCompletion:(void(^)(BOOL success,id result))complete;
+
 @end

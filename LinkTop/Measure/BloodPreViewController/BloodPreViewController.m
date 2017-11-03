@@ -69,12 +69,21 @@ typedef void(^RothmanStepOneComplete)(BOOL,id);
                 self.bloodPreView.resultValue.text = [NSString stringWithFormat:@"%d/%d",systolic_pressure, diastolic_pressure];
             });
             
+            // 测量有误：
+            if (systolic_pressure<=0 || diastolic_pressure<=0) {
+                return;
+            }
+            
+            // 测量无误，但是结果异常：
             if (_isRothmanMeasure) {
-                DiagnosticList *diag = [[DiagnosticList alloc] initWithDictionary:@{
-                                                                                    @"sbp" : @(systolic_pressure),
-                                                                                    @"dbp" : @(diastolic_pressure)
-                                                                                    }];
-                _rothmanStepOneComplete(YES,diag);
+                DiagnosticList *diag = [[DiagnosticList alloc] initWithDictionary:@{@"sbp" : @(systolic_pressure),
+                                                                                    @"dbp" : @(diastolic_pressure)}];
+                if (systolic_pressure<90 || diastolic_pressure<60 || systolic_pressure>140 || diastolic_pressure>90) {
+                    _rothmanStepOneComplete(NO,diag); // 异常
+                }
+                else {
+                    _rothmanStepOneComplete(YES,diag); // 正常
+                }
                 return;
             }
             // 上传数据

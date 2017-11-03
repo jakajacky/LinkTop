@@ -12,6 +12,9 @@
 #import "UIView+Rotate.h"
 #import "TripleECGView.h"
 #import "LeadPlayer.h"
+
+typedef void(^RothmanStepThreeComplete)(BOOL,id);
+
 @interface Spo2hViewController ()
 
 @property (nonatomic, strong) Spo2hView *spo2hView;
@@ -22,6 +25,7 @@
 @property (nonatomic, weak) NSTimer *drawingTimer, *popDataTimer;
 @property (nonatomic, strong) NSMutableArray *dataArr;
 @property (nonatomic, assign) int index,drawNumbers;
+@property (nonatomic, copy)   RothmanStepThreeComplete rothmanStepThreeComplete;
 
 @end
 
@@ -277,6 +281,24 @@ float pixelPerUV_s = 5 * 10.0 / 1000;
                 [self.spo2hView.tempre_loading stopRotating];
             });
             
+            NSString *spo2h = [NSString stringWithFormat:@"%.0f",oxy];
+            // 测量有误：
+            if (oxy<=0) {
+                return;
+            }
+            // 测量无误，但可能存在结果异常：
+            if (_isRothmanMeasure) {
+                
+                DiagnosticList *diag = [[DiagnosticList alloc] initWithDictionary:@{@"spo2h" : spo2h,@"hr" : @(heartrate)}];
+                if (oxy<94) {
+                    _rothmanStepThreeComplete(NO,diag); // 异常
+                }
+                else {
+                    _rothmanStepThreeComplete(YES,diag); // 正常
+                }
+                return;
+            }
+            
             // 上传数据
             [SVProgressHUD showWithStatus:@"正在上传"];
             Patient *user = [LoginManager defaultManager].currentPatient;
@@ -314,6 +336,13 @@ float pixelPerUV_s = 5 * 10.0 / 1000;
         [self.spo2hView.tempre_loading stopRotating];
         [[DeviceManger defaultManager] endMeasureSpo2h];
     }
+}
+
+- (void)startRothmanStepThreeMeasureWithViewController:(UIViewController *)vc endCompletion:(void(^)(BOOL success,id result))complete {
+    _rothmanStepThreeComplete = complete;
+    [vc presentViewController:self animated:NO completion:^{
+        
+    }];
 }
 
 #pragma mark - properties
