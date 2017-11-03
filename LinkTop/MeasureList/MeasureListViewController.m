@@ -46,7 +46,7 @@
     // 请求数据
     [self.measureListModel reloadData:^(BOOL success, NSString *msg) {
         if (success) {
-            [SVProgressHUD dismissWithDelay:0.75];
+            [SVProgressHUD dismiss];
             // 刷新
             if (self.measureListModel.dataSource.count<=0) {
                 self.measureListView.isNull = YES;

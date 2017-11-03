@@ -10,4 +10,8 @@
 
 @interface BloodPreViewController : UIViewController
 
+@property (nonatomic, assign) BOOL isRothmanMeasure;
+
+- (void)startRothmanStepOneMeasureWithViewController:(UIViewController *)vc endCompletion:(void(^)(BOOL success,id result))complete;
+
 @end

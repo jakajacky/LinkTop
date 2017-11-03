@@ -205,6 +205,10 @@
 		6E575C9E1F94969300C073F5 /* NSString+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E575BB91F948F8100C073F5 /* NSString+YYAdd.m */; };
 		6E575C9F1F94969300C073F5 /* NSThread+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E575BBB1F948F8100C073F5 /* NSThread+YYAdd.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6E575CA01F94969300C073F5 /* NSTimer+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E575BBD1F948F8100C073F5 /* NSTimer+YYAdd.m */; };
+		6E6DC1221FAC0C7200DE1653 /* RothmanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6DC1211FAC0C7200DE1653 /* RothmanViewController.m */; };
+		6E6DC1261FAC106300DE1653 /* RothmanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6DC1251FAC106300DE1653 /* RothmanView.m */; };
+		6E6DC12A1FAC113F00DE1653 /* rothman_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E6DC1281FAC113F00DE1653 /* rothman_icon@2x.png */; };
+		6E6DC12B1FAC113F00DE1653 /* rothman_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E6DC1291FAC113F00DE1653 /* rothman_icon@3x.png */; };
 		6E7D38911FA03B2300225DBC /* ShareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7D38901FA03B2300225DBC /* ShareCell.m */; };
 		6E7D38941FA03B6B00225DBC /* ECGCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7D38931FA03B6B00225DBC /* ECGCell.m */; };
 		6E7D38961FA0428400225DBC /* VegaScrollFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7D38951FA0428400225DBC /* VegaScrollFlowLayout.swift */; };
@@ -678,6 +682,12 @@
 		6E575C511F948FB300C073F5 /* ChangeView2GradientColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeView2GradientColor.h; sourceTree = "<group>"; };
 		6E575C521F948FB300C073F5 /* ChangeView2GradientColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeView2GradientColor.m; sourceTree = "<group>"; };
 		6E575C531F94900300C073F5 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		6E6DC1201FAC0C7200DE1653 /* RothmanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RothmanViewController.h; sourceTree = "<group>"; };
+		6E6DC1211FAC0C7200DE1653 /* RothmanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RothmanViewController.m; sourceTree = "<group>"; };
+		6E6DC1241FAC106300DE1653 /* RothmanView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RothmanView.h; sourceTree = "<group>"; };
+		6E6DC1251FAC106300DE1653 /* RothmanView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RothmanView.m; sourceTree = "<group>"; };
+		6E6DC1281FAC113F00DE1653 /* rothman_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rothman_icon@2x.png"; sourceTree = "<group>"; };
+		6E6DC1291FAC113F00DE1653 /* rothman_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rothman_icon@3x.png"; sourceTree = "<group>"; };
 		6E7D388F1FA03B2300225DBC /* ShareCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareCell.h; sourceTree = "<group>"; };
 		6E7D38901FA03B2300225DBC /* ShareCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareCell.m; sourceTree = "<group>"; };
 		6E7D38921FA03B6B00225DBC /* ECGCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECGCell.h; sourceTree = "<group>"; };
@@ -1089,6 +1099,7 @@
 		6E3F9DFA1FA1F32300F6EC1E /* Measure */ = {
 			isa = PBXGroup;
 			children = (
+				6E6DC1271FAC113F00DE1653 /* Rothman */,
 				6E3F9DFB1FA1F32300F6EC1E /* BloodPre */,
 				6E3F9E021FA1F32300F6EC1E /* bp_icon@2x.png */,
 				6E3F9E031FA1F32300F6EC1E /* bp_icon@3x.png */,
@@ -1730,6 +1741,34 @@
 				6E575C521F948FB300C073F5 /* ChangeView2GradientColor.m */,
 			);
 			path = ChangeView2GradientColor;
+			sourceTree = "<group>";
+		};
+		6E6DC11F1FAC0C6400DE1653 /* RothmanViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6E6DC1201FAC0C7200DE1653 /* RothmanViewController.h */,
+				6E6DC1211FAC0C7200DE1653 /* RothmanViewController.m */,
+				6E6DC1231FAC105A00DE1653 /* Views */,
+			);
+			path = RothmanViewController;
+			sourceTree = "<group>";
+		};
+		6E6DC1231FAC105A00DE1653 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6E6DC1241FAC106300DE1653 /* RothmanView.h */,
+				6E6DC1251FAC106300DE1653 /* RothmanView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6E6DC1271FAC113F00DE1653 /* Rothman */ = {
+			isa = PBXGroup;
+			children = (
+				6E6DC1281FAC113F00DE1653 /* rothman_icon@2x.png */,
+				6E6DC1291FAC113F00DE1653 /* rothman_icon@3x.png */,
+			);
+			path = Rothman;
 			sourceTree = "<group>";
 		};
 		6E7D38981FA056D700225DBC /* AFNetworking */ = {
@@ -2489,8 +2528,6 @@
 				6E8A357B1F9E173200F42229 /* MeasureListView.h */,
 				6E8A357C1F9E173200F42229 /* MeasureListView.m */,
 				6E8A35611F9E0F2500F42229 /* Cell */,
-				6E4891BF1FAAABB40027BAD3 /* APIs */,
-				6E4891C31FAAAE730027BAD3 /* Models */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2535,6 +2572,8 @@
 			children = (
 				6E8F096D1F8C5BB20002467A /* MeasureListViewController.h */,
 				6E8F096E1F8C5BB20002467A /* MeasureListViewController.m */,
+				6E4891BF1FAAABB40027BAD3 /* APIs */,
+				6E4891C31FAAAE730027BAD3 /* Models */,
 				6E8A35601F9E0F1600F42229 /* Views */,
 			);
 			path = MeasureList;
@@ -2556,6 +2595,7 @@
 				6E8F096B1F8C5BA10002467A /* MeasureViewController.m */,
 				6E7D39871FA0585000225DBC /* APIs */,
 				6E575AE21F948C5C00C073F5 /* Views */,
+				6E6DC11F1FAC0C6400DE1653 /* RothmanViewController */,
 				6E8A35191F9C9BDD00F42229 /* ECGViewController */,
 				6E822F391F972EED005A6804 /* BloodPreViewController */,
 				6E822F381F972EED005A6804 /* HeartRateViewController */,
@@ -2765,10 +2805,12 @@
 				6E3F9E531FA1F33400F6EC1E /* bp_icon@3x.png in Resources */,
 				6E3F9E921FA1F37600F6EC1E /* bloodpre_icon@2x.png in Resources */,
 				6E3F9E8B1FA1F35700F6EC1E /* question_normal@3x.png in Resources */,
+				6E6DC12B1FAC113F00DE1653 /* rothman_icon@3x.png in Resources */,
 				6E3F9E741FA1F34A00F6EC1E /* tempre_icon@2x.png in Resources */,
 				6E3F9E601FA1F33900F6EC1E /* ecg_icon@2x.png in Resources */,
 				6E3F9E521FA1F33400F6EC1E /* bp_icon@2x.png in Resources */,
 				6E3F9E6C1FA1F34400F6EC1E /* spo2h_loading@2x.png in Resources */,
+				6E6DC12A1FAC113F00DE1653 /* rothman_icon@2x.png in Resources */,
 				6E3F9E4F1FA1F32A00F6EC1E /* rothman_icon@3x.png in Resources */,
 				6EAFB5221F8B7C3400949C31 /* Assets.xcassets in Resources */,
 				6EAFB5201F8B7C3400949C31 /* Main.storyboard in Resources */,
@@ -2833,6 +2875,7 @@
 				6E575C5D1F9495A800C073F5 /* YYThreadSafeDictionary.m in Sources */,
 				6E7D39A41FA05D9300225DBC /* NSArray+DCFoundation.m in Sources */,
 				6E7D39821FA056F400225DBC /* FMDatabasePool.m in Sources */,
+				6E6DC1221FAC0C7200DE1653 /* RothmanViewController.m in Sources */,
 				6E4891FD1FAAC98B0027BAD3 /* MJRefreshNormalHeader.m in Sources */,
 				6E575C8D1F94968000C073F5 /* UIScrollView+YYAdd.m in Sources */,
 				6E8A35311F9CA77D00F42229 /* TripleECGView.m in Sources */,
@@ -2846,6 +2889,7 @@
 				6E575C861F94968000C073F5 /* UIColor+YYAdd.m in Sources */,
 				6E822F161F97058D005A6804 /* MeasureSquareView.m in Sources */,
 				6E7D39AC1FA05DA600225DBC /* NSNull+DCFoundation.m in Sources */,
+				6E6DC1261FAC106300DE1653 /* RothmanView.m in Sources */,
 				6E7D39B01FA05DAC00225DBC /* NSString+DCFoundation.m in Sources */,
 				6E7D39C21FA05DDF00225DBC /* DCStorage.m in Sources */,
 				6E7D39A51FA05D9300225DBC /* NSMutableArray+DCFoundation.m in Sources */,

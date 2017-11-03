@@ -168,6 +168,15 @@
     }
 }
 
-
+- (IBAction)RothmanBtnDidClicked:(id)sender {
+    if (![DeviceManger defaultManager].peripheral || [DeviceManger defaultManager].peripheral.state != CBPeripheralStateConnected) {
+        [SVProgressHUD showErrorWithStatus:@"未连接设备"];
+        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+        [SVProgressHUD dismissWithDelay:1.5];
+    }
+    else {
+        [self performSegueWithIdentifier:@"rothman" sender:self];
+    }
+}
 
 @end

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,17 +21,17 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="Oyf-ZP-Z87">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="corp_img.png" translatesAutoresizingMaskIntoConstraints="NO" id="tn0-Ak-9ZM">
-                                <rect key="frame" x="115" y="222.5" width="144" height="122"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="tn0-Ak-9ZM">
+                                <rect key="frame" x="115" y="212.5" width="144" height="122"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Oyf-ZP-Z87" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="IC4-no-RMp"/>
-                            <constraint firstItem="tn0-Ak-9ZM" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Lek-gi-bbp"/>
                             <constraint firstItem="Oyf-ZP-Z87" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="XK4-mg-Nxt"/>
-                            <constraint firstItem="tn0-Ak-9ZM" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-60" id="dsA-8I-qvP"/>
                             <constraint firstItem="Oyf-ZP-Z87" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="f3M-DR-SKn"/>
+                            <constraint firstItem="tn0-Ak-9ZM" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-60" id="gjn-eT-RLM"/>
+                            <constraint firstItem="tn0-Ak-9ZM" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="jVP-SN-xGO"/>
                             <constraint firstAttribute="trailing" secondItem="Oyf-ZP-Z87" secondAttribute="trailing" id="l5H-da-0Pq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -43,7 +43,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="corp_img.png" width="144" height="122"/>
+        <image name="Image" width="144" height="122"/>
         <image name="splash" width="1125" height="2001"/>
     </resources>
 </document>

@@ -11,10 +11,13 @@
 #import "MeasureAPI.h"
 #import "UIView+Rotate.h"
 
+typedef void(^RothmanStepOneComplete)(BOOL,id);
+
 @interface BloodPreViewController ()
 
 @property (nonatomic, strong) BloodPreView *bloodPreView;
 @property (nonatomic, strong) MeasureAPI   *measureAPI;
+@property (nonatomic, copy)   RothmanStepOneComplete rothmanStepOneComplete;
 @end
 
 @implementation BloodPreViewController
@@ -66,6 +69,14 @@
                 self.bloodPreView.resultValue.text = [NSString stringWithFormat:@"%d/%d",systolic_pressure, diastolic_pressure];
             });
             
+            if (_isRothmanMeasure) {
+                DiagnosticList *diag = [[DiagnosticList alloc] initWithDictionary:@{
+                                                                                    @"sbp" : @(systolic_pressure),
+                                                                                    @"dbp" : @(diastolic_pressure)
+                                                                                    }];
+                _rothmanStepOneComplete(YES,diag);
+                return;
+            }
             // 上传数据
             [SVProgressHUD showWithStatus:@"正在上传"];
             Patient *user = [LoginManager defaultManager].currentPatient;
@@ -107,6 +118,13 @@
         });
     }
     
+}
+
+- (void)startRothmanStepOneMeasureWithViewController:(UIViewController *)vc endCompletion:(void(^)(BOOL success,id result))complete {
+    _rothmanStepOneComplete = complete;
+    [vc presentViewController:self animated:YES completion:^{
+        
+    }];
 }
 
 #pragma mark - properties
