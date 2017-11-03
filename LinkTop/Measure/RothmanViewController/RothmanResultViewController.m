@@ -34,6 +34,11 @@ typedef void(^RothmanStepFiveComplete)(BOOL,id);
     [self.rothmanResultView.endMeasureBtn addTarget:self
                                          action:@selector(endMeasureBtnDidClicked:)
                                forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     // 测量记录
     [self reloadData];
     // 计算rothman index
@@ -66,6 +71,33 @@ typedef void(^RothmanStepFiveComplete)(BOOL,id);
     self.rothmanResultView.br.text = [NSString stringWithFormat:@"%@ 次/分钟",self.diagnostic.respiration];
     self.rothmanResultView.temp.text = [NSString stringWithFormat:@"%@ ℃",self.diagnostic.temp];
     self.rothmanResultView.hr.text = [NSString stringWithFormat:@"%@ bpm",self.diagnostic.hr];
+    self.rothmanResultView.riValue.text = @"正在计算中";
+    self.rothmanResultView.riValue.textColor = UIColorHex(#F5A623);
+    self.rothmanResultView.riDesc.text = @"请在约一分钟后前往测量记录进行查看";
+}
+
+- (void)reloadRothmanIndex {
+    self.rothmanResultView.riValue.text = [NSString stringWithFormat:@"%ld",self.diagnostic.ri];
+    self.rothmanResultView.riValue.textColor = UIColorHex(#F5A623);
+    if (self.diagnostic.ri<0) {
+        self.rothmanResultView.riValue.textColor = UIColorHex(#F5A623);
+        self.rothmanResultView.riDesc.text = @"请在约一分钟后前往测量记录进行查看";
+    }
+    else if (self.diagnostic.ri<=40) {
+        // #D0021B
+        self.rothmanResultView.riValue.textColor = UIColorHex(#D0021B);
+        self.rothmanResultView.riDesc.text = @"        通过您的问卷填写情况与测量结果综合评估，您的身体健康状况较差，建议及时进行专业检查或针对身体不适状况进行咨询。保证每天RI测量，可让你更直观的查看身体状况变化趋势。";
+    }
+    else if (self.diagnostic.ri<=65) {
+        // #F5A623
+        self.rothmanResultView.riValue.textColor = UIColorHex(#F5A623);
+        self.rothmanResultView.riDesc.text = @"        通过您的问卷填写情况与测量结果综合评估，您的身体健康状况存在风险，建议在身体感到不适时及时咨询专业医生，并改善生活方式。保证每天RI测量，可让你更直观的查看身体状况变化趋势。";
+    }
+    else if (self.diagnostic.ri<=100){
+        // #4A90E2
+        self.rothmanResultView.riValue.textColor = UIColorHex(#4A90E2);
+        self.rothmanResultView.riDesc.text = @"        通过您的问卷填写情况与测量结果综合评估，您的身体健康状况良好，请继续坚持健康的生活方式。保证每天RI测量，可让你更直观的查看身体状况变化趋势。";
+    }
 }
 
 #pragma mark - 退出罗斯曼测量流程
@@ -76,7 +108,7 @@ typedef void(^RothmanStepFiveComplete)(BOOL,id);
 #pragma mark - 在线计算Rothman Index
 - (void)onlineCalcRothmanIndex {
     // 上传数据
-    [SVProgressHUD showWithStatus:@"正在计算"];
+    [SVProgressHUD showWithStatus:@"正在上传数据"];
     Patient *user = [LoginManager defaultManager].currentPatient;
     NSString *device_id  = [DeviceManger defaultManager].deviceID;
     NSString *device_key = [DeviceManger defaultManager].deviceKEY;
@@ -93,6 +125,10 @@ typedef void(^RothmanStepFiveComplete)(BOOL,id);
                              @"respiration"     : _diagnostic.respiration, // 呼吸率
                              @"sbp"             : _diagnostic.sbp, // 收缩压
                              @"dbp"             : _diagnostic.dbp, // 舒张压
+                             @"ecg_raw"         : _diagnostic.ecg_raw, // ecg原始数据
+                             @"ecg_freq"        : @(_diagnostic.ecg_freq), // ecg采样率
+                             @"spo2h_raw"       : _diagnostic.spo2h_raw, // 血氧原始数据
+                             @"spo2h_freq"      : @(_diagnostic.spo2h_freq), // 血氧采样率
                              @"device_id"       : device_id?device_id:@"", // 设备id
                              @"device_key"      : device_key?device_key:@"", // 设备key
                              @"device_power"    : @(100),
@@ -103,11 +139,18 @@ typedef void(^RothmanStepFiveComplete)(BOOL,id);
         
         if (success) {
             
-            [SVProgressHUD showSuccessWithStatus:@"计算成功"];
+            [SVProgressHUD showSuccessWithStatus:@"上传成功"];
             [SVProgressHUD dismissWithDelay:1.5];
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(60 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                // 从数据库查最新的一条罗斯曼
+                self.diagnostic = [self.measureAPI getNewestRothmanIndexInfo];
+                // 刷新页面
+                [self reloadRothmanIndex];
+            });
         }
         else {
-            [SVProgressHUD showErrorWithStatus:@"计算失败"];
+            [SVProgressHUD showErrorWithStatus:msg];
             [SVProgressHUD dismissWithDelay:1.5];
         }
     }];

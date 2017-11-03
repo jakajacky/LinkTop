@@ -289,7 +289,10 @@ float pixelPerUV_s = 5 * 10.0 / 1000;
             // 测量无误，但可能存在结果异常：
             if (_isRothmanMeasure) {
                 
-                DiagnosticList *diag = [[DiagnosticList alloc] initWithDictionary:@{@"spo2h" : spo2h,@"hr" : @(heartrate)}];
+                DiagnosticList *diag = [[DiagnosticList alloc] initWithDictionary:@{@"spo2h" : spo2h,
+                                                                                    @"hr" : @(heartrate),
+                                                                                    @"spo2h_raw" : spo_raw,
+                                                                                    @"spo2h_freq" : @(120)}];
                 if (oxy<94) {
                     _rothmanStepThreeComplete(NO,diag); // 异常
                 }

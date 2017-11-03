@@ -294,12 +294,6 @@ float pixelPerUV = 5 * 10.0 / 1000;
                 self.ecgView.hrvValue.text = [NSString stringWithFormat:@"%d",hrv];
             });
             
-//            @(_rr_max),  // 最大值
-//            @"rr_min"          : @(_rr_min),  // 最小值
-//            @"mood"            : @(_mood),    // 心情
-//            @"hrv"             : @(_hrv),        // 心率异常
-//            @"hr"              : @(_heartrate),   // 心率
-//            @"respiration"     : @(_respiration)
             // 测量有误：
             if (_heartrate<=0) {
                 return;
@@ -307,12 +301,14 @@ float pixelPerUV = 5 * 10.0 / 1000;
             
             // 测量无误，但是结果异常：
             if (_isRothmanMeasure) {
-                DiagnosticList *diag = [[DiagnosticList alloc] initWithDictionary:@{@"rr_max":@(_rr_max),
-                                                                                    @"rr_min":@(_rr_min),
-                                                                                    @"mood":@(_mood),
-                                                                                    @"hrv":@(_hrv),
-                                                                                    @"hr":@(_heartrate),
-                                                                                    @"respiration":@(_respiration)}];
+                DiagnosticList *diag = [[DiagnosticList alloc] initWithDictionary:@{@"rr_max" : @(_rr_max),
+                                                                                    @"rr_min" : @(_rr_min),
+                                                                                    @"mood" : @(_mood),
+                                                                                    @"hrv" : @(_hrv),
+                                                                                    @"hr" : @(_heartrate),
+                                                                                    @"respiration" : @(_respiration),
+                                                                                    @"ecg_raw" : ecg_raw,
+                                                                                    @"ecg_freq" : @(122)}];
                 if (_heartrate<55 || _heartrate>100) {
                     _rothmanStepFourComplete(NO,diag); // 异常
                 }
@@ -330,8 +326,8 @@ float pixelPerUV = 5 * 10.0 / 1000;
             NSString *soft_v  = [DeviceManger defaultManager].softVersion;
             NSString *hard_v  = [DeviceManger defaultManager].hardVersion;
             NSDictionary *params = @{@"user_id"         : user.user_id,   // 用户名
-                                     @"ecg_raw"         : ecg_raw, // 收缩压
-                                     @"ecg_freq"        : @(122),// 舒张压
+                                     @"ecg_raw"         : ecg_raw, // 心电原始数据
+                                     @"ecg_freq"        : @(122),// 心电采样率
                                      @"rr_max"          : @(_rr_max),  // 最大值
                                      @"rr_min"          : @(_rr_min),  // 最小值
                                      @"mood"            : @(_mood),    // 心情

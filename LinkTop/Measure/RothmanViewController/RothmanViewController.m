@@ -162,6 +162,8 @@
         DiagnosticList *dia = result;
         _diagnostic.spo2h = dia.spo2h;
         _diagnostic.hr    = dia.hr;
+        _diagnostic.spo2h_raw = dia.spo2h_raw;
+        _diagnostic.spo2h_freq = dia.spo2h_freq;
         if (success) { // 血氧数据正常
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:kNextMsg preferredStyle:UIAlertControllerStyleAlert];
             [alert setMessageColor:UIColorHex(#333333) Font:[UIFont systemFontOfSize:17 weight:UIFontWeightBold]];
@@ -212,6 +214,8 @@
         _diagnostic.rr_max = dia.rr_max;
         _diagnostic.rr_min = dia.rr_min;
         _diagnostic.respiration = dia.respiration;
+        _diagnostic.ecg_raw = dia.ecg_raw;
+        _diagnostic.ecg_freq = dia.ecg_freq;
         _diagnostic.create_date = [[NSDate date] timeIntervalSince1970];
         if (success) { // 心率数据正常
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:kNextMsg preferredStyle:UIAlertControllerStyleAlert];

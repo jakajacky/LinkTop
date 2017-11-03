@@ -1797,7 +1797,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="        通过您的问卷填写情况与测量结果综合评估，您的身体健康状况存在风险，建议在身体感到不适时及时咨询专业医生，并改善生活方式。保证每天RI测量，可让你更直观的查看身体状况变化趋势。" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ1-3e-k0z">
-                                                <rect key="frame" x="0.0" y="32" width="345" height="83"/>
+                                                <rect key="frame" x="15" y="32" width="330" height="83"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1812,7 +1812,7 @@
                                             <constraint firstItem="GMl-FD-yCU" firstAttribute="centerY" secondItem="NJe-jQ-znO" secondAttribute="centerY" id="9fQ-al-9nF"/>
                                             <constraint firstAttribute="trailing" secondItem="ZZ1-3e-k0z" secondAttribute="trailing" id="Ie1-j0-SF4"/>
                                             <constraint firstItem="ZZ1-3e-k0z" firstAttribute="top" secondItem="hC3-Jb-OGM" secondAttribute="bottom" id="ONG-uX-Ydf"/>
-                                            <constraint firstItem="ZZ1-3e-k0z" firstAttribute="leading" secondItem="ioh-Rm-kkK" secondAttribute="leading" id="PWo-3W-n0O"/>
+                                            <constraint firstItem="ZZ1-3e-k0z" firstAttribute="leading" secondItem="ioh-Rm-kkK" secondAttribute="leading" constant="15" id="PWo-3W-n0O"/>
                                             <constraint firstItem="hC3-Jb-OGM" firstAttribute="top" secondItem="NJe-jQ-znO" secondAttribute="bottom" constant="5" id="QOW-Xc-Dw6"/>
                                             <constraint firstAttribute="height" constant="120" id="fOT-cv-igq"/>
                                             <constraint firstItem="NJe-jQ-znO" firstAttribute="leading" secondItem="ioh-Rm-kkK" secondAttribute="leading" constant="20" id="hz9-aB-26x"/>
