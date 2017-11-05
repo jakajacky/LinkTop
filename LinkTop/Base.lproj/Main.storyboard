@@ -1861,8 +1861,10 @@
                             <outlet property="br" destination="COg-W9-fBq" id="RQ8-QK-HOc"/>
                             <outlet property="endMeasureBtn" destination="VQD-e5-Pyr" id="7VP-L7-y4F"/>
                             <outlet property="hr" destination="pNr-yT-IUT" id="7Ik-Y9-Czh"/>
+                            <outlet property="measureRecordView" destination="0g7-Z3-WI6" id="C6h-N8-qcB"/>
                             <outlet property="riDesc" destination="ZZ1-3e-k0z" id="8gC-p1-mvd"/>
                             <outlet property="riValue" destination="GMl-FD-yCU" id="gvu-3m-kMe"/>
+                            <outlet property="rothmanView" destination="ioh-Rm-kkK" id="gg9-yU-Mdh"/>
                             <outlet property="spo2h" destination="KHa-cd-dJo" id="Pmi-FV-2Kx"/>
                             <outlet property="temp" destination="g6E-4C-urf" id="h7L-pY-4Ti"/>
                             <outlet property="timeL" destination="nC4-m1-xpx" id="xRo-wi-PVR"/>

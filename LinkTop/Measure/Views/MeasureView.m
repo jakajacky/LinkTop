@@ -9,7 +9,7 @@
 #import "MeasureView.h"
 #import "DeviceName.h"
 #import "MeasureSquareView.h"
-
+#import "UIView+Shadow.h"
 @interface MeasureView ()
 
 @property (weak, nonatomic) IBOutlet UILabel *rothman;
@@ -68,44 +68,25 @@
 
 #pragma mark - 背景子元素布局
 - (void)layoutBackgroundViews {
-    CGFloat radius       = 4;
-    CGFloat borderwidth  = 0.5;
-    UIColor *borderColor = UIColorHex(#DDDDDD);
-    CGSize shadowOffset  = CGSizeMake(0, 1);
-    UIColor *shadowColor = [UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:0.3];
-    
+    CGFloat radius = 4;
     
     _rothmanIcon_bg.layer.cornerRadius = radius;
-    _rothman_bg.layer.cornerRadius     = radius;
-    [_rothman_bg setLayerShadow:shadowColor offset:shadowOffset radius:radius];
-    _rothman_bg.layer.borderWidth = borderwidth;
-    _rothman_bg.layer.borderColor = borderColor.CGColor;
+    [_rothman_bg settingShadowWithDefaultStyle];
     
     _ecgIcon_bg.layer.cornerRadius     = radius;
-    _ecg_bg.layer.cornerRadius         = radius;
-    [_ecg_bg setLayerShadow:shadowColor offset:shadowOffset radius:radius];
-    _ecg_bg.layer.borderWidth = borderwidth;
-    _ecg_bg.layer.borderColor = borderColor.CGColor;
+    [_ecg_bg settingShadowWithDefaultStyle];
     
     _bp_bg.layer.cornerRadius         = radius;
-    [_bp_bg setLayerShadow:shadowColor offset:shadowOffset radius:radius];
-    _bp_bg.layer.borderWidth = borderwidth;
-    _bp_bg.layer.borderColor = borderColor.CGColor;
+    [_bp_bg settingShadowWithDefaultStyle];
     
     _temp_bg.layer.cornerRadius         = radius;
-    [_temp_bg setLayerShadow:shadowColor offset:shadowOffset radius:radius];
-    _temp_bg.layer.borderWidth = borderwidth;
-    _temp_bg.layer.borderColor = borderColor.CGColor;
+    [_temp_bg settingShadowWithDefaultStyle];
     
     _spo_bg.layer.cornerRadius         = radius;
-    [_spo_bg setLayerShadow:shadowColor offset:shadowOffset radius:radius];
-    _spo_bg.layer.borderWidth = borderwidth;
-    _spo_bg.layer.borderColor = borderColor.CGColor;
+    [_spo_bg settingShadowWithDefaultStyle];
     
     _hr_bg.layer.cornerRadius         = radius;
-    [_hr_bg setLayerShadow:shadowColor offset:shadowOffset radius:radius];
-    _hr_bg.layer.borderWidth = borderwidth;
-    _hr_bg.layer.borderColor = borderColor.CGColor;
+    [_hr_bg settingShadowWithDefaultStyle];
     
 }
 

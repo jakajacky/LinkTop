@@ -7,6 +7,11 @@
 //
 
 #import "RothmanResultView.h"
+#import "UIView+Shadow.h"
+@interface RothmanResultView ()
+@property (weak, nonatomic) IBOutlet UIView *measureRecordView;
+@property (weak, nonatomic) IBOutlet UIView *rothmanView;
+@end
 
 @implementation RothmanResultView
 
@@ -29,6 +34,8 @@
     [self addSubview:_navi];
     
     _endMeasureBtn.layer.cornerRadius = 4;
+    [_measureRecordView settingShadowWithDefaultStyle];
+    [_rothmanView settingShadowWithDefaultStyle];
 }
 
 - (void)dealloc {

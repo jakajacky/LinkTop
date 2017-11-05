@@ -350,6 +350,7 @@
 		6EF8125E1FAEF89C002B8977 /* RothmanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF8125C1FAEF89C002B8977 /* RothmanCell.m */; };
 		6EF8125F1FAEF89C002B8977 /* RothmanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EF8125D1FAEF89C002B8977 /* RothmanCell.xib */; };
 		6EF812661FAEFD89002B8977 /* TimeInterval2DateString.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF812651FAEFD89002B8977 /* TimeInterval2DateString.m */; };
+		6EF812691FAF0A2E002B8977 /* UIView+Shadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF812681FAF0A2E002B8977 /* UIView+Shadow.m */; };
 		6EF8CAF81FA9760E00D910ED /* MeasureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF8CAF71FA9760E00D910ED /* MeasureManager.m */; };
 		6EF8CAFB1FA9D0FA00D910ED /* ecg_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EF8CAFA1FA9D0F500D910ED /* ecg_red@2x.png */; };
 		6EF8CAFC1FA9D0FA00D910ED /* ecg_red@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EF8CAF91FA9D0F300D910ED /* ecg_red@3x.png */; };
@@ -991,6 +992,8 @@
 		6EF8125D1FAEF89C002B8977 /* RothmanCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RothmanCell.xib; sourceTree = "<group>"; };
 		6EF812641FAEFD89002B8977 /* TimeInterval2DateString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeInterval2DateString.h; sourceTree = "<group>"; };
 		6EF812651FAEFD89002B8977 /* TimeInterval2DateString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeInterval2DateString.m; sourceTree = "<group>"; };
+		6EF812671FAF0A2E002B8977 /* UIView+Shadow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Shadow.h"; sourceTree = "<group>"; };
+		6EF812681FAF0A2E002B8977 /* UIView+Shadow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Shadow.m"; sourceTree = "<group>"; };
 		6EF8CAF61FA9760E00D910ED /* MeasureManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeasureManager.h; sourceTree = "<group>"; };
 		6EF8CAF71FA9760E00D910ED /* MeasureManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeasureManager.m; sourceTree = "<group>"; };
 		6EF8CAF91FA9D0F300D910ED /* ecg_red@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ecg_red@3x.png"; sourceTree = "<group>"; };
@@ -1954,6 +1957,8 @@
 				6E7D38F11FA056D700225DBC /* UITextField+HeadTailIcon.m */,
 				6ECF8B981FAB02FB00542F72 /* UIAlertController+Element.h */,
 				6ECF8B991FAB02FB00542F72 /* UIAlertController+Element.m */,
+				6EF812671FAF0A2E002B8977 /* UIView+Shadow.h */,
+				6EF812681FAF0A2E002B8977 /* UIView+Shadow.m */,
 			);
 			path = Categorys;
 			sourceTree = "<group>";
@@ -2983,6 +2988,7 @@
 				6E575C721F94965B00C073F5 /* YYTextLine.m in Sources */,
 				6E575C5E1F9495A800C073F5 /* YYTimer.m in Sources */,
 				6E575C571F9495A800C073F5 /* YYFileHash.m in Sources */,
+				6EF812691FAF0A2E002B8977 /* UIView+Shadow.m in Sources */,
 				6E7D39D11FA05DF900225DBC /* UIRefreshControl+AFNetworking.m in Sources */,
 				6E7D39B81FA05DC500225DBC /* UIView+FrameShortcuts.m in Sources */,
 				6E575C791F94966B00C073F5 /* YYImage.m in Sources */,

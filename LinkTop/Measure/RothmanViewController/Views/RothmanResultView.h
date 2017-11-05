@@ -20,5 +20,4 @@
 @property (weak, nonatomic) IBOutlet UILabel *riValue;
 @property (weak, nonatomic) IBOutlet UITextView *riDesc;
 
-
 @end
