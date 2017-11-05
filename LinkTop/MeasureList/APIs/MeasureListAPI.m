@@ -22,28 +22,6 @@
 
 
 - (void)downloadRecentData:(NSDictionary *)param completion:(void(^)(BOOL,id,NSString *))complete {
-    //    params = @{@"user_id" : user.Id,  // 用户名
-    //               @"sbp"     : @"L",     // 收缩压
-    //               @"dbp"     : @"L",     // 舒张压
-    //               @"spo2h"   : @"1.0",   // 血氧
-    //               @"temp"    : @"",      // 体温
-    //               @"hr"      : @1,       // 心率
-    //               @"respiration" : @"iPad",         // 呼吸率
-    //               @"device_id"   : @"c4ff2322",     // 设备id
-    //               @"ecg_raw"     : @"233,334,4322", // 心电原始数据
-    //               @"ecg_freq"    : @122,            // 心电采样率
-    //               @"spo2h_raw"   : @"34,22,65",     // 血氧原始数据
-    //               @"spo2h_freq"  : @125,            // 血氧采样率
-    //               @"rr"          : @1,  // 心率
-    //               @"rr_max"      : @1,  // 最大值
-    //               @"rr_min"      : @1,  // 最小值
-    //               @"mood"        : @1,   // 心情
-    //               @"hrv"         : @1,  // 变异率
-    //               @"device_power" : @122, // 电量
-    //               @"device_key"   : @"c4f4432", // 设备key
-    //               @"device_soft_ver" : @"v1.2", // 软件版本
-    //               @"device_hard_ver" : @"v1.2", // 硬件版本
-    //               };  // 血氧采样率
     params = param;
     [self loadRequestProperties];
     
@@ -60,31 +38,41 @@
         NSMutableArray *datas = [NSMutableArray array];
         for (NSDictionary *dic in result[@"list"]) {
             DiagnosticList *diagnotic = [[DiagnosticList alloc] initWithDictionary:dic];
-            if ([dic.allKeys containsObject:@"spo2h"]) { // 血氧
+            BOOL isSpo2h = [dic.allKeys containsObject:@"spo2h"];
+            BOOL isRespi = [dic.allKeys containsObject:@"respiration"];
+            BOOL isTemp  = [dic.allKeys containsObject:@"temp"];
+            BOOL isSbp = [dic.allKeys containsObject:@"sbp"];
+            BOOL isHr = [dic.allKeys containsObject:@"hr"];
+            if (isSpo2h && isRespi && isTemp && isSbp && isHr) { // Rothman
+                diagnotic.Id = dic[@"id"];
+                diagnotic.isSent = YES;
+                diagnotic.type = MTRothmanIndex;
+            }
+            else if (isSpo2h) { // 血氧
                 
                 diagnotic.Id = dic[@"id"];
                 diagnotic.isSent = YES;
                 diagnotic.type = MTSpo2h;
             }
-            else if ([dic.allKeys containsObject:@"respiration"]) { // ECG
+            else if (isRespi) { // ECG
                 
                 diagnotic.Id = dic[@"id"];
                 diagnotic.isSent = YES;
                 diagnotic.type = MTECG;
             }
-            else if ([dic.allKeys containsObject:@"temp"]) { // 体温
+            else if (isTemp) { // 体温
                 
                 diagnotic.Id = dic[@"id"];
                 diagnotic.isSent = YES;
                 diagnotic.type = MTTemperature;
             }
-            else if ([dic.allKeys containsObject:@"sbp"]) { // 血压
+            else if (isSbp) { // 血压
                 
                 diagnotic.Id = dic[@"id"];
                 diagnotic.isSent = YES;
                 diagnotic.type = MTBloodPresure;
             }
-            else if ([dic.allKeys containsObject:@"hr"]) {  // 心率
+            else if (isHr) {  // 心率
                 
                 diagnotic.Id = dic[@"id"];
                 diagnotic.isSent = YES;

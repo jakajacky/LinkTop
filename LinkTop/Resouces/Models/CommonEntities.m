@@ -115,7 +115,7 @@
     _user_id       = dictionary[@"user_id"];
     _measure_time  = [dictionary[@"measure_time"] longLongValue];
     _create_date   = [dictionary[@"create_date"] longLongValue];
-    _ri            = [dictionary[@"RI"] integerValue];
+    _ri            = [dictionary[@"ri"] integerValue];
     _sbp           = dictionary[@"sbp"];
     _dbp           = dictionary[@"dbp"];
     _spo2h         = dictionary[@"spo2h"];

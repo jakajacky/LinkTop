@@ -11,6 +11,7 @@
 #import "VegaScrollFlowLayout.h"
 #import "ShareCell.h"
 #import "ECGCell.h"
+#import "RothmanCell.h"
 #import "MeasureListModel.h"
 #import "MeasureListView.h"
 #import "UIImage+memory.h"
@@ -31,6 +32,7 @@
     
     [self.measureListView.listView registerNib:[UINib nibWithNibName:@"ShareCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ShareCell"];
     [self.measureListView.listView registerNib:[UINib nibWithNibName:@"ECGCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ECGCell"];
+    [self.measureListView.listView registerNib:[UINib nibWithNibName:@"RothmanCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"RothmanCell"];
     
     self.measureListView.listView.delegate = self;
     self.measureListView.listView.dataSource = self;
@@ -112,6 +114,11 @@
         ECGCell *ecgc = (ECGCell *)cell;
         ecgc.measureRecord = diag;
     }
+    else if (diag.type==MTRothmanIndex) {
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"RothmanCell" forIndexPath:indexPath];
+        RothmanCell *rothcell = (RothmanCell *)cell;
+        rothcell.measureRecord = diag;
+    }
     else {
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ShareCell" forIndexPath:indexPath];
         ShareCell *sharcell = (ShareCell *)cell;
@@ -125,6 +132,9 @@
     DiagnosticList *diag = self.measureListModel.dataSource[indexPath.item];
     if (diag.type==MTECG) {
         return CGSizeMake((self.measureListView.listView.width-(2*kLeftandRightMargin)), 150);
+    }
+    else if (diag.type==MTRothmanIndex){
+        return CGSizeMake((self.measureListView.listView.width-(2*kLeftandRightMargin)), 170);
     }
     else {
         return CGSizeMake((self.measureListView.listView.width-(2*kLeftandRightMargin)), kItemHeight);

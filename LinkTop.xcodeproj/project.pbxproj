@@ -347,6 +347,9 @@
 		6ECF8B9A1FAB02FB00542F72 /* UIAlertController+Element.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF8B991FAB02FB00542F72 /* UIAlertController+Element.m */; };
 		6ECF8B9E1FAB106900542F72 /* KeyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF8B9D1FAB106900542F72 /* KeyController.m */; };
 		6ECF8BA21FAB145600542F72 /* CheckBLEPowerOn.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF8BA11FAB145600542F72 /* CheckBLEPowerOn.m */; };
+		6EF8125E1FAEF89C002B8977 /* RothmanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF8125C1FAEF89C002B8977 /* RothmanCell.m */; };
+		6EF8125F1FAEF89C002B8977 /* RothmanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EF8125D1FAEF89C002B8977 /* RothmanCell.xib */; };
+		6EF812661FAEFD89002B8977 /* TimeInterval2DateString.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF812651FAEFD89002B8977 /* TimeInterval2DateString.m */; };
 		6EF8CAF81FA9760E00D910ED /* MeasureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EF8CAF71FA9760E00D910ED /* MeasureManager.m */; };
 		6EF8CAFB1FA9D0FA00D910ED /* ecg_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EF8CAFA1FA9D0F500D910ED /* ecg_red@2x.png */; };
 		6EF8CAFC1FA9D0FA00D910ED /* ecg_red@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EF8CAF91FA9D0F300D910ED /* ecg_red@3x.png */; };
@@ -983,6 +986,11 @@
 		6ECF8B9D1FAB106900542F72 /* KeyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyController.m; sourceTree = "<group>"; };
 		6ECF8BA01FAB145600542F72 /* CheckBLEPowerOn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckBLEPowerOn.h; sourceTree = "<group>"; };
 		6ECF8BA11FAB145600542F72 /* CheckBLEPowerOn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckBLEPowerOn.m; sourceTree = "<group>"; };
+		6EF8125B1FAEF89C002B8977 /* RothmanCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RothmanCell.h; sourceTree = "<group>"; };
+		6EF8125C1FAEF89C002B8977 /* RothmanCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RothmanCell.m; sourceTree = "<group>"; };
+		6EF8125D1FAEF89C002B8977 /* RothmanCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RothmanCell.xib; sourceTree = "<group>"; };
+		6EF812641FAEFD89002B8977 /* TimeInterval2DateString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeInterval2DateString.h; sourceTree = "<group>"; };
+		6EF812651FAEFD89002B8977 /* TimeInterval2DateString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeInterval2DateString.m; sourceTree = "<group>"; };
 		6EF8CAF61FA9760E00D910ED /* MeasureManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeasureManager.h; sourceTree = "<group>"; };
 		6EF8CAF71FA9760E00D910ED /* MeasureManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeasureManager.m; sourceTree = "<group>"; };
 		6EF8CAF91FA9D0F300D910ED /* ecg_red@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ecg_red@3x.png"; sourceTree = "<group>"; };
@@ -1953,6 +1961,7 @@
 		6E7D38F21FA056D700225DBC /* DCMVVM */ = {
 			isa = PBXGroup;
 			children = (
+				6EF812631FAEFD7B002B8977 /* DCTimeInterval2DateString */,
 				6ECF8B9F1FAB13BB00542F72 /* DCCheckBLEPowerOn */,
 				6ECF8B9B1FAB104300542F72 /* DCKeyViewController */,
 				6E7D38F31FA056D700225DBC /* DCApi */,
@@ -2551,6 +2560,9 @@
 				6E7D38921FA03B6B00225DBC /* ECGCell.h */,
 				6E7D38931FA03B6B00225DBC /* ECGCell.m */,
 				6E887D401F9EEA9D00FC6F7F /* ECGCell.xib */,
+				6EF8125B1FAEF89C002B8977 /* RothmanCell.h */,
+				6EF8125C1FAEF89C002B8977 /* RothmanCell.m */,
+				6EF8125D1FAEF89C002B8977 /* RothmanCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2705,6 +2717,15 @@
 			path = DCCheckBLEPowerOn;
 			sourceTree = "<group>";
 		};
+		6EF812631FAEFD7B002B8977 /* DCTimeInterval2DateString */ = {
+			isa = PBXGroup;
+			children = (
+				6EF812641FAEFD89002B8977 /* TimeInterval2DateString.h */,
+				6EF812651FAEFD89002B8977 /* TimeInterval2DateString.m */,
+			);
+			path = DCTimeInterval2DateString;
+			sourceTree = "<group>";
+		};
 		6EF8CAF51FA975FB00D910ED /* MeasureManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -2843,6 +2864,7 @@
 				6E3F9E871FA1F35700F6EC1E /* measurelist_normal@3x.png in Resources */,
 				6E3F9E4D1FA1F32A00F6EC1E /* pwd_icon@3x.png in Resources */,
 				6E3F9E6D1FA1F34400F6EC1E /* spo2h_loading@3x.png in Resources */,
+				6EF8125F1FAEF89C002B8977 /* RothmanCell.xib in Resources */,
 				6E3F9E7F1FA1F35300F6EC1E /* Oval@3x.png in Resources */,
 				6E3F9E4C1FA1F32A00F6EC1E /* pwd_icon@2x.png in Resources */,
 				6E3F9E891FA1F35700F6EC1E /* measurelist_selected@3x.png in Resources */,
@@ -2979,6 +3001,7 @@
 				6E575C5C1F9495A800C073F5 /* YYThreadSafeArray.m in Sources */,
 				6E7D39F31FA06AAB00225DBC /* LoginViewController.m in Sources */,
 				6E575C631F94964E00C073F5 /* NSAttributedString+YYText.m in Sources */,
+				6EF8125E1FAEF89C002B8977 /* RothmanCell.m in Sources */,
 				6E575C7D1F94966B00C073F5 /* YYWebImageManager.m in Sources */,
 				6E7D399E1FA05D7900225DBC /* DCView.m in Sources */,
 				6E7D39D21FA05DF900225DBC /* UIWebView+AFNetworking.m in Sources */,
@@ -3096,6 +3119,7 @@
 				6E4892001FAAC9930027BAD3 /* MJRefreshBackNormalFooter.m in Sources */,
 				6E575C6E1F94965B00C073F5 /* YYTextEffectWindow.m in Sources */,
 				6E254AD81FA3139000294B0D /* DeviceInfoViewController.m in Sources */,
+				6EF812661FAEFD89002B8977 /* TimeInterval2DateString.m in Sources */,
 				6E575C961F94969300C073F5 /* NSDate+YYAdd.m in Sources */,
 				6E822F511F9750C2005A6804 /* DRNavigationBar.m in Sources */,
 				6E7D39AE1FA05DAC00225DBC /* NSMutableAttributedString+DCFoundation.m in Sources */,
