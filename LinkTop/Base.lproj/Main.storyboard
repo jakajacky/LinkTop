@@ -1540,14 +1540,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="myD-YG-X0Z">
-                                <rect key="frame" x="0.0" y="74" width="375" height="260"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="260"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P3W-hk-Tkp">
-                                <rect key="frame" x="0.0" y="344" width="375" height="323"/>
+                                <rect key="frame" x="0.0" y="334" width="375" height="333"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Wi-dQ-a64">
-                                        <rect key="frame" x="87" y="253" width="200" height="50"/>
+                                        <rect key="frame" x="87" y="263" width="200" height="50"/>
                                         <color key="backgroundColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="5Wi-dQ-a64" secondAttribute="height" multiplier="20:5" id="8EG-bM-MVp"/>
@@ -1565,16 +1565,16 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHF-6m-TZq">
-                                        <rect key="frame" x="8" y="33" width="359" height="180"/>
+                                        <rect key="frame" x="8" y="42" width="359" height="181"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <string key="text">        罗斯曼指数（Rothman Index）是一项拥有专利的早期预警及判断出院恢复的指标，它综合常规生命体征测量、护理评估，产生一个定期更新的健康评分。该指标可以用图表的表现方式，有利于医护人员及时发现病人病情的细微变化，以及该趋势是如何随时间而变化的，确保在危机病人生命安全的情况出现之前提供干预，并确保用户得到最合适的康复治疗。</string>
                                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="接下来将进行三项指标测试。     " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pc2-ci-emn">
-                                        <rect key="frame" x="44" y="208" width="219" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="接下来将进行五项指标测试。     " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pc2-ci-emn">
+                                        <rect key="frame" x="44" y="216" width="233.5" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1585,8 +1585,8 @@
                                     <constraint firstItem="yY4-Ie-nEa" firstAttribute="top" secondItem="P3W-hk-Tkp" secondAttribute="top" constant="12" id="E0R-Mu-wGZ"/>
                                     <constraint firstAttribute="trailing" secondItem="YHF-6m-TZq" secondAttribute="trailing" constant="8" id="E9O-GD-M3b"/>
                                     <constraint firstItem="5Wi-dQ-a64" firstAttribute="centerX" secondItem="P3W-hk-Tkp" secondAttribute="centerX" id="ErM-YG-KgH"/>
-                                    <constraint firstItem="Pc2-ci-emn" firstAttribute="top" secondItem="YHF-6m-TZq" secondAttribute="bottom" constant="-5" id="Iew-fD-AvF"/>
-                                    <constraint firstItem="YHF-6m-TZq" firstAttribute="top" secondItem="yY4-Ie-nEa" secondAttribute="bottom" id="U6f-od-g83"/>
+                                    <constraint firstItem="Pc2-ci-emn" firstAttribute="top" secondItem="YHF-6m-TZq" secondAttribute="bottom" constant="-7" id="Iew-fD-AvF"/>
+                                    <constraint firstItem="YHF-6m-TZq" firstAttribute="top" secondItem="yY4-Ie-nEa" secondAttribute="bottom" constant="9" id="U6f-od-g83"/>
                                     <constraint firstItem="Pc2-ci-emn" firstAttribute="leading" secondItem="P3W-hk-Tkp" secondAttribute="leading" constant="44" id="VIo-TF-dGZ"/>
                                     <constraint firstItem="yY4-Ie-nEa" firstAttribute="centerX" secondItem="P3W-hk-Tkp" secondAttribute="centerX" id="evJ-pc-V5C"/>
                                     <constraint firstItem="5Wi-dQ-a64" firstAttribute="top" secondItem="YHF-6m-TZq" secondAttribute="bottom" constant="40" id="mPM-DJ-oeU"/>
@@ -1612,7 +1612,7 @@
                             <constraint firstItem="P3W-hk-Tkp" firstAttribute="top" secondItem="myD-YG-X0Z" secondAttribute="bottom" constant="10" id="YA1-zv-aSM"/>
                             <constraint firstItem="myD-YG-X0Z" firstAttribute="leading" secondItem="SBe-XT-Bt8" secondAttribute="leading" id="YFc-4l-Xe2"/>
                             <constraint firstItem="SBe-XT-Bt8" firstAttribute="bottom" secondItem="P3W-hk-Tkp" secondAttribute="bottom" id="fvk-9K-E1h"/>
-                            <constraint firstItem="myD-YG-X0Z" firstAttribute="top" secondItem="OGX-oP-L1O" secondAttribute="bottom" constant="10" id="gXA-wR-5o4"/>
+                            <constraint firstItem="myD-YG-X0Z" firstAttribute="top" secondItem="OGX-oP-L1O" secondAttribute="bottom" id="gXA-wR-5o4"/>
                             <constraint firstItem="P3W-hk-Tkp" firstAttribute="leading" secondItem="SBe-XT-Bt8" secondAttribute="leading" id="hJ0-dr-0r7"/>
                             <constraint firstItem="myD-YG-X0Z" firstAttribute="height" secondItem="7cR-Fw-tU8" secondAttribute="height" multiplier="260:667" id="hUv-6w-TyE"/>
                             <constraint firstItem="OGX-oP-L1O" firstAttribute="top" secondItem="SBe-XT-Bt8" secondAttribute="top" id="i4C-Fz-p7v"/>
@@ -1637,14 +1637,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AHf-Dz-nsg">
-                                <rect key="frame" x="0.0" y="74" width="375" height="260"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="260"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HGJ-2g-2OH">
-                                <rect key="frame" x="0.0" y="344" width="375" height="323"/>
+                                <rect key="frame" x="0.0" y="334" width="375" height="333"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQD-e5-Pyr">
-                                        <rect key="frame" x="87" y="253" width="200" height="50"/>
+                                        <rect key="frame" x="87" y="263" width="200" height="50"/>
                                         <color key="backgroundColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="VQD-e5-Pyr" secondAttribute="height" multiplier="20:5" id="kef-na-Avg"/>
@@ -1656,7 +1656,7 @@
                                         <state key="selected" title="终止测量"/>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0g7-Z3-WI6">
-                                        <rect key="frame" x="15" y="0.0" width="345" height="110"/>
+                                        <rect key="frame" x="15" y="0.0" width="345" height="113.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="测量结果" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2AW-k5-jWN">
                                                 <rect key="frame" x="20" y="5" width="73.5" height="21"/>
@@ -1771,7 +1771,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ioh-Rm-kkK">
-                                        <rect key="frame" x="15" y="118" width="345" height="120"/>
+                                        <rect key="frame" x="15" y="121.5" width="345" height="120"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rothman Index" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJe-jQ-znO">
                                                 <rect key="frame" x="20" y="5" width="124" height="21"/>
@@ -1852,7 +1852,7 @@
                             <constraint firstItem="AHf-Dz-nsg" firstAttribute="height" secondItem="Dhh-03-EDY" secondAttribute="height" multiplier="260:667" id="feR-7B-ezR"/>
                             <constraint firstItem="HGJ-2g-2OH" firstAttribute="leading" secondItem="p7A-xE-1H0" secondAttribute="leading" id="hqf-Qh-wSw"/>
                             <constraint firstItem="AHf-Dz-nsg" firstAttribute="trailing" secondItem="p7A-xE-1H0" secondAttribute="trailing" id="j0t-Rx-e8i"/>
-                            <constraint firstItem="AHf-Dz-nsg" firstAttribute="top" secondItem="Rva-Qj-3Gh" secondAttribute="bottom" constant="10" id="vUZ-cf-mgp"/>
+                            <constraint firstItem="AHf-Dz-nsg" firstAttribute="top" secondItem="Rva-Qj-3Gh" secondAttribute="bottom" id="vUZ-cf-mgp"/>
                             <constraint firstItem="HGJ-2g-2OH" firstAttribute="bottom" secondItem="p7A-xE-1H0" secondAttribute="bottom" id="zVM-Sm-fti"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="p7A-xE-1H0"/>
