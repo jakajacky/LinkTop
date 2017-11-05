@@ -26,7 +26,7 @@
  */
 - (void)uploadResult:(NSDictionary *)result type:(MeasureType)type completion:(void(^)(BOOL,id,NSString *))complete {
     params = result;
-    [self loadRequestProperties];
+    [self loadRequestProperties:@"linktop/u/save"];
     
     [self.request startWithSuccess:^(id result) {
         
@@ -45,13 +45,37 @@
     }];
 }
 
-- (void)loadRequestProperties
+/**
+ * 获取测量数据
+ */
+- (void)downloadResultWithUserId:(NSString *)user_id recordId:(NSString *)Id completion:(void(^)(BOOL,id,NSString *))complete {
+    params = @{@"user_id":user_id,@"id":Id};
+    [self loadRequestProperties:@"linktop/q/getALL"];
+    
+    [self.request startWithSuccess:^(id result) {
+        
+        DiagnosticList *diagnotic = [[DiagnosticList alloc] initWithDictionary:result];
+        diagnotic.Id = result[@"id"];
+        diagnotic.spo2h_raw = params[@"spo2h_raw"];
+        diagnotic.ecg_raw   = params[@"ecg_raw"];
+        diagnotic.isSent = YES;
+//        diagnotic.type = type;
+        // 存储数据库
+//        [self.mainDatabase updateObjects:@[diagnotic]];
+        
+        complete(YES, result, @"");
+    } failure:^(NSInteger errCode, NSString *errMsg, NSDictionary *userInfo) {
+        complete(NO, userInfo,errMsg);
+    }];
+}
+
+- (void)loadRequestProperties:(NSString *)method
 {
     [self.request cancelRequest];
     
     self.request.type    = DCHttpRequestTypePOST;
     self.request.baseUrl = BASE_URL;
-    self.request.method  = @"linktop/u/save";
+    self.request.method  = method;
     self.request.params  = params;
     
     self.request.allowsLogMethod       = kLogEnabled;

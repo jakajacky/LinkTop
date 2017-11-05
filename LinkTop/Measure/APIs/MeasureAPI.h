@@ -11,5 +11,7 @@
 @interface MeasureAPI : DCBiz
 
 - (void)uploadResult:(NSDictionary *)result type:(MeasureType)type completion:(void(^)(BOOL,id,NSString *))complete;
+- (void)downloadResultWithUserId:(NSString *)user_id recordId:(NSString *)Id completion:(void(^)(BOOL,id,NSString *))complete;
+
 - (DiagnosticList *)getNewestRothmanIndexInfo;
 @end

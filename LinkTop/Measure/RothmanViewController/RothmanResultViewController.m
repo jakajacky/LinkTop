@@ -145,8 +145,13 @@ typedef void(^RothmanStepFiveComplete)(BOOL,id);
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(60 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 // 从数据库查最新的一条罗斯曼
                 self.diagnostic = [self.measureAPI getNewestRothmanIndexInfo];
-                // 刷新页面
-                [self reloadRothmanIndex];
+                // 从线上查询self.diagnostic对应的Rothman结果
+                [self.measureAPI downloadResultWithUserId:user.user_id recordId:self.diagnostic.Id completion:^(BOOL success, id result, NSString *msg) {
+                    self.diagnostic.ri = [result[@"ri"] intValue];
+                    // 刷新页面
+                    [self reloadRothmanIndex];
+                }];
+                
             });
         }
         else {
